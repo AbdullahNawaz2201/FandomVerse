@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FandomVerse — Shop</title>
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/fv-effects.css">
-<link rel="stylesheet" href="css/fv-chatbot.css">
-<link rel="stylesheet" href="css/fv-cart.css">
-<link rel="stylesheet" href="css/premium.css">
-<link rel="stylesheet" href="css/fv-premium-3d.css">
-<link rel="stylesheet" href="css/fv-navsearch.css">
-<link rel="stylesheet" href="css/fv-chatbot-3d.css">
-<script src="js/fv-effects.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FandomVerse — Shop</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fv-effects.css">
+  <link rel="stylesheet" href="css/fv-chatbot.css">
+  <link rel="stylesheet" href="css/fv-cart.css">
+  <link rel="stylesheet" href="css/premium.css">
+  <link rel="stylesheet" href="css/fv-premium-3d.css">
+  <link rel="stylesheet" href="css/fv-navsearch.css">
+  <link rel="stylesheet" href="css/fv-chatbot-3d.css">
+  <script src="js/fv-effects.js" defer></script>
 </head>
+
 <body data-page="shop">
 
-
   <div id="fv-pagefx" aria-hidden="true">
-      <div class="fv-pagefx__shard fv-pagefx__shard--1"></div>
-      <div class="fv-pagefx__shard fv-pagefx__shard--2"></div>
-      <div class="fv-pagefx__shard fv-pagefx__shard--3"></div>
-      <div class="fv-pagefx__shard fv-pagefx__shard--4"></div>
-      <div class="fv-pagefx__mark"><img src="assets/images/fandomverse-logo.png" alt=""></div>
-    </div>
+    <div class="fv-pagefx__shard fv-pagefx__shard--1"></div>
+    <div class="fv-pagefx__shard fv-pagefx__shard--2"></div>
+    <div class="fv-pagefx__shard fv-pagefx__shard--3"></div>
+    <div class="fv-pagefx__shard fv-pagefx__shard--4"></div>
+    <div class="fv-pagefx__mark"><img src="assets/images/fandomverse-logo.png" alt=""></div>
+  </div>
 
-  <!-- ===== HEADER ===== -->
+
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo">Fandom<span>Verse</span></a>
@@ -51,33 +54,45 @@
       <div class="header-actions">
         <div class="search-box" id="search-box">
           <button class="icon-btn" id="search-toggle" aria-label="Search">
-            <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" />
+            </svg>
           </button>
           <input type="text" id="search-input" placeholder="Search characters, shows, merch…" autocomplete="off">
-            <button class="icon-btn sf-toggle" id="search-filter-toggle" aria-label="Filter and sort" aria-expanded="false">
-              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 5h16M7 12h10M10 19h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <span class="sf-dot" aria-hidden="true"></span>
-            </button>
-            <div class="sf-panel" id="sf-panel" role="dialog" aria-label="Search filters and sorting">
-              <div class="sf-panel__glow" aria-hidden="true"></div>
-              <div class="sf-panel__inner">
-                <div class="sf-panel__row sf-panel__row--sort" id="sf-sort-row">
-                  <span class="sf-panel__label">Sort by</span>
-                  <div class="sf-sort" id="sf-sort" role="listbox"></div>
-                </div>
-                <div class="sf-panel__row sf-panel__row--filter">
-                  <span class="sf-panel__label">Filter</span>
-                  <div class="sf-chips" id="sf-chips"></div>
-                </div>
-                <div class="sf-panel__footer">
-                  <button type="button" class="sf-clear" id="sf-clear">Clear all</button>
-                  <span class="sf-count" id="sf-count"></span>
-                </div>
+          <button class="icon-btn sf-toggle" id="search-filter-toggle" aria-label="Filter and sort"
+            aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M4 5h16M7 12h10M10 19h4" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+            </svg>
+            <span class="sf-dot" aria-hidden="true"></span>
+          </button>
+          <div class="sf-panel" id="sf-panel" role="dialog" aria-label="Search filters and sorting">
+            <div class="sf-panel__glow" aria-hidden="true"></div>
+            <div class="sf-panel__inner">
+              <div class="sf-panel__row sf-panel__row--sort" id="sf-sort-row">
+                <span class="sf-panel__label">Sort by</span>
+                <div class="sf-sort" id="sf-sort" role="listbox"></div>
+              </div>
+              <div class="sf-panel__row sf-panel__row--filter">
+                <span class="sf-panel__label">Filter</span>
+                <div class="sf-chips" id="sf-chips"></div>
+              </div>
+              <div class="sf-panel__footer">
+                <button type="button" class="sf-clear" id="sf-clear">Clear all</button>
+                <span class="sf-count" id="sf-count"></span>
               </div>
             </div>
+          </div>
         </div>
         <button class="icon-btn" id="cart-toggle" aria-label="Cart">
-          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.2a2 2 0 0 0 2-1.6L21 8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.3" fill="currentColor"/><circle cx="18" cy="21" r="1.3" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.2a2 2 0 0 0 2-1.6L21 8H6" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="9" cy="21" r="1.3" fill="currentColor" />
+            <circle cx="18" cy="21" r="1.3" fill="currentColor" />
+          </svg>
           <span class="cart-count" id="cart-count">0</span>
         </button>
         <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
@@ -87,7 +102,7 @@
     </div>
   </header>
 
-  <!-- ===== MOBILE NAV OVERLAY ===== -->
+
   <div class="mobile-nav" id="mobile-nav">
     <nav>
       <a href="anime.html">Anime</a>
@@ -104,14 +119,16 @@
   </div>
 
 
-  <!-- ===== SHOP HERO ===== -->
   <section class="fv-hero3d" id="fv-shop-hero">
     <div class="fv-hero3d__stage" aria-hidden="true">
-      <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-shirts-apparel.jpg');"></div>
-      <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-toys-figures.jpg');"></div>
+      <div class="fv-hero3d__tile"
+        style="background-image:url('assets/images/merchandise/category-shirts-apparel.jpg');"></div>
+      <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-toys-figures.jpg');">
+      </div>
       <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-mugs.jpg');"></div>
       <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-books.jpg');"></div>
-      <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-accessories.jpg');"></div>
+      <div class="fv-hero3d__tile" style="background-image:url('assets/images/merchandise/category-accessories.jpg');">
+      </div>
     </div>
     <div class="fv-hero3d__scrim" aria-hidden="true"></div>
     <div class="fv-hero3d__grain" aria-hidden="true"></div>
@@ -122,15 +139,21 @@
     </div>
   </section>
 
-  <!-- ===== SHOP BY CATEGORY ===== -->
+
   <section class="anime-section" id="shop-categories" style="padding-top: 60px;">
     <div class="section-inner">
 
-      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:24px;margin-bottom:40px;">
-        <img src="assets/images/merchandise/shop-hero-mug.jpg" alt="DC embossed mug on a desk" loading="lazy" style="width:320px;max-width:100%;height:220px;object-fit:cover;border-radius:12px;flex-shrink:0;" onerror="this.style.display='none';">
+      <div
+        style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:24px;margin-bottom:40px;">
+        <img src="assets/images/merchandise/shop-hero-mug.jpg" alt="DC embossed mug on a desk" loading="lazy"
+          style="width:320px;max-width:100%;height:220px;object-fit:cover;border-radius:12px;flex-shrink:0;"
+          onerror="this.style.display='none';">
         <div style="flex:1;min-width:240px;">
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-0.02em;margin-bottom:10px;">Everyday gear for every fandom</h2>
-          <p style="color:rgba(255,255,255,0.65);line-height:1.6;max-width:520px;">From a DC mug on your desk to the tee you wear to a con — shop by category below, then browse the full catalog underneath.</p>
+          <h2
+            style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-0.02em;margin-bottom:10px;">
+            Everyday gear for every fandom</h2>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;max-width:520px;">From a DC mug on your desk to the tee
+            you wear to a con — shop by category below, then browse the full catalog underneath.</p>
         </div>
       </div>
 
@@ -142,62 +165,95 @@
       <div class="anime-grid">
 
         <article class="anime-card">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/category-toys-figures.jpg');">
-            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M6 21v-4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4"/><path d="M9 21v-3"/><path d="M15 21v-3"/></svg></span>
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/category-toys-figures.jpg');">
+            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="7" r="3" />
+                <path d="M6 21v-4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4" />
+                <path d="M9 21v-3" />
+                <path d="M15 21v-3" />
+              </svg></span>
             <div class="anime-card__overlay"><span class="anime-card__cta">Browse</span></div>
           </div>
           <div class="anime-card__body">
             <span class="anime-card__title">Toys &amp; Figures</span>
             <div class="anime-card__tags"><span class="tag">Collectibles</span></div>
-            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Poseable figures and PVC statues, from mecha kits to your favorite heroes.</p>
+            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Poseable figures
+              and PVC statues, from mecha kits to your favorite heroes.</p>
           </div>
         </article>
 
         <article class="anime-card">
           <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/category-books.jpg');">
-            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg></span>
             <div class="anime-card__overlay"><span class="anime-card__cta">Browse</span></div>
           </div>
           <div class="anime-card__body">
             <span class="anime-card__title">Books</span>
             <div class="anime-card__tags"><span class="tag">Graphic Novels</span></div>
-            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Tankobon volumes, art books and hardcover editions for the shelf.</p>
+            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Tankobon
+              volumes, art books and hardcover editions for the shelf.</p>
           </div>
         </article>
 
         <article class="anime-card">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/category-shirts-apparel.jpg');">
-            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 6l2 3 2-1v11h8V8l2 1 2-3-4-3-2 2h-4z"/></svg></span>
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/category-shirts-apparel.jpg');">
+            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3 4 6l2 3 2-1v11h8V8l2 1 2-3-4-3-2 2h-4z" />
+              </svg></span>
             <div class="anime-card__overlay"><span class="anime-card__cta">Browse</span></div>
           </div>
           <div class="anime-card__body">
             <span class="anime-card__title">Shirts &amp; Apparel</span>
             <div class="anime-card__tags"><span class="tag">Apparel</span></div>
-            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Graphic tees pulled straight from comic covers and manga panels.</p>
+            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Graphic tees
+              pulled straight from comic covers and manga panels.</p>
           </div>
         </article>
 
         <article class="anime-card">
           <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/category-mugs.jpg');">
-            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h12v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8z"/><path d="M15 9h2a3 3 0 0 1 0 6h-2"/><path d="M6 3v2"/><path d="M9 3v2"/></svg></span>
+            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 8h12v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8z" />
+                <path d="M15 9h2a3 3 0 0 1 0 6h-2" />
+                <path d="M6 3v2" />
+                <path d="M9 3v2" />
+              </svg></span>
             <div class="anime-card__overlay"><span class="anime-card__cta">Browse</span></div>
           </div>
           <div class="anime-card__body">
             <span class="anime-card__title">Mugs &amp; Drinkware</span>
             <div class="anime-card__tags"><span class="tag">Home</span></div>
-            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Ceramic mugs embossed and printed with logos from every corner of the fandom.</p>
+            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Ceramic mugs
+              embossed and printed with logos from every corner of the fandom.</p>
           </div>
         </article>
 
         <article class="anime-card">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/category-accessories.jpg');">
-            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M11 11 20 20"/><path d="M17 17l3 3"/><path d="M14 14l2.5 2.5"/></svg></span>
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/category-accessories.jpg');">
+            <span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="4" />
+                <path d="M11 11 20 20" />
+                <path d="M17 17l3 3" />
+                <path d="M14 14l2.5 2.5" />
+              </svg></span>
             <div class="anime-card__overlay"><span class="anime-card__cta">Browse</span></div>
           </div>
           <div class="anime-card__body">
             <span class="anime-card__title">Accessories</span>
             <div class="anime-card__tags"><span class="tag">Everyday Carry</span></div>
-            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Pins, lanyards, keychains and mini figures small enough to take anywhere.</p>
+            <p class="anime-card__desc" style="margin-top:6px;font-size:0.78rem;color:var(--text-dim);">Pins, lanyards,
+              keychains and mini figures small enough to take anywhere.</p>
           </div>
         </article>
 
@@ -205,7 +261,7 @@
     </div>
   </section>
 
-  <!-- ===== SHOP / MERCH ===== -->
+
   <section class="anime-section" id="shop">
     <div class="section-inner">
       <div class="section-heading">
@@ -238,7 +294,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/moonlit-warriors-artbook.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/moonlit-warriors-artbook.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -248,7 +305,8 @@
               <span class="tag">Books</span>
               <span class="tag">Manga</span>
             </div>
-            <p class="anime-card__desc">An original concept-art collection inspired by the Moonlit Warriors universe.</p>
+            <p class="anime-card__desc">An original concept-art collection inspired by the Moonlit Warriors universe.
+            </p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$22.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -256,7 +314,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/nova-knight-emblem.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/nova-knight-emblem.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -274,7 +333,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/neon-stage-lightstick.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/neon-stage-lightstick.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -302,7 +362,8 @@
               <span class="tag">Accessories</span>
               <span class="tag">Anime</span>
             </div>
-            <p class="anime-card__desc">A sleek collectible enamel pin inspired by the futuristic Neon Horizon universe.</p>
+            <p class="anime-card__desc">A sleek collectible enamel pin inspired by the futuristic Neon Horizon universe.
+            </p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$9.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -310,7 +371,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/last-signal-journal.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/last-signal-journal.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -328,7 +390,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/beyond-tomorrow-poster.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/beyond-tomorrow-poster.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -472,7 +535,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/gaming/underwater-exploration.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/gaming/underwater-exploration.jpg');">
             <span class="anime-card__rating">★ 4.5</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -508,9 +572,10 @@
           </div>
         </article>
 
-        <!-- ===== Real product photos: Toys & Figures ===== -->
+
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/toy-gundam.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/toy-gundam.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -520,7 +585,8 @@
               <span class="tag">Figures</span>
               <span class="tag">Toys</span>
             </div>
-            <p class="anime-card__desc">Highly detailed resin mecha-and-pilot display sculpt, cast in fine grey resin for painting.</p>
+            <p class="anime-card__desc">Highly detailed resin mecha-and-pilot display sculpt, cast in fine grey resin
+              for painting.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$54.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -528,7 +594,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/toy-spiderman-statue.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/toy-spiderman-statue.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -538,7 +605,8 @@
               <span class="tag">Figures</span>
               <span class="tag">Toys</span>
             </div>
-            <p class="anime-card__desc">Dynamic wall-crawling statue captured mid-swing with sculpted web-line effects.</p>
+            <p class="anime-card__desc">Dynamic wall-crawling statue captured mid-swing with sculpted web-line effects.
+            </p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$79.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -546,7 +614,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/toy-ironman-figure.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/toy-ironman-figure.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -564,7 +633,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/toy-dragon-figure.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/toy-dragon-figure.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -574,7 +644,8 @@
               <span class="tag">Figures</span>
               <span class="tag">Toys</span>
             </div>
-            <p class="anime-card__desc">Finely sculpted unpainted resin wyrm miniature, coiled and ready for display or painting.</p>
+            <p class="anime-card__desc">Finely sculpted unpainted resin wyrm miniature, coiled and ready for display or
+              painting.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$38.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -582,7 +653,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/toy-goku-figure.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/toy-goku-figure.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -600,9 +672,10 @@
           </div>
         </article>
 
-        <!-- ===== Real product photos: Shirts & Apparel ===== -->
+
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/shirt-anime-katakana-tee.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/shirt-anime-katakana-tee.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -620,7 +693,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/shirt-justice-comic-tee.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/shirt-justice-comic-tee.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -630,7 +704,8 @@
               <span class="tag">Apparel</span>
               <span class="tag">Comics</span>
             </div>
-            <p class="anime-card__desc">Black tee featuring a retro superhero comic-cover print, shown on hanger display.</p>
+            <p class="anime-card__desc">Black tee featuring a retro superhero comic-cover print, shown on hanger
+              display.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$26.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -638,7 +713,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/shirt-staraven-tee.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/shirt-staraven-tee.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -656,7 +732,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/shirt-olive-icon-tee.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/shirt-olive-icon-tee.jpg');">
             <span class="anime-card__rating">★ 4.5</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -674,7 +751,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/shirt-comic-hero-tee.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/shirt-comic-hero-tee.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -692,9 +770,10 @@
           </div>
         </article>
 
-        <!-- ===== Real product photos: Mugs & Drinkware ===== -->
+
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/mug-manga-faces.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/mug-manga-faces.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -704,7 +783,8 @@
               <span class="tag">Home</span>
               <span class="tag">Comics</span>
             </div>
-            <p class="anime-card__desc">Black-and-white ceramic mug wrapped in a retro comic-panel grid of an iconic animated character.</p>
+            <p class="anime-card__desc">Black-and-white ceramic mug wrapped in a retro comic-panel grid of an iconic
+              animated character.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$15.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -712,7 +792,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/mug-manga-comics-black.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/mug-manga-comics-black.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -722,7 +803,8 @@
               <span class="tag">Home</span>
               <span class="tag">Manga</span>
             </div>
-            <p class="anime-card__desc">Elegant white mug featuring a gold monogram initial with personalized name script.</p>
+            <p class="anime-card__desc">Elegant white mug featuring a gold monogram initial with personalized name
+              script.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$16.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -730,7 +812,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/mug-dc-gray.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/mug-dc-gray.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -740,7 +823,8 @@
               <span class="tag">Home</span>
               <span class="tag">Comics</span>
             </div>
-            <p class="anime-card__desc">Handcrafted white stoneware mug with a playful debossed phrase and matte glaze finish.</p>
+            <p class="anime-card__desc">Handcrafted white stoneware mug with a playful debossed phrase and matte glaze
+              finish.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$17.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -748,7 +832,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/mug-blue-ship.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/mug-blue-ship.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -766,7 +851,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/mug-beepis-pulp.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/mug-beepis-pulp.jpg');">
             <span class="anime-card__rating">★ 4.5</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -776,7 +862,8 @@
               <span class="tag">Home</span>
               <span class="tag">Comics</span>
             </div>
-            <p class="anime-card__desc">Cozy hand-illustrated mug featuring stacked books, reading glasses and blooming florals.</p>
+            <p class="anime-card__desc">Cozy hand-illustrated mug featuring stacked books, reading glasses and blooming
+              florals.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$16.49</span>
               <button class="buy-btn">Add to Cart</button>
@@ -784,9 +871,10 @@
           </div>
         </article>
 
-        <!-- ===== Real product photos: Books ===== -->
+
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/book-kaiju-hunter.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/book-kaiju-hunter.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -804,7 +892,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/book-superior-justice.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/book-superior-justice.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -822,7 +911,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/book-galaxys-edge.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/book-galaxys-edge.jpg');">
             <span class="anime-card__rating">★ 4.9</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -832,7 +922,8 @@
               <span class="tag">Books</span>
               <span class="tag">Movies</span>
             </div>
-            <p class="anime-card__desc">Behind-the-scenes hardcover art book from the making of the superhero blockbuster.</p>
+            <p class="anime-card__desc">Behind-the-scenes hardcover art book from the making of the superhero
+              blockbuster.</p>
             <div class="anime-card__footer">
               <span class="anime-card__price">$27.99</span>
               <button class="buy-btn">Add to Cart</button>
@@ -840,7 +931,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/book-tankobon.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/book-tankobon.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -858,7 +950,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/book-replicant-city.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/book-replicant-city.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -876,9 +969,10 @@
           </div>
         </article>
 
-        <!-- ===== Real product photos: Accessories ===== -->
+
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/acc-bat-emblem.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/acc-bat-emblem.jpg');">
             <span class="anime-card__rating">★ 4.7</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -896,7 +990,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/acc-staff-badges.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/acc-staff-badges.jpg');">
             <span class="anime-card__rating">★ 4.5</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -914,7 +1009,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/acc-key-ring.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/acc-key-ring.jpg');">
             <span class="anime-card__rating">★ 4.6</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -932,7 +1028,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/acc-luffy-figure.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/acc-luffy-figure.jpg');">
             <span class="anime-card__rating">★ 4.8</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -950,7 +1047,8 @@
           </div>
         </article>
         <article class="anime-card anime-card--store">
-          <div class="anime-card__poster" style="--card-img: url('../assets/images/merchandise/products/acc-joker-cards.jpg');">
+          <div class="anime-card__poster"
+            style="--card-img: url('../assets/images/merchandise/products/acc-joker-cards.jpg');">
             <span class="anime-card__rating">★ 4.4</span>
             <div class="anime-card__overlay"><span class="anime-card__cta">View</span></div>
           </div>
@@ -972,33 +1070,42 @@
   </section>
 
   <script src="js/main.js"></script>
-  <!-- ===== FandomVerse Premium Chat Widget ===== -->
+
   <div id="fvc-root">
-    <button type="button" id="fvc-launcher" class="fvc-launcher" aria-haspopup="dialog" aria-expanded="false" aria-controls="fvc-panel" aria-label="Open FandomVerse chat">
+    <button type="button" id="fvc-launcher" class="fvc-launcher" aria-haspopup="dialog" aria-expanded="false"
+      aria-controls="fvc-panel" aria-label="Open FandomVerse chat">
       <span class="fvc-launcher__ring" aria-hidden="true"></span>
       <span class="fvc-launcher__pulse" aria-hidden="true"></span>
       <svg class="fvc-launcher__icon" viewBox="0 0 64 64" aria-hidden="true">
         <defs>
           <linearGradient id="fvcMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#28c7ff"/>
-            <stop offset="50%" stop-color="#8b5cf6"/>
-            <stop offset="100%" stop-color="#ff5ecb"/>
+            <stop offset="0%" stop-color="#28c7ff" />
+            <stop offset="50%" stop-color="#8b5cf6" />
+            <stop offset="100%" stop-color="#ff5ecb" />
           </linearGradient>
         </defs>
-        <path fill="url(#fvcMarkGrad)" d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z"/>
-        <circle class="fvc-launcher__spark" cx="47" cy="16" r="2.6" fill="#fff"/>
+        <path fill="url(#fvcMarkGrad)"
+          d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z" />
+        <circle class="fvc-launcher__spark" cx="47" cy="16" r="2.6" fill="#fff" />
       </svg>
-      <svg class="fvc-launcher__close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <svg class="fvc-launcher__close" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6L18 18M18 6L6 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round" />
+      </svg>
       <span class="fvc-launcher__badge" id="fvc-badge">1</span>
     </button>
 
-    <div class="fvc-panel" id="fvc-panel" role="dialog" aria-modal="false" aria-label="FandomVerse concierge chat" aria-hidden="true">
+    <div class="fvc-panel" id="fvc-panel" role="dialog" aria-modal="false" aria-label="FandomVerse concierge chat"
+      aria-hidden="true">
       <div class="fvc-panel__inner">
 
         <header class="fvc-head">
           <div class="fvc-head__id">
             <span class="fvc-head__avatar">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#fvcMarkPath"></use><path fill="url(#fvcMarkGrad)" d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z"/></svg>
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <use href="#fvcMarkPath"></use>
+                <path fill="url(#fvcMarkGrad)"
+                  d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z" />
+              </svg>
               <span class="fvc-head__dot" aria-hidden="true"></span>
             </span>
             <div class="fvc-head__text">
@@ -1007,31 +1114,50 @@
             </div>
           </div>
           <button type="button" class="fvc-head__close" id="fvc-close" aria-label="Close chat">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+            </svg>
           </button>
         </header>
 
         <div class="fvc-premium">
-          <span class="fvc-premium__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8.5l3.6 2.4L12 4l5.4 6.9 3.6-2.4-1.6 9.8a1.3 1.3 0 01-1.28 1.1H5.88A1.3 1.3 0 014.6 18.3L3 8.5z" fill="currentColor"/><circle cx="3" cy="7" r="1.4" fill="currentColor"/><circle cx="12" cy="3" r="1.4" fill="currentColor"/><circle cx="21" cy="7" r="1.4" fill="currentColor"/></svg></span>
+          <span class="fvc-premium__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M3 8.5l3.6 2.4L12 4l5.4 6.9 3.6-2.4-1.6 9.8a1.3 1.3 0 01-1.28 1.1H5.88A1.3 1.3 0 014.6 18.3L3 8.5z"
+                fill="currentColor" />
+              <circle cx="3" cy="7" r="1.4" fill="currentColor" />
+              <circle cx="12" cy="3" r="1.4" fill="currentColor" />
+              <circle cx="21" cy="7" r="1.4" fill="currentColor" />
+            </svg></span>
           <span class="fvc-premium__text">Ultra VIP Concierge</span>
         </div>
 
-        <!-- STEP 1: Gate form (name + email, heavy validation) -->
+
         <form class="fvc-gate" id="fvc-gate" novalidate>
           <h3 class="fvc-gate__title">Let's get you sorted ✦</h3>
-          <p class="fvc-gate__sub">Tell us a bit about you so the concierge can personalize your visit across FandomVerse.</p>
+          <p class="fvc-gate__sub">Tell us a bit about you so the concierge can personalize your visit across
+            FandomVerse.</p>
 
           <div class="fvc-field" id="fvc-name-field">
             <label for="fvc-name">Full name</label>
             <div class="fvc-field__wrap">
-              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM4 20.5c0-3.6 3.58-6.5 8-6.5s8 2.9 8 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-              <input type="text" id="fvc-name" name="name" placeholder="e.g. Bilal Ahmed" autocomplete="name" required minlength="2" maxlength="60">
+              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM4 20.5c0-3.6 3.58-6.5 8-6.5s8 2.9 8 6.5"
+                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <input type="text" id="fvc-name" name="name" placeholder="e.g. Bilal Ahmed" autocomplete="name" required
+                minlength="2" maxlength="60">
               <span class="fvc-field__status" id="fvc-name-status">
-                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
               </span>
             </div>
             <div class="fvc-field__error" id="fvc-name-error">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6" />
+              </svg>
               <span>Please enter at least 2 characters (letters only).</span>
             </div>
           </div>
@@ -1039,14 +1165,26 @@
           <div class="fvc-field" id="fvc-email-field">
             <label for="fvc-email">Email address</label>
             <div class="fvc-field__wrap">
-              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 014.5 5h15A1.5 1.5 0 0121 6.5v11a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 17.5v-11z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <input type="email" id="fvc-email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="120">
+              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M3 6.5A1.5 1.5 0 014.5 5h15A1.5 1.5 0 0121 6.5v11a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 17.5v-11z"
+                  stroke="currentColor" stroke-width="1.6" />
+                <path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+              <input type="email" id="fvc-email" name="email" placeholder="you@example.com" autocomplete="email"
+                required maxlength="120">
               <span class="fvc-field__status" id="fvc-email-status">
-                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
               </span>
             </div>
             <div class="fvc-field__error" id="fvc-email-error">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6" />
+              </svg>
               <span>Enter a valid email address (e.g. name@domain.com).</span>
             </div>
           </div>
@@ -1054,7 +1192,8 @@
           <div class="fvc-field" id="fvc-fandom-field">
             <label for="fvc-fandom-btn">What are you into?</label>
             <div class="fvc-select" id="fvc-select">
-              <select id="fvc-fandom" name="fandom" required class="fvc-select__native" tabindex="-1" aria-hidden="true">
+              <select id="fvc-fandom" name="fandom" required class="fvc-select__native" tabindex="-1"
+                aria-hidden="true">
                 <option value="" disabled selected>Choose a fandom…</option>
                 <option value="anime">Anime</option>
                 <option value="movies">Movies</option>
@@ -1065,87 +1204,140 @@
                 <option value="tvshows">TV Shows</option>
                 <option value="shop">Merch Shop</option>
               </select>
-              <button type="button" class="fvc-select__btn" id="fvc-fandom-btn" aria-haspopup="listbox" aria-expanded="false">
-                <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.6 6.6L21 9.3l-5 4.5 1.5 6.7L12 17l-5.5 3.5L8 13.8 3 9.3l6.4-.7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <button type="button" class="fvc-select__btn" id="fvc-fandom-btn" aria-haspopup="listbox"
+                aria-expanded="false">
+                <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l2.6 6.6L21 9.3l-5 4.5 1.5 6.7L12 17l-5.5 3.5L8 13.8 3 9.3l6.4-.7L12 2z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
                 <span class="fvc-select__label" id="fvc-fandom-label">Choose a fandom…</span>
-                <svg class="fvc-select__chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg class="fvc-select__chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
               </button>
-              <ul class="fvc-select__menu" id="fvc-fandom-menu" role="listbox" tabindex="-1" aria-label="Fandom options">
+              <ul class="fvc-select__menu" id="fvc-fandom-menu" role="listbox" tabindex="-1"
+                aria-label="Fandom options">
                 <li role="option" data-value="anime" data-icon="anime">
                   <span class="fvc-opt__badge" style="--opt-accent:#ff3b5c">
                     <img class="fvc-opt__img" src="assets/images/categories/anime.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Anime</span>
                 </li>
                 <li role="option" data-value="movies" data-icon="movies">
                   <span class="fvc-opt__badge" style="--opt-accent:#ffcc33">
                     <img class="fvc-opt__img" src="assets/images/categories/movies.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 10l1.2-3.6a1 1 0 01.95-.68h11.7a1 1 0 01.95.68L20 10M8 6l-1 4M13 6l-1 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z" stroke="currentColor" stroke-width="1.6"
+                          stroke-linejoin="round" />
+                        <path d="M4 10l1.2-3.6a1 1 0 01.95-.68h11.7a1 1 0 01.95.68L20 10M8 6l-1 4M13 6l-1 4"
+                          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Movies</span>
                 </li>
                 <li role="option" data-value="gaming" data-icon="gaming">
                   <span class="fvc-opt__badge" style="--opt-accent:#39ff88">
                     <img class="fvc-opt__img" src="assets/images/categories/gaming.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 9h10a4 4 0 014 4v2.5a2.5 2.5 0 01-4.6 1.4L15 15H9l-1.4 1.9A2.5 2.5 0 013 15.5V13a4 4 0 014-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 11v3M6.5 12.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="11.5" r=".9" fill="currentColor"/><circle cx="18" cy="13.5" r=".9" fill="currentColor"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M7 9h10a4 4 0 014 4v2.5a2.5 2.5 0 01-4.6 1.4L15 15H9l-1.4 1.9A2.5 2.5 0 013 15.5V13a4 4 0 014-4z"
+                          stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                        <path d="M8 11v3M6.5 12.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                        <circle cx="16" cy="11.5" r=".9" fill="currentColor" />
+                        <circle cx="18" cy="13.5" r=".9" fill="currentColor" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Gaming</span>
                 </li>
                 <li role="option" data-value="kpop" data-icon="kpop">
                   <span class="fvc-opt__badge" style="--opt-accent:#ff3b9d">
                     <img class="fvc-opt__img" src="assets/images/categories/kpop.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="3" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="9" y="3" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6" stroke="currentColor" stroke-width="1.6"
+                          stroke-linecap="round" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">K-Pop</span>
                 </li>
                 <li role="option" data-value="manga" data-icon="manga">
                   <span class="fvc-opt__badge" style="--opt-accent:#ff7a3d">
                     <img class="fvc-opt__img" src="assets/images/categories/manga.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 016.5 3H12v17H6.5A2.5 2.5 0 004 17.5v-12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5A2.5 2.5 0 0017.5 3H12v17h5.5a2.5 2.5 0 012.5 2.5v-17z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 5.5A2.5 2.5 0 016.5 3H12v17H6.5A2.5 2.5 0 004 17.5v-12z" stroke="currentColor"
+                          stroke-width="1.6" stroke-linejoin="round" />
+                        <path d="M20 5.5A2.5 2.5 0 0017.5 3H12v17h5.5a2.5 2.5 0 012.5 2.5v-17z" stroke="currentColor"
+                          stroke-width="1.6" stroke-linejoin="round" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Manga</span>
                 </li>
                 <li role="option" data-value="comics" data-icon="comics">
                   <span class="fvc-opt__badge" style="--opt-accent:#33ccff">
                     <img class="fvc-opt__img" src="assets/images/categories/comics.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.9 4.8 5.1-1.3-2.7 4.5 4.2 3-5 1.6.9 5.2-4.4-2.9-4.4 2.9.9-5.2-5-1.6 4.2-3-2.7-4.5 5.1 1.3z" fill="currentColor"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 2l1.9 4.8 5.1-1.3-2.7 4.5 4.2 3-5 1.6.9 5.2-4.4-2.9-4.4 2.9.9-5.2-5-1.6 4.2-3-2.7-4.5 5.1 1.3z"
+                          fill="currentColor" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Comics</span>
                 </li>
                 <li role="option" data-value="tvshows" data-icon="tvshows">
                   <span class="fvc-opt__badge" style="--opt-accent:#b06bff">
                     <img class="fvc-opt__img" src="assets/images/categories/tvshows.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M9 3l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M8 21h8M9 3l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">TV Shows</span>
                 </li>
                 <li role="option" data-value="shop" data-icon="shop">
                   <span class="fvc-opt__badge" style="--opt-accent:#f5b83d">
-                    <img class="fvc-opt__img" src="assets/images/merchandise/category-shirts-apparel.jpg" alt="" loading="lazy">
-                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l1 12a1.5 1.5 0 01-1.5 1.6H6.5A1.5 1.5 0 015 20l1-12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                    <img class="fvc-opt__img" src="assets/images/merchandise/category-shirts-apparel.jpg" alt=""
+                      loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M6 8h12l1 12a1.5 1.5 0 01-1.5 1.6H6.5A1.5 1.5 0 015 20l1-12z" stroke="currentColor"
+                          stroke-width="1.6" stroke-linejoin="round" />
+                        <path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.6"
+                          stroke-linecap="round" />
+                      </svg></span>
                   </span>
                   <span class="fvc-opt__label">Merch Shop</span>
                 </li>
               </ul>
             </div>
             <div class="fvc-field__error" id="fvc-fandom-error">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6" />
+              </svg>
               <span>Please pick a fandom so we can tailor the chat.</span>
             </div>
           </div>
 
           <button type="submit" class="fvc-gate__submit" id="fvc-gate-submit">
             Start chatting
-            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </button>
           <p class="fvc-gate__note">
-            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l6 3v5c0 4.4-2.6 7.6-6 8.5-3.4-.9-6-4.1-6-8.5V5l6-3z" stroke="currentColor" stroke-width="1.4"/></svg>
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 2l6 3v5c0 4.4-2.6 7.6-6 8.5-3.4-.9-6-4.1-6-8.5V5l6-3z" stroke="currentColor"
+                stroke-width="1.4" />
+            </svg>
             Your info stays on this device only.
           </p>
         </form>
 
-        <!-- STEP 2: Live chat -->
+
         <div class="fvc-chat" id="fvc-chat" hidden>
           <div class="fvc-messages" id="fvc-messages"></div>
           <div class="fvc-quick" id="fvc-quick"></div>
@@ -1153,7 +1345,9 @@
             <textarea id="fvc-input" placeholder="Type your message…" maxlength="500" rows="1" required></textarea>
             <span class="fvc-count" id="fvc-count">0/500</span>
             <button type="submit" class="fvc-send" id="fvc-send" disabled aria-label="Send message">
-              <svg viewBox="0 0 20 20" fill="none"><path d="M3 10l14-7-4.5 14-3-6-6.5-1z" fill="currentColor"/></svg>
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="M3 10l14-7-4.5 14-3-6-6.5-1z" fill="currentColor" />
+              </svg>
             </button>
           </form>
         </div>
@@ -1168,4 +1362,5 @@
   <script src="js/fv-premium-3d.js" defer></script>
 
 </body>
+
 </html>

@@ -1,9 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — PREMIUM GLOBAL CART
-   Persistent (localStorage) cart shared across every page,
-   wired to the header cart icon. Heavy validation on qty,
-   checkout and storage I/O.
-   ========================================================= */
+
 (function () {
   "use strict";
 
@@ -11,7 +6,6 @@
   var MAX_QTY = 99;
   var MIN_QTY = 1;
 
-  /* ---------------- store ---------------- */
   var cartItems = loadCart();
 
   function loadCart() {
@@ -113,16 +107,8 @@
   function totalCount() { return cartItems.reduce(function (s, i) { return s + i.qty; }, 0); }
   function totalPrice() { return cartItems.reduce(function (s, i) { return s + i.qty * i.price; }, 0); }
 
-  /* ---------------- product extraction (site-wide) ---------------- */
   function bgUrlFromVar(el, prop) {
     if (!el) return "";
-    // NOTE: the raw custom-property value (e.g. "url('../assets/...jpg')")
-    // is written relative to the stylesheet that consumes it (css/style.css),
-    // not relative to this page. Re-using that raw string as a literal
-    // inline background-image elsewhere in the document (the cart thumb)
-    // resolves it relative to the page instead and breaks the path.
-    // getComputedStyle() gives the browser's already fully-resolved,
-    // absolute URL, which is safe to reuse anywhere in the DOM.
     var computed = window.getComputedStyle(el).backgroundImage || "";
     var m = /url\((['"]?)(.*?)\1\)/.exec(computed);
     if (m && m[2]) return m[2];
@@ -143,7 +129,6 @@
   }
 
   function extractProduct(btn) {
-    // Pattern A: catalog collector cards used on movies/anime/gaming (.movie-card)
     var movieCard = btn.closest(".movie-card");
     if (movieCard) {
       var art = movieCard.querySelector(".movie-card__art");
@@ -155,7 +140,6 @@
       };
     }
 
-    // Pattern B: merch shop cards (.anime-card--store)
     var storeCard = btn.closest(".anime-card--store");
     if (storeCard) {
       var titleEl = storeCard.querySelector(".anime-card__title");
@@ -170,7 +154,6 @@
       };
     }
 
-    // Pattern C: home page featured merch cards (.fv-merch-card)
     var merchCard = btn.closest(".fv-merch-card");
     if (merchCard) {
       var nameEl = merchCard.querySelector(".fv-merch-card__name");
@@ -184,7 +167,6 @@
       };
     }
 
-    // Fallback: look for nearest heading/price-ish siblings
     var card = btn.closest("article, .card, li, div");
     var title2 = "Item";
     var priceVal = 0;
@@ -202,7 +184,6 @@
     };
   }
 
-  /* ---------------- UI ---------------- */
   var toggleBtn, badgeEl, panelEl, listEl, emptyEl, footEl, subtotalEl, checkoutBtn, clearBtn, toastHost;
   var isOpen = false;
 
@@ -274,7 +255,6 @@
     });
 
     checkoutBtn.addEventListener("click", function () {
-      // ---- validation: block checkout on an empty cart ----
       if (!cartItems.length) {
         flagInvalid(checkoutBtn);
         showToast("Your cart is empty \u2014 add something before checkout", "warn");
@@ -300,7 +280,7 @@
 
   function positionPanel() {
     if (!toggleBtn || !panelEl) return;
-    if (window.innerWidth <= 480) return; // CSS handles the mobile layout
+    if (window.innerWidth <= 480) return; 
     var rect = toggleBtn.getBoundingClientRect();
     var panelWidth = panelEl.offsetWidth || 380;
     var right = Math.max(8, window.innerWidth - rect.right);
@@ -379,7 +359,6 @@
     if (isOpen) positionPanel();
   }
 
-  /* ---------------- toasts ---------------- */
   var ICONS = {
     success: '<svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     info: '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
@@ -398,7 +377,6 @@
     }, 2600);
   }
 
-  /* ---------------- delegated add-to-cart across the whole site ---------------- */
   function initDelegatedAddToCart() {
     document.addEventListener("click", function (e) {
       var btn = e.target.closest(".buy-btn, .movie-card__add, .fv-merch-card__add");

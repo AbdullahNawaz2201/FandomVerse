@@ -1,11 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — COMICS PAGE SCRIPT
-   Prefix: fv-comics-
-   No frameworks. Scoped to elements on comics.html that carry
-   the fv-comics- prefix. Wires the trailer cards to the video
-   modal (YouTube iframe + Watch-on-YouTube fallback), plus
-   smooth scroll and Escape-key / focus handling for the modal.
-   ========================================================= */
+
 
 (function () {
   'use strict';

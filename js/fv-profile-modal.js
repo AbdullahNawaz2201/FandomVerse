@@ -1,12 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — "VIEW PROFILE" -> CHARACTER PAGE ROUTER
-   Any "View Profile" button/link on a character card (anime,
-   gaming, movies, tvshows, comics, manga) collects every card
-   in that same grid, stores them in sessionStorage, and sends
-   the visitor to character.html for a full premium 3D profile
-   page - instead of the missing characters.html link or a
-   popup modal.
-   ========================================================= */
+
 (function () {
   "use strict";
 

@@ -1,9 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — GAMING PAGE (self-contained, namespaced fvGaming)
-   Handles: smooth-scroll buttons + the trailer modal only.
-   ========================================================= */
 
-/* ---------- Smooth scroll for in-page buttons ---------- */
 function fvGamingInitScroll() {
   document.querySelectorAll('[data-fv-gaming-scroll]').forEach(function (el) {
     el.addEventListener('click', function (e) {
@@ -16,7 +11,6 @@ function fvGamingInitScroll() {
   });
 }
 
-/* ---------- Trailer modal ---------- */
 function fvGamingOpenTrailerModal(card) {
   var modal = document.getElementById('fv-gaming-modal');
   var title = document.getElementById('fv-gaming-modal-title');

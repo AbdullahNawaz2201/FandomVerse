@@ -1,10 +1,4 @@
-/* =========================================================================
-   FANDOMVERSE — PREMIUM 3D ENGINE
-   Auto-applies collectible-card 3D tilt + glow + sparkles to every card
-   on every page, "Legendary Awakening" glow/ripple to buttons, a floating
-   3D logo + particles to the home hero, and injects the Dreamscape
-   parallax divider + a Login nav icon site-wide. Zero dependencies.
-   ========================================================================= */
+
 (function () {
   'use strict';
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,10 +7,6 @@
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   }
-
-  /* ---------------------------------------------------------------
-     1) Collect every "card" element (top-level, not a __sub-part)
-     --------------------------------------------------------------- */
   function isCardToken(tok) {
     return /(^|-)card$/.test(tok) && tok.indexOf('__') === -1;
   }
@@ -76,7 +66,6 @@
         });
       }
 
-      // reveal on scroll
       revealObserver.observe(card);
     });
   }
@@ -88,11 +77,7 @@
         revealObserver.unobserve(en.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-  /* ---------------------------------------------------------------
-     2) "Legendary Awakening" buttons — glow ring + click ripple
-     --------------------------------------------------------------- */
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' })
   function initButtons() {
     var sel = '.btn, .icon-btn, [class*="__cta"], [class*="__btn"], .fv-footer-button, [type="submit"]';
     document.querySelectorAll(sel).forEach(function (btn) {
@@ -115,9 +100,6 @@
     });
   }
 
-  /* ---------------------------------------------------------------
-     3) Home hero — floating 3D logo + particles
-     --------------------------------------------------------------- */
   function initHeroLogo() {
     var heroContent = document.querySelector('.hero .hero-content, .hero');
     var hero = document.querySelector('.hero');
@@ -158,10 +140,6 @@
     }
   }
 
-  /* ---------------------------------------------------------------
-     4) Dreamscape divider — inject after the hero on every page,
-        add parallax star drift + rising particles
-     --------------------------------------------------------------- */
   function buildDreamscape() {
     var el = document.createElement('div');
     el.className = 'fv-dreamscape';
@@ -184,7 +162,6 @@
 
   function initDreamscape() {
     var heroSection = document.querySelector('body > .hero, section.hero, section[class*="-hero"], section[id*="-hero"], section.fv-hero3d');
-    // Prefer the first <section> in the document (the page hero), robust across all templates.
     var firstSection = document.querySelector('section');
     var target = firstSection || heroSection;
     if (!target || document.querySelector('.fv-dreamscape')) return;
@@ -208,9 +185,6 @@
     }
   }
 
-  /* ---------------------------------------------------------------
-     5) Inject a Login nav icon into every header (site-wide)
-     --------------------------------------------------------------- */
   function initLoginNav() {
     var actions = document.querySelector('.header-actions');
     if (actions && !actions.querySelector('.fv-login-btn')) {
@@ -233,9 +207,6 @@
     }
   }
 
-  /* ---------------------------------------------------------------
-     Init + keep watching for dynamically-rendered cards
-     --------------------------------------------------------------- */
   ready(function () {
     initLoginNav();
     initHeroLogo();

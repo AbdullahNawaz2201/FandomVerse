@@ -1,15 +1,9 @@
-/* =========================================================================
-   FANDOMVERSE — PREMIUM 3D LAYER
-   Godot-style collectible-card glow/tilt/sparkle system, "Legendary
-   Awakening" button icons, floating 3D hero logo + particles, and the
-   "Dreamscape" moon/parallax section-transition divider.
-   Pure CSS + vanilla JS (js/fv-premium-3d.js). No dependencies.
-   ========================================================================= */
+
 
 :root{
-  --fv3d-glow-1: 255,60,130;     /* rose */
-  --fv3d-glow-2: 120,90,255;     /* violet */
-  --fv3d-glow-3: 60,220,255;     /* cyan */
+  --fv3d-glow-1: 255,60,130;     
+  --fv3d-glow-2: 120,90,255;     
+  --fv3d-glow-3: 60,220,255;     
   --fv3d-gold: 255,205,110;
   --fv3d-ease: cubic-bezier(.2,.8,.2,1);
 }
@@ -22,10 +16,6 @@
     transition-duration: .001ms !important;
   }
 }
-
-/* ---------------------------------------------------------------------
-   1) COLLECTIBLE 3D CARD SYSTEM — applies to every *-card element
-   --------------------------------------------------------------------- */
 .fv3d-card{
   position: relative;
   transform-style: preserve-3d;
@@ -35,7 +25,6 @@
 }
 
 .fv3d-card::before{
-  /* holographic glow ring that tracks the cursor */
   content:'';
   position:absolute; inset:-2px;
   border-radius: inherit;
@@ -52,7 +41,6 @@
 }
 
 .fv3d-card::after{
-  /* soft ambient glow shadow beneath the card */
   content:'';
   position:absolute; inset: 6%;
   border-radius: inherit;
@@ -78,7 +66,6 @@
 .fv3d-card:hover::after,
 .fv3d-card.fv3d-active::after{ opacity: 1; }
 
-/* shine sweep across the card art */
 .fv3d-shine{
   position:absolute; inset:0;
   border-radius: inherit;
@@ -97,7 +84,6 @@
 }
 .fv3d-card:hover .fv3d-shine::before{ transform: translateX(380%) rotate(8deg); }
 
-/* push inner media forward in 3D space for parallax depth */
 .fv3d-card [class*="__media"],
 .fv3d-card [class*="__img"],
 .fv3d-card [class*="__poster"],
@@ -118,7 +104,6 @@
   transition: transform .45s var(--fv3d-ease);
 }
 
-/* sparkles: small star particles that twinkle on hover */
 .fv-spark{
   position:absolute;
   width: 6px; height: 6px;
@@ -140,9 +125,6 @@
   100%{ opacity:0; transform: scale(.3) translateY(-14px) rotate(140deg); }
 }
 
-/* ---------------------------------------------------------------------
-   2) "LEGENDARY AWAKENING" BUTTON / ICON SYSTEM
-   --------------------------------------------------------------------- */
 .fv-glow-btn{
   position: relative;
   overflow: visible;
@@ -187,7 +169,6 @@
   100%{ transform: translate(-50%,-50%) scale(18); opacity:0; }
 }
 
-/* awakening pulse ring for icon buttons (cart/search/menu/login) */
 .icon-btn{ position: relative; }
 .icon-btn.fv-glow-btn::after{
   content:'';
@@ -206,9 +187,6 @@
   100%{ opacity:0; transform: scale(1.9); }
 }
 
-/* ---------------------------------------------------------------------
-   3) HOME HERO — FLOATING 3D LOGO + PARTICLES
-   --------------------------------------------------------------------- */
 .fv-hero3dlogo{
   position:absolute;
   top: 14%;
@@ -269,9 +247,6 @@
   .fv-hero3dlogo{ display:none; }
 }
 
-/* ---------------------------------------------------------------------
-   4) "DREAMSCAPE" SECTION-TRANSITION DIVIDER (moon + parallax particles)
-   --------------------------------------------------------------------- */
 .fv-dreamscape{
   position: relative;
   height: clamp(140px, 20vw, 260px);
@@ -281,7 +256,6 @@
     linear-gradient(180deg, var(--bg-void), #0a0a13 55%, var(--bg-void));
 }
 .fv-dreamscape::before{
-  /* distant starfield */
   content:'';
   position:absolute; inset:-20% -5%;
   background-image:
@@ -344,10 +318,6 @@
   15%{ opacity:.9; }
   100%{ transform: translateY(-140px) scale(1.1); opacity:0; }
 }
-
-/* ---------------------------------------------------------------------
-   4b) Login nav icon accent
-   --------------------------------------------------------------------- */
 .fv-login-btn{
   color: rgba(var(--fv3d-gold), 1);
   border: 1px solid rgba(var(--fv3d-gold), .35);
@@ -362,9 +332,6 @@
   font-weight: 700;
 }
 
-/* ---------------------------------------------------------------------
-   5) Scroll-reveal for cards
-   --------------------------------------------------------------------- */
 .fv3d-reveal{
   opacity: 0;
   transform: translateY(26px) scale(.97);

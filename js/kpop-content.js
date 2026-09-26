@@ -1,17 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — K-POP PAGE SCRIPT
-   Lightweight vanilla JS scoped to the K-Pop page content
-   only. Handles: music data + card rendering, video modal
-   (YouTube iframe + Watch-on-YouTube fallback), smooth
-   scroll, and Escape-key / focus handling for the modal.
-   ========================================================= */
 
-/* ---------------------------------------------------------
-   MUSIC DATA
-   Real, verified, publicly accessible official music videos.
-   Video IDs verified against official label/press sources
-   before inclusion — no placeholder or invented IDs.
---------------------------------------------------------- */
 const fvKpopMusicData = [
   {
     artist: "BTS",
@@ -51,9 +38,6 @@ const fvKpopMusicData = [
   }
 ];
 
-/* ---------------------------------------------------------
-   RENDER MUSIC CARDS
---------------------------------------------------------- */
 function fvKpopRenderMusic() {
   const grid = document.getElementById('fv-kpop-music-grid');
   if (!grid) return;
@@ -81,9 +65,6 @@ function fvKpopRenderMusic() {
   }).join('');
 }
 
-/* ---------------------------------------------------------
-   VIDEO MODAL
---------------------------------------------------------- */
 const fvKpopModal = {
   el: null,
   frame: null,
@@ -121,9 +102,6 @@ const fvKpopModal = {
     this.lastFocused = document.activeElement;
     this.titleEl.textContent = track.artist + ' — ' + track.title;
 
-    // Load the YouTube iframe. The visible "Watch on YouTube"
-    // link is always shown too, as a guaranteed fallback if
-    // embedding is ever disabled for a given video.
     const iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube.com/embed/' + track.videoId + '?autoplay=1&rel=0';
     iframe.title = track.artist + ' — ' + track.title + ' official music video';
@@ -149,9 +127,6 @@ const fvKpopModal = {
   }
 };
 
-/* ---------------------------------------------------------
-   SMOOTH SCROLL (hero + fandom card links)
---------------------------------------------------------- */
 function fvKpopInitSmoothScroll() {
   document.querySelectorAll('[data-fv-kpop-scroll]').forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -164,9 +139,6 @@ function fvKpopInitSmoothScroll() {
   });
 }
 
-/* ---------------------------------------------------------
-   INIT
---------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   fvKpopRenderMusic();
   fvKpopModal.init();

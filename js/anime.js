@@ -1,9 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — ANIME PAGE (self-contained, namespaced fvAnime)
-   Handles: smooth-scroll buttons + the trailer modal only.
-   ========================================================= */
 
-/* ---------- Smooth scroll for in-page buttons ---------- */
 function fvAnimeInitScroll() {
   document.querySelectorAll('[data-fv-anime-scroll]').forEach(function (el) {
     el.addEventListener('click', function (e) {
@@ -51,7 +46,7 @@ function fvAnimeCloseTrailerModal() {
   var media = document.getElementById('fv-anime-modal-media');
   if (!modal || modal.hidden) return;
   modal.hidden = true;
-  if (media) media.innerHTML = ''; // stop playback
+  if (media) media.innerHTML = ''; 
   document.body.classList.remove('fv-anime-modal-open');
 }
 

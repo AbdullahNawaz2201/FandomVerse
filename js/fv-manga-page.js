@@ -1,50 +1,29 @@
-/* =========================================================
-   FANDOMVERSE — MANGA PAGE SCRIPT (isolated)
-   Prefix: fv-manga-
-   No frameworks. No backend. Scoped to elements on manga.html
-   that carry the fv-manga- prefix.
-   ========================================================= */
+
 
 (function () {
   'use strict';
 
-  /* ---------------------------------------------------------
-     Video data. Each entry uses a real, verified YouTube video
-     ID from an official publisher/studio channel — no invented
-     or placeholder IDs. The fictional manga in Section 2 don't
-     have real trailers of their own, so this section surfaces
-     genuine official manga/anime industry videos instead.
-
-     To add or swap a video, replace videoId with another
-     verified official ID (e.g. videoId: "dQw4w9WgXcQ"). Leave
-     videoId as '' to keep a card's structure without a
-     fabricated link — the modal will then show a "coming soon"
-     placeholder and hide the YouTube fallback rather than
-     pointing to an unverified URL. Thumbnails are pulled
-     straight from YouTube's own thumbnail CDN for whatever
-     videoId is set, so there is nothing to keep in sync by
-     hand.
-     --------------------------------------------------------- */
+  
   var fvMangaVideoData = [
     {
       id: 'fv-manga-video-1',
       title: 'Chainsaw Man — Manga "Big Hit" Trailer',
       description: 'VIZ Media\u2019s official trailer marking Chainsaw Man\u2019s breakout manga success, voiced by the anime\u2019s cast.',
-      videoId: '_FZ35bttTkU', // VIZ Media, official
+      videoId: '_FZ35bttTkU', 
       thumbnail: 'assets/images/manga/trailers/chainsaw-man-big-hit-trailer.jpg'
     },
     {
       id: 'fv-manga-video-2',
       title: 'Chainsaw Man — Volume 12 Trailer',
       description: 'A special trailer marking the release of Chainsaw Man Part 2, Volume 12, from publisher VIZ Media.',
-      videoId: 'C6Vc_G4kNq4', // VIZ Media, official
+      videoId: 'C6Vc_G4kNq4', 
       thumbnail: 'assets/images/manga/trailers/chainsaw-man-volume-12-trailer.jpg'
     },
     {
       id: 'fv-manga-video-3',
       title: 'Jujutsu Kaisen — Culling Game Arc Announcement',
       description: 'The official teaser announcing the anime adaptation of Jujutsu Kaisen\u2019s Culling Game arc.',
-      videoId: 'ACFg5XX9XQw' // MAPPA / official Jujutsu Kaisen channel
+      videoId: 'ACFg5XX9XQw' 
     }
   ];
 
@@ -61,9 +40,6 @@
   var fvMangaPrefersReducedMotion =
     window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------------------------------------------------
-     Smooth scroll for in-page hero / card links
-     --------------------------------------------------------- */
   function fvMangaInitSmoothScroll() {
     var links = document.querySelectorAll('[data-fv-manga-scroll]');
     links.forEach(function (link) {
@@ -80,9 +56,6 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     Scroll-reveal animation
-     --------------------------------------------------------- */
   function fvMangaInitScrollReveal() {
     var revealEls = document.querySelectorAll('.fv-manga-reveal');
     if (!revealEls.length) { return; }
@@ -106,10 +79,6 @@
 
     revealEls.forEach(function (el) { observer.observe(el); });
   }
-
-  /* ---------------------------------------------------------
-     Video cards + modal
-     --------------------------------------------------------- */
   function fvMangaBuildVideoCard(video) {
     var card = document.createElement('article');
     card.className = 'fv-manga-video-card fv-manga-video-card--tilt';
@@ -229,7 +198,7 @@
     if (!modal || !frame) { return; }
 
     modal.hidden = true;
-    frame.innerHTML = ''; // stop playback
+    frame.innerHTML = ''; 
     document.body.style.overflow = '';
 
     if (fvMangaLastFocusedEl && typeof fvMangaLastFocusedEl.focus === 'function') {
@@ -270,14 +239,6 @@
       }
     });
   }
-
-  /* ---------------------------------------------------------
-     3D premium tilt effect for the video trailer cards.
-     Tracks the pointer over each card and rotates it in 3D
-     space toward the cursor, with a glare/shine sweep and a
-     glowing edge that follows the tilt. Skipped entirely for
-     touch input and reduced-motion preference.
-     --------------------------------------------------------- */
   function fvMangaInitTiltEffect() {
     if (fvMangaPrefersReducedMotion) { return; }
     var isCoarsePointer = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
@@ -315,9 +276,6 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     Init
-     --------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
     fvMangaInitSmoothScroll();
     fvMangaInitScrollReveal();

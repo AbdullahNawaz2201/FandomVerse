@@ -1,8 +1,3 @@
-/* =========================================================
-   FANDOMVERSE — PREMIUM 3D CHAT WIDGET
-   Fixed bottom-right launcher + glass chat panel.
-   Prefix: fvc-  (FandomVerse Chat)
-   ========================================================= */
 
 #fvc-root {
   position: fixed;
@@ -15,7 +10,6 @@
 
 #fvc-root * { box-sizing: border-box; }
 
-/* ---------- Launcher button ---------- */
 .fvc-launcher {
   position: relative;
   width: 68px;
@@ -125,7 +119,6 @@
 @keyframes fvcBadgeIn { from { transform: scale(0); } to { transform: scale(1); } }
 @keyframes fvcBadgeBounce { 0%, 85%, 100% { transform: scale(1); } 90% { transform: scale(1.25); } }
 
-/* Launcher when panel is open: rotate icon into a close (X) */
 #fvc-root.is-open .fvc-launcher {
   transform: rotate(0deg) scale(1);
   animation: none;
@@ -134,7 +127,6 @@
 #fvc-root.is-open .fvc-launcher__close { opacity: 1; transform: rotate(0deg) scale(1); }
 #fvc-root.is-open .fvc-launcher__badge { display: none; }
 
-/* ---------- Chat panel — 3D flip-open card ---------- */
 .fvc-panel {
   position: absolute;
   right: 0;
@@ -197,7 +189,6 @@
   opacity: 0.7;
 }
 
-/* ---------- Header ---------- */
 .fvc-head {
   display: flex;
   align-items: center;
@@ -263,7 +254,6 @@
 .fvc-head__close:hover { background: rgba(255,59,92,0.16); color: #ff8aa3; transform: rotate(90deg); }
 .fvc-head__close svg { width: 15px; height: 15px; }
 
-/* ---------- Ultra VIP badge strip ---------- */
 .fvc-premium {
   position: relative;
   display: flex;
@@ -332,7 +322,6 @@
   to { background-position: -260% auto; }
 }
 
-/* ---------- Gate (name / email capture) ---------- */
 .fvc-gate {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -451,7 +440,6 @@
 .fvc-field.is-invalid .fvc-field__error { opacity: 1; transform: translateY(0); }
 .fvc-field__error svg { width: 12px; height: 12px; flex-shrink: 0; }
 
-/* ---------- Custom premium select (fandom picker) ---------- */
 .fvc-select {
   position: relative;
 }
@@ -564,7 +552,6 @@
   font-weight: 700;
 }
 
-/* ---------- per-fandom aesthetic option cards (image + icon) ---------- */
 .fvc-opt__badge {
   position: relative;
   width: 40px;
@@ -660,7 +647,6 @@
 }
 .fvc-gate__note svg { width: 12px; height: 12px; flex-shrink: 0; }
 
-/* ---------- Chat view ---------- */
 .fvc-chat {
   flex: 1 1 auto;
   display: flex;
@@ -757,7 +743,6 @@
 .fvc-typing__bubble span:nth-child(3) { animation-delay: 0.3s; }
 @keyframes fvcBounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-5px); opacity: 1; } }
 
-/* ---------- Quick replies ---------- */
 .fvc-quick {
   display: flex;
   flex-wrap: wrap;
@@ -779,7 +764,6 @@
 }
 .fvc-quick button:hover { background: rgba(139,92,246,0.26); color: #fff; transform: translateY(-2px); }
 
-/* ---------- Input bar ---------- */
 .fvc-inputbar {
   position: relative;
   display: flex;
@@ -833,7 +817,6 @@
 .fvc-send:hover:not(:disabled) { transform: scale(1.1) rotate(8deg); box-shadow: 0 14px 28px -6px rgba(139,92,246,0.9); }
 .fvc-send:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 480px) {
   #fvc-root { right: 14px; bottom: 14px; }
   .fvc-panel {

@@ -1,11 +1,4 @@
-/* ===== FANDOMVERSE — HOME PAGE SECTIONS (index.html only) ===== */
 
-
-/* ---------- ARTICLES ---------- */
-/* =========================================================
-   FEATURED ARTICLES — "Latest From The Fandom"
-   Self-contained, namespaced with fv to avoid collisions
-   ========================================================= */
 
 const FV_ARTICLES = [
   {
@@ -90,7 +83,6 @@ function fvPlaceholderImage(accent, label) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
-/* ---------- localStorage bookmarks ---------- */
 function fvGetBookmarks() {
   try {
     const raw = localStorage.getItem(FV_BOOKMARK_KEY);
@@ -121,7 +113,6 @@ function fvToggleBookmark(id) {
   return ids.includes(id);
 }
 
-/* ---------- Rendering ---------- */
 function fvArticleCardTemplate(article, bookmarks) {
   const catKey = article.category.toLowerCase().replace(/[^a-z]/g, "");
   const meta = FV_CATEGORY_ACCENTS[catKey] || FV_CATEGORY_ACCENTS.anime;
@@ -185,7 +176,6 @@ function fvRenderArticles() {
 
   const bookmarks = fvGetBookmarks();
 
-  // Featured article first, then the rest, capped so the layout stays 1 + 3
   const featured = FV_ARTICLES.find(a => a.featured) || FV_ARTICLES[0];
   const rest = FV_ARTICLES.filter(a => a.id !== featured.id).slice(0, 3);
   const ordered = [featured, ...rest];
@@ -209,10 +199,6 @@ function fvRenderArticles() {
 
 document.addEventListener("DOMContentLoaded", fvRenderArticles);
 
-/* ---------- TRAILERS ---------- */
-/* =========================================================
-   LATEST TRAILERS — self-contained, namespaced with fvt
-   ========================================================= */
 
 const FVT_CATEGORY_META = {
   Anime:    { accent: "#ff3b5c", glow: "rgba(255, 59, 92, 0.35)" },
@@ -224,7 +210,6 @@ const FVT_CATEGORY_META = {
   Manga:    { accent: "#ff7a3d", glow: "rgba(255, 122, 61, 0.35)" }
 };
 
-// All videoUrl values below are real, verified official trailers (Sept 2026).
 const fvTrailerData = [
   {
     id: 1,
@@ -324,7 +309,6 @@ let fvtActiveCategory = "all";
 let fvtActiveStatus = "all";
 let fvtActiveSort = "featured";
 
-/* ---------- Helpers ---------- */
 function fvtEscapeHtml(str) {
   if (!str) return "";
   return String(str)
@@ -364,7 +348,6 @@ function fvtFormatDate(dateStr) {
   return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 
-/* ---------- Bookmarks (shared fandomverseBookmarks key) ---------- */
 function fvtGetBookmarks() {
   try {
     const raw = localStorage.getItem(FVT_BOOKMARK_KEY);
@@ -400,7 +383,6 @@ function fvtIsBookmarked(id, bookmarks) {
   return bookmarks.includes(FVT_BOOKMARK_PREFIX + id);
 }
 
-/* ---------- Filtering + sorting ---------- */
 function fvtGetVisibleTrailers() {
   let list = fvTrailerData.filter(t => {
     const catMatch = fvtActiveCategory === "all" || t.category === fvtActiveCategory;
@@ -499,7 +481,6 @@ function fvtRenderTrailers() {
   });
 }
 
-/* ---------- Modal ---------- */
 function fvtOpenModal(id) {
   const trailer = fvTrailerData.find(t => t.id === id);
   if (!trailer) return;
@@ -535,12 +516,11 @@ function fvtCloseModal() {
   const player = document.getElementById("fv-trailers-modal-player");
   if (modal.hidden) return;
 
-  player.innerHTML = ""; // removes the iframe so audio/video actually stops
+  player.innerHTML = ""; 
   modal.hidden = true;
   document.body.classList.remove("fv-trailers-modal-open");
 }
 
-/* ---------- Filters + sort wiring ---------- */
 function fvtInitControls() {
   document.querySelectorAll('.fv-trailers-chip[data-filter-type="category"]').forEach(btn => {
     btn.addEventListener("click", () => {
@@ -582,11 +562,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fvtInitControls();
   fvtRenderTrailers();
 });
-
-/* ---------- CHARACTERS ---------- */
-/* =========================================================
-   CHARACTER SPOTLIGHT — self-contained, namespaced with fvc
-   ========================================================= */
 
 const FVC_CATEGORY_META = {
   Anime:      { accent: "#ff3b5c", glow: "rgba(255, 59, 92, 0.35)" },
@@ -680,7 +655,6 @@ const FVC_BOOKMARK_PREFIX = "character-";
 let fvcActiveCategory = "all";
 let fvcFeaturedId = fvCharacterData.find(c => c.featured)?.id || fvCharacterData[0].id;
 
-/* ---------- Helpers ---------- */
 function fvcEscapeHtml(str) {
   if (!str) return "";
   return String(str)
@@ -708,7 +682,6 @@ function fvcPlaceholderImg(accent, label) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
-/* ---------- Bookmarks (shared fandomverseBookmarks key) ---------- */
 function fvcGetBookmarks() {
   try {
     const raw = localStorage.getItem(FVC_BOOKMARK_KEY);
@@ -849,7 +822,6 @@ function fvcRender() {
 }
 
 function fvcWireDynamicEvents() {
-  // Featured bookmark
   const featuredBookmark = document.getElementById("fv-characters-featured-bookmark");
   if (featuredBookmark) {
     featuredBookmark.addEventListener("click", () => {
@@ -868,7 +840,6 @@ function fvcWireDynamicEvents() {
     });
   }
 
-  // Small card click / keyboard -> switch featured
   document.querySelectorAll(".fv-characters-card[data-switch-id]").forEach(card => {
     const switchToFeatured = () => {
       fvcFeaturedId = Number(card.dataset.switchId);
@@ -883,7 +854,6 @@ function fvcWireDynamicEvents() {
     });
   });
 
-  // Small card bookmark buttons (stop propagation so it doesn't trigger featured switch)
   document.querySelectorAll(".fv-characters-card__bookmark[data-bookmark-id]").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
@@ -932,7 +902,7 @@ function fvcOpenModal(id) {
     const nowSaved = fvcToggleBookmark(character.id);
     bookmarkIcon.textContent = nowSaved ? "♥" : "♡";
     bookmarkBtn.classList.toggle("is-saved", nowSaved);
-    fvcRender(); // keep list/featured bookmark icons in sync
+    fvcRender(); 
   };
 
   modal.hidden = false;
@@ -947,7 +917,6 @@ function fvcCloseModal() {
   document.body.classList.remove("fv-characters-modal-open");
 }
 
-/* ---------- Filter chips + global controls ---------- */
 function fvcInitControls() {
   document.querySelectorAll(".fv-characters-chip").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -971,10 +940,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fvcRender();
 });
 
-/* ---------- MERCH ---------- */
-/* =========================================================
-   FANDOM MARKETPLACE — self-contained, namespaced with fvm
-   ========================================================= */
 
 const FVM_CATEGORY_META = {
   Anime:      { accent: "#ff3b5c", glow: "rgba(255, 59, 92, 0.35)" },
@@ -1070,7 +1035,6 @@ let fvmActiveCategory = "all";
 let fvmActiveSort = "featured";
 let fvmToastTimer = null;
 
-/* ---------- Helpers ---------- */
 function fvmEscapeHtml(str) {
   if (!str) return "";
   return String(str)
@@ -1098,7 +1062,6 @@ function fvmPlaceholderImg(accent, label) {
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
-/* ---------- Bookmarks (shared fandomverseBookmarks key) ---------- */
 function fvmGetBookmarks() {
   try {
     const raw = localStorage.getItem(FVM_BOOKMARK_KEY);
@@ -1134,7 +1097,6 @@ function fvmIsBookmarked(id, bookmarks) {
   return bookmarks.includes(FVM_BOOKMARK_PREFIX + id);
 }
 
-/* ---------- Cart (fandomverseCart key) ---------- */
 function fvmGetCart() {
   try {
     const raw = localStorage.getItem(FVM_CART_KEY);
@@ -1215,7 +1177,6 @@ function fvmShowToast(message) {
   }, 2200);
 }
 
-/* ---------- Filtering + sorting ---------- */
 function fvmGetVisibleProducts() {
   let list = fvMerchData.filter(p => fvmActiveCategory === "all" || p.category === fvmActiveCategory);
 
@@ -1238,7 +1199,6 @@ function fvmGetVisibleProducts() {
   return list;
 }
 
-/* ---------- Rendering: product grid ---------- */
 function fvmCardTemplate(product, bookmarks) {
   const meta = FVM_CATEGORY_META[product.category] || FVM_CATEGORY_META.Anime;
   const isSaved = fvmIsBookmarked(product.id, bookmarks);
@@ -1423,7 +1383,6 @@ function fvmCloseCartDrawer() {
   document.body.classList.remove("fv-merch-modal-open");
 }
 
-/* ---------- Controls wiring ---------- */
 function fvmInitControls() {
   document.querySelectorAll(".fv-merch-chip").forEach(btn => {
     btn.addEventListener("click", () => {

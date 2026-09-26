@@ -1,9 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — PREMIUM GLOBAL CART
-   Glassmorphic dropdown, validated qty logic, toasts.
-   ========================================================= */
 
-/* ---------- badge: upgraded glow + pulse-on-add ---------- */
 #cart-count {
   background: linear-gradient(135deg, #ff5ecb, #8b5cf6);
   box-shadow: 0 0 0 2px var(--bg-header, rgba(14,14,22,0.85)), 0 0 10px rgba(139,92,246,0.75);
@@ -22,7 +17,6 @@
   75% { transform: translateX(3px); }
 }
 
-/* ---------- panel ---------- */
 .fv-cart__panel {
   position: fixed;
   top: 72px;
@@ -251,7 +245,6 @@
   box-shadow: none !important;
 }
 
-/* ---------- toasts ---------- */
 .fv-cart__toast-host {
   position: fixed;
   bottom: 20px;

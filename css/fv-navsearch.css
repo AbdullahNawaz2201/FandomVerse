@@ -1,10 +1,4 @@
-/* =========================================================================
-   FANDOMVERSE — PREMIUM NAV SEARCH + FILTER/SORT SYSTEM
-   Glassmorphic 3D dropdown attached to the header search box. Works on
-   every page: content pages get live search + tag filters + sort, pages
-   with no browsable grid get a "jump to fandom" quick-filter instead.
-   Pure CSS + vanilla JS (js/fv-navsearch.js).
-   ========================================================================= */
+
 
 :root{
   --sf-rose: 255,60,130;
@@ -13,11 +7,9 @@
   --sf-gold: 255,205,110;
 }
 
-/* ---- search box gets a subtle premium glow + the new toggle button ---- */
 .search-box{ position: relative; display: flex; align-items: center; gap: 2px; }
 .search-box.is-open.has-value #search-input{ padding-right: 34px; }
 
-/* ---- inline validation: clear (×) button + hint message ---- */
 .sf-search-clear{
   position:absolute;
   top:50%; right: 46px;
@@ -89,7 +81,6 @@
 }
 .sf-toggle.has-active .sf-dot{ opacity:1; transform: scale(1); }
 
-/* ---- the panel itself ---- */
 .sf-panel{
   position:absolute;
   top: calc(100% + 16px);
@@ -161,7 +152,6 @@
   margin-bottom:9px;
 }
 
-/* ---- sort: segmented sliding-pill row ---- */
 .sf-sort{
   display:flex; flex-wrap:wrap; gap:6px;
 }
@@ -184,7 +174,6 @@
   box-shadow: 0 6px 18px -4px rgba(var(--sf-violet),.65);
 }
 
-/* ---- filter chips ---- */
 .sf-chips{ display:flex; flex-wrap:wrap; gap:7px; }
 .sf-chip{
   appearance:none; border:1px solid rgba(255,255,255,.14);
@@ -237,7 +226,6 @@
   color: rgba(255,255,255,.42);
 }
 
-/* ---- grid-level no-results state ---- */
 .sf-no-results{
   grid-column: 1 / -1;
   text-align:center;

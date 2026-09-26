@@ -1,4 +1,3 @@
-/* FandomVerse — chatbot premium 3D polish: cursor tilt + ambient particles */
 (function () {
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 

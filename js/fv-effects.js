@@ -1,17 +1,10 @@
-/* =========================================================
-   FANDOMVERSE — SHARED 3D HERO + PAGE-TRANSITION ENGINE
-   Include on every page:
-     <link rel="stylesheet" href="css/fv-effects.css">
-     <script src="js/fv-effects.js" defer></script>
-   Requires the overlay markup with id="fv-pagefx" right after <body>.
-   ========================================================= */
+
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isCoarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
 
-  /* ---------- 1. Tag every hero background so CSS can animate it ---------- */
   function tagHeroBackgrounds() {
     var selectors = [
       ".fv-anime-hero__bg",
@@ -31,13 +24,10 @@
     return nodes;
   }
 
-  /* ---------- 2. Live mouse-parallax 3D tilt on hero backgrounds ---------- */
   function initParallax(nodes) {
     if (reduceMotion || isCoarsePointer || !nodes.length) return;
 
-    // IMPORTANT: the bg element itself (data-fv3d="1") already owns the CSS
-    // Ken-Burns zoom animation. We tilt its wrapping SCOPE instead (whole
-    // hero section), so the two transforms never fight on the same element.
+    
     var scopes = [];
     nodes.forEach(function (el) {
       var scope = el.closest("section, .hero, #fv-movies-hero") || el.parentElement;
@@ -64,15 +54,14 @@
       rafId = null;
       scopes.forEach(function (scope) {
         var rect = scope.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return; // offscreen, skip
-        var rotateY = (mouseX - 0.5) * 6;   // max ±3deg
-        var rotateX = (0.5 - mouseY) * 4;   // max ±2deg
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return; 
+        var rotateY = (mouseX - 0.5) * 6;   
+        var rotateX = (0.5 - mouseY) * 4;   
         scope.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
       });
     }
   }
 
-  /* ---------- 3. Reveal animation for hero inner content ---------- */
   function initReveal() {
     var reveals = document.querySelectorAll(
       ".fv-anime-hero__inner, .fv-gaming-hero__inner, .fv-movies-hero__inner, .fv-hero3d__inner, .hero-content, .fv-fx-reveal"
@@ -85,7 +74,6 @@
     });
   }
 
-  /* ---------- 4. Cinematic page-transition overlay ---------- */
   function enrichPagefxMark(overlay) {
     var mark = overlay.querySelector(".fv-pagefx__mark");
     if (!mark || mark.querySelector(".fv-pagefx__ring")) return;
@@ -125,7 +113,6 @@
 
     enrichPagefxMark(overlay);
 
-    // Reveal current page on load (blinds open, revealing the 3D hero underneath)
     requestAnimationFrame(function () {
       setTimeout(function () {
         overlay.classList.add("is-opening");
@@ -133,7 +120,6 @@
       }, 40);
     });
 
-    // Reset overlay when returning via back/forward cache
     window.addEventListener("pageshow", function (e) {
       if (e.persisted) {
         overlay.classList.remove("is-closing");
@@ -174,7 +160,6 @@
     });
   }
 
-  /* ---------- 5. Top scroll-progress bar ---------- */
   function initScrollbar() {
     if (document.getElementById("fv-scrollbar")) return;
     var bar = document.createElement("div");

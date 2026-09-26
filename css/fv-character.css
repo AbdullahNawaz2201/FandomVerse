@@ -1,11 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — CHARACTER / PROFILE PAGE
-   Styling for character.html. Reuses the site's dark
-   premium palette; --fvp-accent / --fvp-glow are set inline
-   per-profile by js/fv-character-page.js. 3D tilt on the
-   portrait card and glow/ripple on __cta buttons come free
-   from js/fv-premium-3d.js (class-name convention only).
-   ========================================================= */
+
 
 .fv-profile-main {
   --fvp-accent: #b06bff;
@@ -20,7 +13,6 @@
   padding: 0 24px;
 }
 
-/* ---------- Hero ---------- */
 .fv-profile-hero {
   position: relative;
   padding: 140px 0 100px;
@@ -73,7 +65,6 @@
   align-items: center;
 }
 
-/* ---------- 3D portrait card ---------- */
 .fv-profile-portrait-card {
   position: relative;
   border-radius: 24px;
@@ -115,7 +106,6 @@
   box-shadow: 0 8px 20px -6px var(--fvp-glow);
 }
 
-/* ---------- Info column ---------- */
 .fv-profile-badge {
   display: inline-flex;
   align-items: center;
@@ -235,7 +225,6 @@
   color: var(--fvp-accent);
 }
 
-/* ---------- Related section ---------- */
 .fv-profile-related {
   padding: 20px 0 120px;
   position: relative;

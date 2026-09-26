@@ -1,6 +1,4 @@
-/* =========================================================================
-   FANDOMVERSE — LOGIN / SIGN UP "LEGENDARY GATE" EXPERIENCE
-   ========================================================================= */
+
 
 .fv-login-page{
   background: var(--bg-void);
@@ -8,7 +6,6 @@
   min-height: 100vh;
 }
 
-/* ---------- top bar ---------- */
 .fv-login-top{
   position: relative;
   z-index: 20;
@@ -33,7 +30,6 @@
 }
 .fv-login-back:hover{ color:#fff; border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); }
 
-/* ---------- stage / background ---------- */
 .fv-login-stage{
   position: relative;
   min-height: 92vh;
@@ -91,7 +87,6 @@
 }
 @keyframes fv-portal-pulse{ 0%,100%{ opacity:.75; transform: translate(-50%,-46%) scale(1);} 50%{ opacity:1; transform: translate(-50%,-46%) scale(1.05);} }
 
-/* ---------- floating anime character cards ---------- */
 .fv-login-char{
   position:absolute;
   width: clamp(84px, 9vw, 130px);
@@ -145,7 +140,6 @@
   .fv-login-char{ width: 70px; }
 }
 
-/* the "striker" card that dashes in and kicks the panel */
 .fv-login-char--striker{
   transition: transform 1s cubic-bezier(.5,-0.2,.2,1.3), filter .3s ease;
 }
@@ -165,7 +159,6 @@
   transform: none;
 }
 
-/* impact flash + shockwave at the panel */
 .fv-login-impact{
   position:absolute; left:50%; top:50%; z-index: 28;
   width: 10px; height:10px; border-radius:50%;
@@ -194,7 +187,6 @@
   90%{ transform: translate(2px,1px); }
 }
 
-/* ---------- the seal (locked state before the "kick") ---------- */
 .fv-login-seal{
   position:absolute; z-index: 15;
   width: min(420px, 78vw); aspect-ratio: 1;
@@ -222,7 +214,6 @@
   transition: opacity .5s ease, transform .6s cubic-bezier(.3,.9,.3,1);
 }
 
-/* ---------- the glass login panel ---------- */
 .fv-login-panel{
   position: relative; z-index: 20;
   width: min(420px, 92vw);
@@ -359,7 +350,6 @@
 
 .fv-login-panel__foot{ text-align:center; margin-top:18px; font-size:.8rem; color:var(--text-dim); }
 
-/* success state */
 .fv-login-success{
   display:none;
   flex-direction:column; align-items:center; text-align:center; gap:10px;

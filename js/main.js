@@ -1,17 +1,4 @@
-/* ===== FANDOMVERSE — SHARED (loaded on every page) ===== */
-/* =========================================================
-   Hero background animation — drifting color-spectrum particles
-   representing the fusion of fandom categories.
-   No external assets, no video file needed.
 
-   TO SWAP IN A REAL VIDEO LATER:
-   1. Add <video autoplay muted loop playsinline id="hero-video">
-      right above the #hero-canvas element in index.html, with a
-      <source src="assets/videos/your-clip.mp4" type="video/mp4">
-   2. Give it the same CSS as #hero-canvas (position:absolute; inset:0;
-      width/height:100%; object-fit:cover;)
-   3. Comment out the initHeroCanvas() call at the bottom of this file.
-   ========================================================= */
 
 function initHeroCanvas() {
   const canvas = document.getElementById('hero-canvas');
@@ -23,7 +10,6 @@ function initHeroCanvas() {
   let width, height;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // mouse-reactive glow origin — starts centered, drifts toward cursor
   const glow = { x: 0.7, y: 0.3, targetX: 0.7, targetY: 0.3 };
   window.addEventListener('mousemove', e => {
     glow.targetX = e.clientX / window.innerWidth;
@@ -94,7 +80,6 @@ function initHeroCanvas() {
   });
 }
 
-/* ===== Magnetic hover on primary CTA ===== */
 function initMagneticButton() {
   const btn = document.querySelector('.btn-primary');
   if (!btn) return;
@@ -113,7 +98,6 @@ function initMagneticButton() {
   });
 }
 
-/* ===== Header: sliding nav pill + active link tracking ===== */
 function initNavPill() {
   const nav = document.getElementById('main-nav');
   const pill = document.getElementById('nav-pill');
@@ -163,7 +147,6 @@ function initNavPill() {
   setActiveFromPath();
 }
 
-/* ===== Header: cursor spotlight ===== */
 function initHeaderSpotlight() {
   const header = document.getElementById('site-header');
   if (!header) return;
@@ -176,7 +159,6 @@ function initHeaderSpotlight() {
   });
 }
 
-/* ===== Header: shrink on scroll ===== */
 function initScrollHeader() {
   const header = document.getElementById('site-header');
   if (!header) return;
@@ -185,7 +167,6 @@ function initScrollHeader() {
   }, { passive: true });
 }
 
-/* ===== Header: expandable search ===== */
 function initSearchToggle() {
   const box = document.getElementById('search-box');
   const toggle = document.getElementById('search-toggle');
@@ -202,7 +183,6 @@ function initSearchToggle() {
   });
 }
 
-/* ===== Header: mobile menu toggle ===== */
 function initMenuToggle() {
   const btn = document.getElementById('menu-toggle');
   const overlay = document.getElementById('mobile-nav');
@@ -225,7 +205,6 @@ function initMenuToggle() {
   });
 }
 
-/* ===== Store: Add to Cart handling (FandomVerse Originals) ===== */
 function initStoreAddToCart() {
   const cartCountEl = document.getElementById('cart-count');
   if (!cartCountEl) return;
@@ -264,9 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (page === 'movies') initMovieCards();
 });
 
-/* =========================================================
-   HOLLYWOOD SUPERHEROES — MOVIE CARDS DATA
-   ========================================================= */
 
 const MOVIES = [
   {
@@ -379,10 +355,6 @@ const MOVIES = [
 
 const TIER_LABEL = { legendary: 'LEGENDARY', rare: 'RARE', standard: 'STANDARD' };
 let flippedCard = null;
-
-/* =========================================================
-   ANIME DATA
-   ========================================================= */
 const ANIME = [
   {
     id: 'naruto', title: 'Naruto', tagline: 'ナルト', studio: 'Studio Pierrot',
@@ -426,9 +398,6 @@ const ANIME = [
   }
 ];
 
-/* =========================================================
-   TRENDING (HOMEPAGE) — pulls from existing category datasets
-   ========================================================= */
 
 const TRENDING_META = {
   anime:   { label: 'Anime',    type: 'Series',  href: 'anime.html',   accent: '#ff3b5c', glow: 'rgba(255, 59, 92, 0.35)' },
@@ -440,7 +409,6 @@ const TRENDING_META = {
   manga:   { label: 'Manga',    type: 'Chapter', href: 'manga.html',   accent: '#ff7a3d', glow: 'rgba(255, 122, 61, 0.35)' }
 };
 
-// Sample cards used to round out the grid for categories with no live dataset yet
 const TRENDING_FALLBACK = [
   { category: 'tvshows', id: 'shadow-realm', title: 'Shadow Realm', desc: 'A detective drama where every case bleeds into a parallel world only she can see.', meta: 'New season', img: 'assets/images/tvshows/shadow-realm.jpg' },
   { category: 'kpop',    id: 'nova-wave',    title: 'NOVA — "Wave"', desc: 'The comeback single everyone is streaming this week, with a full choreo breakdown.', meta: 'Comeback', img: 'assets/images/kpop/nova-wave.jpg' },
@@ -540,9 +508,6 @@ function initTrendingCards() {
   });
 }
 
-/* =========================================================
-   GAMING DATA
-   ========================================================= */
 const GAMES = [
   {
     id: 'fantasy-sports', title: 'Fantasy Sports League', tagline: 'Arena Showdown', studio: 'Arcadia Interactive',
@@ -946,30 +911,13 @@ function escapeHtml(str) {
 }
 
 
-
-
-
-
-
-/* ===== FOOTER ===== */
-/* =========================================================
-   FANDOMVERSE FOOTER — JavaScript
-   All functions/variables are namespaced with "fvFooter" so
-   nothing here can collide with existing site scripts.
-   Include this file as its own <script src="fv-footer.js">
-   tag, placed AFTER your other scripts, right before </body>.
-   ========================================================= */
-
-/* ---------- 1. Dynamic copyright year ---------- */
 function fvFooterSetYear() {
   const yearEl = document.getElementById('fv-footer-year');
   if (!yearEl) return;
   yearEl.textContent = String(new Date().getFullYear());
 }
 
-/* ---------- 2. Newsletter subscribe (front-end demo only) ---------- */
 function fvFooterIsValidEmail(value) {
-  // Simple, permissive pattern: something@something.tld
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
 
@@ -992,7 +940,6 @@ function fvFooterInitNewsletter() {
       return;
     }
 
-    // Front-end demo only — nothing is sent or stored anywhere.
     msg.textContent = "You're on the list! Welcome to FandomVerse.";
     msg.setAttribute('data-state', 'success');
     input.removeAttribute('aria-invalid');
@@ -1010,7 +957,6 @@ function fvFooterInitNewsletter() {
   });
 }
 
-/* ---------- 3. Back to top button ---------- */
 function fvFooterInitBackToTop() {
   const btn = document.getElementById('fv-footer-back-top');
   if (!btn) return;

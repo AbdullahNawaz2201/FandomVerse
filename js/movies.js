@@ -1,22 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — MOVIES PAGE SCRIPT
-   Lightweight vanilla JS scoped to the Movies page only.
-   Handles: trailer data + rendering, trailer modal (YouTube
-   iframe + Watch-on-YouTube fallback), poster/portrait image
-   fallbacks, smooth scroll, and basic card interactions.
-   ========================================================= */
 
-/* ---------------------------------------------------------
-   TRAILER DATA
-   Real, verified, publicly accessible official trailers.
-   NOTE: FandomVerse's own catalog titles above (Beyond
-   Tomorrow, The Last Horizon, etc.) are original fictional
-   concepts and have no real trailers to link to. This section
-   instead spotlights real, currently trending official studio
-   trailers, exactly as specified: no placeholder IDs, no fake
-   links. Swap these objects out any time for other verified
-   official trailers.
---------------------------------------------------------- */
 const fvMoviesTrailerData = [
   {
     title: "Avengers: Doomsday",
@@ -47,11 +29,6 @@ const fvMoviesTrailerData = [
   }
 ];
 
-/* ---------------------------------------------------------
-   POSTER / PORTRAIT FALLBACKS
-   Used via <img onerror="..."> in the HTML so a missing
-   asset never shows a broken-image icon.
---------------------------------------------------------- */
 function fvMoviesPosterFallback(title, mood) {
   const el = document.createElement('div');
   el.className = 'fv-movies-fallback';
@@ -70,10 +47,6 @@ function fvMoviesCharFallback(name) {
   el.textContent = initials;
   return el;
 }
-
-/* ---------------------------------------------------------
-   RENDER TRAILER CARDS
---------------------------------------------------------- */
 function fvMoviesRenderTrailers() {
   const grid = document.getElementById('fv-movies-trailer-grid');
   if (!grid) return;
@@ -101,9 +74,6 @@ function fvMoviesRenderTrailers() {
   }).join('');
 }
 
-/* ---------------------------------------------------------
-   TRAILER MODAL
---------------------------------------------------------- */
 const fvMoviesModal = {
   el: null,
   frame: null,
@@ -141,10 +111,6 @@ const fvMoviesModal = {
     this.lastFocused = document.activeElement;
     this.titleEl.textContent = trailer.title + ' — ' + trailer.trailerType;
 
-    // Load the YouTube iframe. If the embed is later reported
-    // as disabled by the player, the iframe's own "Watch on
-    // YouTube" overlay handles it — we also always show our
-    // own fallback link underneath as a guaranteed way out.
     const iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube.com/embed/' + trailer.videoId + '?autoplay=1&rel=0';
     iframe.title = trailer.title + ' trailer';
@@ -170,9 +136,6 @@ const fvMoviesModal = {
   }
 };
 
-/* ---------------------------------------------------------
-   SMOOTH SCROLL (hero buttons)
---------------------------------------------------------- */
 function fvMoviesInitSmoothScroll() {
   document.querySelectorAll('[data-fv-scroll]').forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -185,11 +148,6 @@ function fvMoviesInitSmoothScroll() {
   });
 }
 
-/* ---------------------------------------------------------
-   BASIC CARD INTERACTIONS (movie / character "Explore" buttons)
-   Kept intentionally lightweight: surfaces a message rather
-   than duplicating a full detail-page application.
---------------------------------------------------------- */
 function fvMoviesInitCardButtons() {
   document.querySelectorAll('[data-fv-movie]').forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -206,9 +164,6 @@ function fvMoviesInitCardButtons() {
   });
 }
 
-/* ---------------------------------------------------------
-   INIT
---------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
   fvMoviesRenderTrailers();
   fvMoviesModal.init();

@@ -1,7 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — Contact form validation
-   Real-time + on-submit checks with inline error messages.
-   ========================================================= */
+
 (function () {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -44,7 +41,6 @@
     return isValid;
   }
 
-  // Real-time validation once the user has interacted with a field
   Object.keys(fields).forEach((key) => {
     const field = fields[key];
     let touched = false;
@@ -73,7 +69,6 @@
       return;
     }
 
-    // All good — simulate submission (no backend wired up in this build)
     if (submitBtn) {
       submitBtn.setAttribute('disabled', 'true');
       submitBtn.textContent = 'Sending…';

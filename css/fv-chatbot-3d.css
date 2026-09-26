@@ -1,9 +1,4 @@
-/* =========================================================================
-   FANDOMVERSE — CHATBOT PREMIUM 3D POLISH
-   Additive layer on top of fv-chatbot.css: cursor-reactive tilt, ambient
-   floating particles inside the panel, and richer message entrances.
-   Pure CSS + a small vanilla JS hook (js/fv-chatbot-3d.js).
-   ========================================================================= */
+
 
 .fvc-launcher{
   transform: perspective(700px) rotateX(var(--fvc-tiltY,0deg)) rotateY(var(--fvc-tiltX,0deg))
@@ -41,7 +36,6 @@
   100% { transform: translateY(-560px) translateX(var(--drift, 20px)); opacity:0; }
 }
 
-/* richer message entrance (fires automatically when a node is appended) */
 .fvc-msg{
   animation: fvcMsgIn .48s cubic-bezier(.22,1.12,.36,1) both;
 }

@@ -1,13 +1,3 @@
-/* =========================================================
-   FANDOMVERSE — K-POP PAGE CONTENT STYLES
-   All selectors are scoped under the fv-kpop- prefix.
-   Reuses site tokens above (--bg-void, --text-primary,
-   --text-dim, --font-display, --font-body). Local tokens
-   below add K-Pop-specific hues. No modern/experimental CSS
-   functions are used (no color-mix(), no nested selectors)
-   so this is safe for older browsers and build tooling.
-   ========================================================= */
-
 .fv-kpop-hero,
 .fv-kpop-artists,
 .fv-kpop-music,
@@ -25,7 +15,6 @@
   padding: 0 24px;
 }
 
-/* ---------- shared section head ---------- */
 .fv-kpop-section-head {
   text-align: center;
   max-width: 640px;
@@ -62,7 +51,6 @@
   margin: 0;
 }
 
-/* ---------- 1. HERO ---------- */
 .fv-kpop-hero {
   position: relative;
   overflow: hidden;
@@ -233,7 +221,6 @@
   transform: translateY(-2px);
 }
 
-/* ---------- 2. FEATURED ARTISTS ---------- */
 .fv-kpop-artists {
   padding: 90px 0;
   background: var(--bg-void);
@@ -338,7 +325,6 @@
 .fv-kpop-artist-card__cta:hover { text-decoration: underline; }
 .fv-kpop-artist-card__cta:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
 
-/* ---------- 3. LATEST MUSIC ---------- */
 .fv-kpop-music {
   padding: 90px 0;
   background: linear-gradient(180deg, var(--bg-void), #12101c 50%, var(--bg-void));
@@ -368,7 +354,7 @@
 .fv-kpop-music-card__thumb {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%; 
   background: #0a0a12;
 }
 
@@ -473,7 +459,6 @@
 .fv-kpop-viewall:hover { color: var(--fvk-pink); border-color: var(--fvk-pink); }
 .fv-kpop-viewall:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 3px; }
 
-/* ---------- VIDEO MODAL ---------- */
 .fv-kpop-modal {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -533,7 +518,7 @@
 .fv-kpop-modal__frame {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  padding-top: 56.25%; 
   background: #000;
   border-radius: 10px;
   overflow: hidden;
@@ -560,7 +545,6 @@
 
 .fv-kpop-modal__fallback:hover { text-decoration: underline; }
 
-/* ---------- 4. FANDOM ---------- */
 .fv-kpop-fandom {
   padding: 80px 0 100px;
   background: var(--bg-void);
@@ -642,7 +626,6 @@
 .fv-kpop-fandom-card__link:hover { text-decoration: underline; }
 .fv-kpop-fandom-card__link:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
   .fv-kpop-artist-grid { grid-template-columns: repeat(2, 1fr); }
   .fv-kpop-music-grid { grid-template-columns: repeat(2, 1fr); }
@@ -661,14 +644,6 @@
 
 
 
-/* =========================================================
-   FANDOMVERSE — COMICS PAGE STYLES
-   Scoped entirely under the fv-comics- prefix.
-   Link this AFTER css/style.css:
-   <link rel="stylesheet" href="css/comics.css">
-   Uses existing global tokens (--fv-bg, --fv-text, --fv-font-head,
-   --fv-font-body, --fv-radius-lg/md) defined in style.css.
-   ========================================================= */
 
 .fv-comics-container {
   max-width: 1240px;
@@ -737,7 +712,6 @@
 }
 .fv-comics-btn--ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 
-/* ===== 1. HERO ===== */
 .fv-comics-hero {
   position: relative;
   min-height: 78vh;
@@ -776,7 +750,6 @@
   opacity: 0.5;
 }
 
-/* ---- Animated comic-book layer ---- */
 .fv-comics-hero__comicfx { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 
 .fv-comics-hero__halftone {
@@ -901,7 +874,6 @@
 }
 .fv-comics-hero__actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
 
-/* ===== 2. FEATURED COMICS ===== */
 .fv-comics-featured { padding: 90px 0; background: #0b0b12; }
 .fv-comics-grid {
   display: grid;
@@ -945,7 +917,6 @@
 }
 .fv-comics-card__cta:hover { text-decoration: underline; }
 
-/* ===== 3. ICONIC CHARACTERS ===== */
 .fv-comics-characters { padding: 90px 0; background: #07070d; }
 .fv-comics-char-grid {
   display: grid;
@@ -988,7 +959,6 @@
 }
 .fv-comics-char-card__cta:hover { filter: brightness(1.15); }
 
-/* ===== 4. TRAILERS & REVEALS ===== */
 .fv-comics-trailers { padding: 90px 0 110px; background: #0b0b12; }
 .fv-comics-trailers__head {
   display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 20px;
@@ -1039,7 +1009,6 @@
 .fv-comics-trailer-card__fallback-link { font-family: var(--fv-font-body); font-size: 12.5px; font-weight: 700; color: #ff3b5c; text-decoration: none; }
 .fv-comics-trailer-card__fallback-link:hover { text-decoration: underline; }
 
-/* ===== TRAILER MODAL ===== */
 .fv-comics-modal { position: fixed; inset: 0; z-index: 999; display: flex; align-items: center; justify-content: center; padding: 24px; }
 .fv-comics-modal[hidden] { display: none; }
 .fv-comics-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
@@ -1063,7 +1032,6 @@
 .fv-comics-modal__fallback-link { font-family: var(--fv-font-body); font-size: 12.5px; font-weight: 700; color: #ff3b5c; text-decoration: none; white-space: nowrap; }
 .fv-comics-modal__fallback-link:hover { text-decoration: underline; }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .fv-comics-grid { grid-template-columns: repeat(2, 1fr); }
   .fv-comics-char-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1086,16 +1054,6 @@
 
 
 
-
-
-/* =========================================================
-   FANDOMVERSE — MANGA PAGE STYLES (isolated)
-   Prefix: fv-manga-
-   Reuses global tokens already defined in css/style.css
-   (--bg-void, --text-primary, --text-dim, --font-display,
-   --font-body) but introduces no new global variables and
-   touches no existing selector.
-   ========================================================= */
 
 .fv-manga-container {
   max-width: 1280px;
@@ -1150,7 +1108,6 @@
   line-height: 1.5;
 }
 
-/* ---------- scroll reveal ---------- */
 .fv-manga-reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1168,7 +1125,6 @@
   }
 }
 
-/* ---------- buttons ---------- */
 .fv-manga-btn {
   display: inline-flex;
   align-items: center;
@@ -1209,9 +1165,6 @@
   outline-offset: 3px;
 }
 
-/* =========================================================
-   SECTION 1 — HERO
-   ========================================================= */
 .fv-manga-hero {
   position: relative;
   min-height: 82vh;
@@ -1296,9 +1249,6 @@
   gap: 16px;
 }
 
-/* =========================================================
-   SECTION 2 — FEATURED MANGA
-   ========================================================= */
 .fv-manga-featured {
   position: relative;
   padding: 110px 0 100px;
@@ -1409,9 +1359,6 @@
   border-radius: 4px;
 }
 
-/* =========================================================
-   SECTION 3 — MANGA CHARACTERS
-   ========================================================= */
 .fv-manga-characters {
   position: relative;
   padding: 0 0 110px;
@@ -1524,9 +1471,6 @@
   outline-offset: 3px;
 }
 
-/* =========================================================
-   SECTION 4 — LATEST MANGA VIDEOS
-   ========================================================= */
 .fv-manga-videos {
   position: relative;
   padding: 0 0 120px;
@@ -1591,7 +1535,6 @@
   filter: saturate(1.2) contrast(1.08);
 }
 
-/* Glossy pointer-tracked shine sweep */
 .fv-manga-video-card__shine {
   position: absolute;
   inset: 0;
@@ -1602,7 +1545,6 @@
   z-index: 2;
 }
 
-/* Glowing inner edge that appears with the tilt */
 .fv-manga-video-card__edge {
   position: absolute;
   inset: 0;
@@ -1687,7 +1629,6 @@
   outline-offset: 3px;
 }
 
-/* ---------- modal ---------- */
 .fv-manga-modal {
   position: fixed;
   inset: 0;
@@ -1817,9 +1758,6 @@
   pointer-events: none;
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 @media (max-width: 1024px) {
   .fv-manga-grid {
     grid-template-columns: repeat(2, 1fr);

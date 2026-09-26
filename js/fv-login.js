@@ -76,7 +76,6 @@
       });
     }
 
-    /* ---- demo submit (no backend — front-end only) ---- */
     function handleSubmit(form, successText) {
       if (!form) return;
       form.addEventListener('submit', function (e) {
@@ -95,7 +94,6 @@
     handleSubmit(loginForm, 'Welcome back to the Verse.');
     handleSubmit(signupForm, 'Your legend begins now.');
 
-    /* ---- ripple for glow buttons (submit / social) ---- */
     document.querySelectorAll('.fv-glow-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         var r = btn.getBoundingClientRect();
@@ -109,7 +107,6 @@
       });
     });
 
-    /* ---- subtle parallax on character cards from pointer position ---- */
     if (!reduceMotion) {
       var chars = document.querySelectorAll('.fv-login-char:not(.fv-login-char--striker)');
       document.addEventListener('pointermove', function (e) {

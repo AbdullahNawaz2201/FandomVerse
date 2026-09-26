@@ -1,10 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — CHARACTER PROFILE PAGE RENDERER
-   Reads the session written by js/fv-profile-modal.js and
-   builds the full profile hero + "More From This Fandom"
-   grid on character.html. Switching profiles from the
-   related grid re-renders in place (no reload).
-   ========================================================= */
+
 (function () {
   "use strict";
 

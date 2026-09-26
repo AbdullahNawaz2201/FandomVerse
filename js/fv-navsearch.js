@@ -1,11 +1,4 @@
-/* =========================================================================
-   FANDOMVERSE — NAV SEARCH + FILTER + SORT ENGINE
-   Reads the page's data-page attribute, looks up a config describing where
-   its browsable card grid lives, then wires the shared header search box
-   to live-search, tag-filter and sort that grid. Pages with no browsable
-   grid (home, about, contact, character, login) fall back to a quick
-   "jump to fandom" chip set built from the main nav.
-   ========================================================================= */
+
 
 (function () {
   const CONFIGS = {
@@ -76,12 +69,6 @@
     'tvshows.html': '📺', 'kpop.html': '🎤', 'comics.html': '💥',
     'manga.html': '📖', 'shop.html': '🛍️',
   };
-
-  /* =====================================================================
-     SEARCH INPUT VALIDATION — sanitizes as you type, debounces changes,
-     adds a clear (×) button and a small inline hint message. Shared by
-     every page whether or not it has a browsable grid.
-     ===================================================================== */
   function setupSearchValidation(box, input) {
     let onChange = () => {};
     if (!input) return { setOnChange: (fn) => { onChange = fn; } };
@@ -197,10 +184,6 @@
     const cfg = CONFIGS[page];
     const grid = cfg ? document.querySelector(cfg.grid) : null;
 
-    /* =====================================================================
-       FALLBACK MODE — no browsable grid on this page: turn the filter
-       chips into quick "jump to a fandom" links from the main nav.
-       ===================================================================== */
     if (!cfg || !grid) {
       if (sortRow) sortRow.style.display = 'none';
       const navLinks = Array.from(document.querySelectorAll('#main-nav a'))
@@ -219,10 +202,6 @@
       if (clearBtn) clearBtn.style.display = 'none';
       return;
     }
-
-    /* =====================================================================
-       FULL MODE — live search, tag filter, sort on this page's grid
-       ===================================================================== */
     const cards = Array.from(grid.querySelectorAll(cfg.card));
     const originalOrder = cards.slice();
     const meta = cards.map(card => {
@@ -234,7 +213,6 @@
       return { card, title, desc, tags, price, rating };
     });
 
-    /* ---- build sort options based on what data is actually available ---- */
     const sortOptions = [{ id: 'default', label: 'Featured' },
       { id: 'az', label: 'Name A–Z' }, { id: 'za', label: 'Name Z–A' }];
     if (meta.some(m => !isNaN(m.rating))) sortOptions.push({ id: 'rating', label: 'Top rated' });
@@ -258,7 +236,6 @@
       sortWrap.appendChild(btn);
     });
 
-    /* ---- build filter chips from unique tags found across cards ---- */
     const uniqueTags = Array.from(new Set(meta.flatMap(m => m.tags))).sort();
     const activeTags = new Set();
     uniqueTags.slice(0, 24).forEach(tagName => {
@@ -279,7 +256,6 @@
       if (row) row.style.display = 'none';
     }
 
-    /* ---- search + filter + sort combined ---- */
     function applyAll() {
       const q = (input && input.value ? input.value : '').trim().toLowerCase();
 

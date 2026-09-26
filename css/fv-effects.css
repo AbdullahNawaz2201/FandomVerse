@@ -1,9 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — SHARED 3D HERO + PAGE-TRANSITION EFFECTS
-   Works on every page. Safe to load after css/style.css.
-   ========================================================= */
 
-/* ---------- 0. Character-card bios (added for consistency across cards) ---------- */
 .fv-anime-char-card__desc,
 .fv-gaming-char-card__desc {
   font-size: 0.82rem;
@@ -16,7 +11,6 @@
   overflow: hidden;
 }
 
-/* ---------- 0b. 3D character cards (Popular Characters grid) ---------- */
 .fv-anime-char-grid {
   perspective: 1600px;
 }
@@ -104,11 +98,6 @@
   }
 }
 
-/* ---------- 1. Universal 3D hero background engine ---------- */
-/* Any element that already has a bg image (via <img> or inline
-   background-image) gets tagged with data-fv3d="1" by fv-effects.js.
-   We give its wrapper perspective + the bg itself a slow Ken-Burns
-   zoom, then JS adds a live mouse-parallax tilt on top. */
 
 [data-fv3d-scope] {
   perspective: 1400px;
@@ -127,7 +116,6 @@
   100% { transform: scale(1.06)  translate3d(1%, 1.5%, 0); }
 }
 
-/* First-load "punch-in" reveal for hero inner content */
 .fv-fx-reveal {
   opacity: 0;
   transform: translateY(36px) scale(0.94) rotateX(6deg);
@@ -144,7 +132,6 @@
   .fv-fx-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 
-/* ---------- 1b. Generic 3D hero (Shop / About / Contact) ---------- */
 .fv-hero3d {
   position: relative;
   min-height: 62vh;
@@ -164,8 +151,6 @@
   gap: 0;
   transform-style: preserve-3d;
 }
-/* About & Contact only ship 4 background tiles, so their stage must use
-   4 columns — otherwise the 5th grid track renders blank on the right. */
 #fv-about-hero .fv-hero3d__stage,
 #fv-contact-hero .fv-hero3d__stage {
   grid-template-columns: repeat(4, 1fr);
@@ -240,7 +225,6 @@
   .fv-hero3d__stage { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ---------- 2. Cinematic page-transition overlay (premium 3D) ---------- */
 #fv-pagefx {
   position: fixed;
   inset: 0;
@@ -250,7 +234,6 @@
   transform-style: preserve-3d;
 }
 
-/* soft colour bloom behind everything so it never reads as flat black */
 #fv-pagefx::before {
   content: '';
   position: absolute;
@@ -290,7 +273,6 @@
 #fv-pagefx .fv-pagefx__shard--3 { left: 50%;   }
 #fv-pagefx .fv-pagefx__shard--4 { left: 75%;   }
 
-/* diagonal light sheen that sweeps through each shard as it moves */
 #fv-pagefx .fv-pagefx__shard::before {
   content: '';
   position: absolute;
@@ -331,7 +313,6 @@
   transition: opacity 0.5s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* spinning premium ring behind the logo */
 #fv-pagefx .fv-pagefx__ring {
   position: absolute;
   width: 118px;
@@ -352,7 +333,6 @@
 }
 @keyframes fvPagefxRingSpin { to { transform: rotate(360deg); } }
 
-/* soft pulsing glow halo behind the mark */
 #fv-pagefx .fv-pagefx__halo {
   position: absolute;
   width: 160px;
@@ -369,7 +349,6 @@
   50%      { opacity: 1;   transform: scale(1.08); }
 }
 
-/* drifting sparks around the logo */
 #fv-pagefx .fv-pagefx__particle {
   position: absolute;
   top: 50%;
@@ -403,7 +382,6 @@
   50%      { transform: translateY(-4px) rotateY(180deg); }
 }
 
-/* accent color per page (matches each fandom's palette) */
 body[data-page="anime"]   #fv-pagefx { --fv-fx-accent: #ff3b5c; }
 body[data-page="gaming"]  #fv-pagefx { --fv-fx-accent: #00ff88; }
 body[data-page="movies"]  #fv-pagefx { --fv-fx-accent: #e8b866; }
@@ -421,7 +399,6 @@ body[data-page="home"]    #fv-pagefx { --fv-fx-accent: #b06bff; }
 #fv-pagefx .fv-pagefx__shard--3 { border-right: 1px solid var(--fv-fx-accent, #b06bff); opacity: 0.97; }
 #fv-pagefx .fv-pagefx__shard--4 { opacity: 0.97; }
 
-/* OPEN (reveal the page on load): shards flip up and away like blinds */
 #fv-pagefx.is-opening .fv-pagefx__shard {
   transform: translateY(-115%) rotateX(-35deg) scale(1.06);
   opacity: 0;
@@ -435,7 +412,6 @@ body[data-page="home"]    #fv-pagefx { --fv-fx-accent: #b06bff; }
 }
 #fv-pagefx.is-open { display: none; }
 
-/* CLOSE (cover the page before navigating away): shards drop back down */
 #fv-pagefx.is-closing {
   pointer-events: all;
 }
@@ -468,7 +444,6 @@ body[data-page="home"]    #fv-pagefx { --fv-fx-accent: #b06bff; }
   #fv-pagefx .fv-pagefx__mark img { animation: none !important; }
 }
 
-/* ---------- 2b. Premium HD finish for every poster/card image, site-wide ---------- */
 img[class*="__img"],
 img[class*="__poster"],
 img[class*="__thumb"],
@@ -480,7 +455,6 @@ img[class*="__thumb"],
   transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
-/* ---------- 3. Top scroll-progress bar ---------- */
 #fv-scrollbar {
   position: fixed;
   top: 0;
@@ -499,7 +473,6 @@ img[class*="__thumb"],
   #fv-scrollbar { transition: none; }
 }
 
-/* ---------- 4. Premium welcome popup ---------- */
 #fv-popup-overlay {
   position: fixed;
   inset: 0;

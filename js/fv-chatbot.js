@@ -1,7 +1,4 @@
-/* =========================================================
-   FANDOMVERSE — PREMIUM 3D CHAT WIDGET LOGIC
-   Heavy client-side validation + keyword concierge bot.
-   ========================================================= */
+
 (function () {
   "use strict";
 
@@ -31,7 +28,6 @@
     var emailField = document.getElementById("fvc-email-field");
     var fandomField = document.getElementById("fvc-fandom-field");
 
-    /* ---------------- custom premium dropdown (fandom picker) ---------------- */
     var fvcSelect = document.getElementById("fvc-select");
     var fvcSelectBtn = document.getElementById("fvc-fandom-btn");
     var fvcSelectLabel = document.getElementById("fvc-fandom-label");
@@ -80,7 +76,6 @@
     var STORAGE_KEY = "fvc_profile_v1";
     var HISTORY_KEY = "fvc_history_v1";
 
-    /* ---------------- open / close (3D flip) ---------------- */
     function openPanel() {
       root.classList.add("is-open");
       launcher.setAttribute("aria-expanded", "true");
@@ -108,12 +103,11 @@
       if (e.key === "Escape" && root.classList.contains("is-open")) closePanel();
     });
 
-    /* ---------------- heavy validation helpers ---------------- */
     var NAME_RE = /^[A-Za-z][A-Za-z\s.'-]{1,59}$/;
     var EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
     var DISPOSABLE_DOMAINS = ["mailinator.com", "tempmail.com", "10minutemail.com", "guerrillamail.com", "trashmail.com"];
 
-    function setFieldState(fieldEl, state /* 'valid' | 'invalid' | 'neutral' */) {
+    function setFieldState(fieldEl, state ) {
       fieldEl.classList.remove("is-valid", "is-invalid");
       if (state === "valid") fieldEl.classList.add("is-valid");
       if (state === "invalid") fieldEl.classList.add("is-invalid");
@@ -194,7 +188,6 @@
       } catch (err) { return null; }
     }
 
-    /* ---------------- chat view ---------------- */
     function showChat(profile, isFresh) {
       gateForm.hidden = true;
       chatView.hidden = false;
@@ -228,7 +221,7 @@
         h.push({ role: role, text: text, t: Date.now() });
         if (h.length > 40) h = h.slice(h.length - 40);
         sessionStorage.setItem(HISTORY_KEY, JSON.stringify(h));
-      } catch (err) { /* ignore */ }
+      } catch (err) {  }
     }
 
     function pushMessage(role, text) {
@@ -308,7 +301,6 @@
       return map[fandom] || base;
     }
 
-    /* ---------------- input validation + character count ---------------- */
     function autosize() {
       input.style.height = "auto";
       input.style.height = Math.min(input.scrollHeight, 90) + "px";
@@ -321,7 +313,7 @@
 
       var tooLong = raw.length > 500;
       var onlyWhitespace = raw.length > 0 && trimmed.length === 0;
-      var spammy = /(.)\1{9,}/.test(trimmed); // 10+ repeated identical chars
+      var spammy = /(.)\1{9,}/.test(trimmed); 
       var valid = trimmed.length >= 1 && trimmed.length <= 500 && !onlyWhitespace && !spammy && !tooLong;
 
       msgForm.classList.toggle("is-invalid", raw.length > 0 && !valid);
@@ -358,7 +350,6 @@
       }, delay);
     }
 
-    /* ---------------- keyword concierge bot ---------------- */
     function getBotReply(rawText) {
       var t = rawText.toLowerCase();
 

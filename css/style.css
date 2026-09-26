@@ -1,5 +1,4 @@
 
-/* ===== Merchandise image fixes ===== */
 .anime-card--store .anime-card__poster {
   background-color: #11131b;
   background-repeat: no-repeat;
@@ -36,8 +35,6 @@
   .anime-grid--store { grid-template-columns: 1fr; }
 }
 
-/* ===== FANDOMVERSE — SITE STYLES ===== */
-/* ===== Tokens ===== */
 :root {
   --bg-void: #0e0e16;
   --bg-header: rgba(14, 14, 22, 0.85);
@@ -64,7 +61,6 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ===== Header ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -285,7 +281,6 @@ a { text-decoration: none; color: inherit; }
 .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
 .menu-toggle.is-active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ===== Mobile nav overlay ===== */
 .mobile-nav {
   position: fixed;
   inset: 0;
@@ -518,7 +513,6 @@ a { text-decoration: none; color: inherit; }
   .site-header::after { animation: none; background-position: 0% 0; }
 }
 
-/* ===== Anime bento grid ===== */
 .anime-section {
   padding: 80px 24px;
 }
@@ -666,7 +660,6 @@ a { text-decoration: none; color: inherit; }
   .anime-card__title { font-size: 0.85rem; }
 }
 
-/* ===== Store cards (FandomVerse Originals) ===== */
 .anime-grid--store {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -745,10 +738,6 @@ a { text-decoration: none; color: inherit; }
   .menu-toggle { display: flex; }
   .hero { min-height: 78vh; }
 }
-/* =========================================================
-   MOVIES SECTION — Hollywood Superheroes collector cards
-   Reuses tokens from :root above (--bg-void, --font-display, etc.)
-   ========================================================= */
 .movies-section {
   position: relative;
   padding: 100px 24px 120px;
@@ -822,11 +811,10 @@ a { text-decoration: none; color: inherit; }
   gap: 28px;
 }
 
-/* ===== Card shell (reveal-on-scroll + tilt layer) ===== */
 .movie-card {
   position: relative;
   height: 420px;
-  perspective: 1700px; /* own perspective per card so flipping one never disturbs its neighbours */
+  perspective: 1700px; 
   transform-style: preserve-3d;
   transition: transform 0.12s ease-out, opacity 0.6s ease, translate 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
@@ -839,8 +827,6 @@ a { text-decoration: none; color: inherit; }
   translate: 0 0;
 }
 
-/* Quick press-in/out breath the instant a card is tapped open or closed —
-   applied to the outer shell so it never fights the inner flip rotation */
 .movie-card.is-flipping {
   animation: cardPress 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -855,7 +841,6 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  /* slight overshoot on the bounce gives the flip a tactile, "clicked" feel */
   transition: transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
               filter 0.5s ease;
   border-radius: 18px;
@@ -865,8 +850,6 @@ a { text-decoration: none; color: inherit; }
   transform: rotateY(180deg);
 }
 
-/* Open card lifts above its neighbours and picks up a colored glow
-   pulled from its own poster art (--card-glow / --card-glow-2) */
 .movie-card.is-flipped {
   z-index: 5;
 }
@@ -881,7 +864,6 @@ a { text-decoration: none; color: inherit; }
   transition: border-color 0.5s ease;
 }
 
-/* ===== Tap ripple — expands from the exact click point, then fades ===== */
 .movie-card__ripple {
   position: absolute;
   width: 10px;
@@ -900,7 +882,6 @@ a { text-decoration: none; color: inherit; }
   100% { transform: scale(38); opacity: 0; }
 }
 
-/* ===== Faces ===== */
 .movie-card__face {
   position: absolute;
   inset: 0;
@@ -914,7 +895,6 @@ a { text-decoration: none; color: inherit; }
   background: #14131e;
 }
 
-/* ---- Front face ---- */
 .movie-card__front { justify-content: flex-start; }
 
 .movie-card__art-wrap {
@@ -928,7 +908,7 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   height: 100%;
   display: block;
-  transform: scale(1.001); /* establish a paint layer so the zoom below is smooth */
+  transform: scale(1.001); 
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -939,9 +919,6 @@ a { text-decoration: none; color: inherit; }
 .art-silhouette {
   transition: transform 0.35s ease-out;
 }
-
-/* Idle light sweep across the poster art — a small, tasteful bit of motion
-   that catches the eye before the visitor ever touches the card */
 .movie-card__art-wrap::before {
   content: '';
   position: absolute;
@@ -1104,7 +1081,6 @@ a { text-decoration: none; color: inherit; }
   background: var(--accent-gaming);
 }
 
-/* ===== Sheen sweep on hover ===== */
 .movie-card__front::after {
   content: '';
   position: absolute;
@@ -1120,7 +1096,6 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(120%);
 }
 
-/* ===== Cart summary bar ===== */
 .movie-cart-bar {
   margin-top: 48px;
   display: flex;
@@ -1151,7 +1126,6 @@ a { text-decoration: none; color: inherit; }
   font-size: 1.3rem;
 }
 
-/* ===== Reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   .movie-card,
   .movie-card__inner,
@@ -1177,9 +1151,6 @@ a { text-decoration: none; color: inherit; }
   .movie-grid { grid-template-columns: 1fr; }
 }
 
-/* =========================================================
-   FandomVerse expansion UI
-   ========================================================= */
 .catalog-toolbar {
   max-width: 1280px;
   margin: -4px auto 34px;
@@ -1212,7 +1183,6 @@ a { text-decoration: none; color: inherit; }
 .catalog-empty span { font-size:.8rem; }
 .extra-catalog-section { border-top:1px solid rgba(255,255,255,.04); }
 
-/* Global search dropdown */
 .search-box { position:relative; }
 .global-search-results { position:absolute; right:0; top:calc(100% + 12px); width:min(390px,calc(100vw - 30px)); background:rgba(18,17,28,.97); border:1px solid rgba(255,255,255,.1); border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,.45); padding:7px; opacity:0; transform:translateY(-6px); pointer-events:none; transition:.22s ease; backdrop-filter:blur(18px); }
 .global-search-results.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
@@ -1226,7 +1196,6 @@ a { text-decoration: none; color: inherit; }
 .search-focus { animation:searchFocus 1.8s ease both; }
 @keyframes searchFocus { 0%,100%{box-shadow:0 0 0 rgba(176,107,255,0)} 25%,70%{box-shadow:0 0 0 4px rgba(176,107,255,.3),0 20px 60px rgba(176,107,255,.18)} }
 
-/* Floating Fandom AI */
 #fandom-assistant { position:fixed; right:24px; bottom:24px; z-index:300; }
 .fandom-bot-fab { width:58px; height:58px; border:1px solid rgba(255,255,255,.16); border-radius:50%; color:#fff; background:linear-gradient(145deg,#b06bff,#ff3b5c); box-shadow:0 14px 38px rgba(0,0,0,.45),0 0 32px rgba(176,107,255,.2); cursor:pointer; position:relative; display:grid; place-items:center; transition:.3s cubic-bezier(.22,1,.36,1); }
 .fandom-bot-fab:hover { transform:translateY(-4px) scale(1.04); box-shadow:0 18px 45px rgba(0,0,0,.5),0 0 42px rgba(176,107,255,.3); }
@@ -1258,9 +1227,6 @@ a { text-decoration: none; color: inherit; }
   .global-search-results { position:fixed; top:70px; right:15px; }
 }
 
-/* =========================================================
-   FANDOMVERSE COMMUNITY / ACCOUNT / STORE 2.0
-   ========================================================= */
 .fv-dashboard{position:fixed;inset:0;z-index:1000;background:rgba(8,8,14,.78);backdrop-filter:blur(18px);display:none;padding:28px;overflow:auto}
 .fv-dashboard.is-open{display:block}
 .fv-shell{max-width:1180px;margin:0 auto;background:linear-gradient(145deg,rgba(23,23,34,.98),rgba(12,12,19,.98));border:1px solid rgba(255,255,255,.1);border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.55);min-height:calc(100vh - 56px);overflow:hidden}
@@ -1285,11 +1251,6 @@ a { text-decoration: none; color: inherit; }
 .fv-card-wish{position:absolute;top:10px;right:10px;z-index:8;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(8,8,14,.7);backdrop-filter:blur(8px);color:#fff;cursor:pointer;font-size:17px}.fv-card-wish:hover{color:#ff3b5c;transform:scale(1.06)}
 
 
-/* =========================================================
-   FANDOMVERSE REPAIR — logo header + red-eye cinematic hero
-   These overrides intentionally sit on top of the original CSS
-   so the rest of the site's existing styling remains untouched.
-   ========================================================= */
 
 /* Header */
 .header-inner {
@@ -1321,7 +1282,6 @@ a { text-decoration: none; color: inherit; }
   filter: drop-shadow(0 0 20px rgba(177, 57, 255, 0.28));
 }
 
-/* Give the existing nav a subtle premium container without changing its behavior. */
 .main-nav {
   gap: 12px;
   align-items: center;
@@ -1331,7 +1291,6 @@ a { text-decoration: none; color: inherit; }
   padding: 7px 5px;
 }
 
-/* Red-eye hero: keep the video as the star of the section. */
 .hero {
   min-height: 88vh;
   isolation: isolate;
@@ -1486,24 +1445,17 @@ a { text-decoration: none; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .hero-eyebrow span { animation: none; }
 }
-
-/* =========================================================
-   RED-EYE HERO — composition-safe layout
-   Keeps the cinematic eye clear of all hero copy.
-   ========================================================= */
 .hero {
   min-height: 86vh;
   isolation: isolate;
   background: #05050b;
 }
 
-/* Push the video composition toward the right and keep its focal point clear. */
 #hero-video {
   object-position: 62% center;
   filter: saturate(1.08) contrast(1.06);
 }
 
-/* Stronger left-to-right readability gradient: text area dark, eye area open. */
 .hero::after {
   background:
     linear-gradient(90deg,
@@ -1532,7 +1484,6 @@ a { text-decoration: none; color: inherit; }
   z-index: 5;
 }
 
-/* Reserve the right half for the red eye. */
 .hero-content > * {
   max-width: 570px;
 }
@@ -1685,13 +1636,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* =========================================================
-   CATEGORY EXPLORER - COMPACT & HIGH-ENERGY STYLING
-   ========================================================= */
-
 .categories-section {
   position: relative;
-  padding: 3.5rem 1.25rem; /* Reduced height padding */
+  padding: 3.5rem 1.25rem; 
   background: var(--bg);
   color: var(--text);
   overflow: hidden;
@@ -1702,10 +1649,9 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-/* Section Header */
 .categories-header {
   text-align: center;
-  margin-bottom: 2rem; /* Compact header spacing */
+  margin-bottom: 2rem; 
 }
 
 .categories-badge {
@@ -1763,20 +1709,18 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-/* Grid Layout */
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 Columns for compact desktop layout */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 1rem;
 }
 
-/* Compact Card Styling */
 .category-card {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 200px; /* Reduced card height */
+  min-height: 200px;
   padding: 1.25rem;
   border-radius: 14px;
   background: rgba(20, 20, 30, 0.6);
@@ -1791,11 +1735,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .category-card--hero {
-  grid-column: span 2; /* 7th card spans 2 columns to balance grid */
+  grid-column: span 2; 
 }
 
 
-  /* Card Background Base Settings */
 .category-card__bg {
   position: absolute;
   inset: 0;
@@ -1803,11 +1746,10 @@ a { text-decoration: none; color: inherit; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.45; /* Controls image transparency against dark background */
+  opacity: 0.45; 
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Card Background Base Settings */
 .category-card__bg {
   position: absolute;
   inset: 0;
@@ -1815,11 +1757,10 @@ a { text-decoration: none; color: inherit; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.6; /* Adjusted so image shows up clearly */
+  opacity: 0.6; 
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Images + Colored Radial Glow Accents Combined */
 .category-card__bg--anime { 
   background-image: radial-gradient(circle at 90% 10%, rgba(255, 59, 92, 0.35), transparent 70%), url('../assets/images/categories/anime.jpg'); 
 }
@@ -1848,7 +1789,6 @@ a { text-decoration: none; color: inherit; }
   background: linear-gradient(180deg, rgba(10, 10, 18, 0.2) 0%, rgba(10, 10, 18, 0.95) 100%);
 }
 
-/* Inner Layout */
 .category-card__content {
   display: flex;
   flex-direction: column;
@@ -1914,7 +1854,6 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.3s ease;
 }
 
-/* Interactive Hover Animations */
 .category-card:hover {
   transform: translateY(-4px);
   border-color: var(--card-accent, var(--accent));
@@ -1939,7 +1878,6 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(4px);
 }
 
-/* Tablet Layout (2 Columns) */
 @media (max-width: 1024px) {
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1950,7 +1888,6 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-/* Mobile Layout (1 Column) */
 @media (max-width: 640px) {
   .categories-section {
     padding: 2.5rem 1rem;
@@ -1969,14 +1906,6 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-
-
-
-
-/* =========================================================
-   TRENDING ACROSS FANDOMVERSE SECTION
-   ========================================================= */
-
 .trending-section {
   position: relative;
   padding: 3.5rem 1.25rem;
@@ -1990,7 +1919,7 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-/* Header */
+
 .trending-header {
   text-align: center;
   margin-bottom: 2.25rem;
@@ -2029,14 +1958,12 @@ a { text-decoration: none; color: inherit; }
   margin: 0;
 }
 
-/* 3-Column Desktop Grid */
 .trending-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* Card Styling */
 .trending-card {
   position: relative;
   display: flex;
@@ -2058,7 +1985,6 @@ a { text-decoration: none; color: inherit; }
   outline-offset: 3px;
 }
 
-/* Card Media / Image Container */
 .trending-card__media {
   position: relative;
   width: 100%;
@@ -2112,7 +2038,6 @@ a { text-decoration: none; color: inherit; }
   backdrop-filter: blur(4px);
 }
 
-/* Bookmark Action Placeholder */
 .trending-card__bookmark {
   position: absolute;
   top: 0.85rem;
@@ -2195,7 +2120,6 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.3s ease;
 }
 
-/* Hover & Focus Interactions */
 .trending-card:hover {
   transform: translateY(-5px);
   border-color: var(--card-accent, var(--accent));
@@ -2216,7 +2140,6 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(4px);
 }
 
-/* Fallback / Error Message Styling */
 .trending-error {
   grid-column: 1 / -1;
   text-align: center;
@@ -2228,7 +2151,6 @@ a { text-decoration: none; color: inherit; }
   font-family: var(--font-body);
 }
 
-/* Responsive Grid (Tablet & Mobile) */
 @media (max-width: 1024px) {
   .trending-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2249,12 +2171,6 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-
-
-/* =========================================================
-   FEATURED ARTICLES — "Latest From The Fandom"
-   Namespaced with fv- to avoid collisions with existing CSS
-   ========================================================= */
 
 .fv-articles {
   --fv-bg: #0b0b12;
@@ -2279,7 +2195,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-/* ---------- Header ---------- */
 .fv-articles__header {
   text-align: center;
   max-width: 620px;
@@ -2348,14 +2263,12 @@ a { text-decoration: none; color: inherit; }
   padding: 2rem 0;
 }
 
-/* ---------- Grid ---------- */
 .fv-articles__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* ---------- Card (shared) ---------- */
 .fv-article-card {
   position: relative;
   display: flex;
@@ -2386,13 +2299,11 @@ a { text-decoration: none; color: inherit; }
   outline-offset: 3px;
 }
 
-/* Featured card spans full row on top */
 .fv-article-card--featured {
   grid-column: 1 / -1;
   flex-direction: row;
 }
 
-/* ---------- Media ---------- */
 .fv-article-card__media {
   position: relative;
   overflow: hidden;
@@ -2503,7 +2414,6 @@ a { text-decoration: none; color: inherit; }
   color: #05050a;
 }
 
-/* ---------- Body ---------- */
 .fv-article-card__body {
   display: flex;
   flex-direction: column;
@@ -2600,14 +2510,12 @@ a { text-decoration: none; color: inherit; }
   border-radius: 4px;
 }
 
-/* Full-card click target (keeps title/link separately focusable) */
 .fv-article-card__hit {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .fv-article-card,
   .fv-article-card__img,
@@ -2627,7 +2535,6 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .fv-articles__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2656,12 +2563,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-
-
-/* =========================================================
-   LATEST TRAILERS — namespaced with fv-trailers-
-   ========================================================= */
-
 .fv-trailers-section {
   --fvt-bg: #08080f;
   --fvt-surface: rgba(20, 20, 30, 0.65);
@@ -2683,7 +2584,6 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
-/* ---------- Header ---------- */
 .fv-trailers-header {
   display: flex;
   align-items: flex-end;
@@ -3100,7 +3000,6 @@ a { text-decoration: none; color: inherit; }
   opacity: 0.5;
 }
 
-/* ---------- Play button trigger area (invisible hit target) ---------- */
 .fv-trailers-card__hit {
   position: absolute;
   inset: 0;
@@ -3288,14 +3187,6 @@ body.fv-trailers-modal-open {
 }
 
 
-
-
-
-
-/* =========================================================
-   CHARACTER SPOTLIGHT — namespaced with fv-characters-
-   ========================================================= */
-
 .fv-characters-section {
   --fvc-bg: #09090f;
   --fvc-surface: rgba(20, 20, 30, 0.65);
@@ -3446,7 +3337,6 @@ body.fv-trailers-modal-open {
   font-family: var(--fvc-font-body);
 }
 
-/* ---------- Layout: featured + list ---------- */
 .fv-characters-layout {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -3454,7 +3344,6 @@ body.fv-trailers-modal-open {
   align-items: start;
 }
 
-/* ---------- Featured character ---------- */
 .fv-characters-featured {
   position: relative;
   border-radius: 20px;
@@ -3602,7 +3491,6 @@ body.fv-trailers-modal-open {
   outline-offset: 3px;
 }
 
-/* ---------- Small character list ---------- */
 .fv-characters-list {
   display: flex;
   flex-direction: column;
@@ -3899,7 +3787,6 @@ body.fv-characters-modal-open {
   overflow: hidden;
 }
 
-/* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .fv-characters-featured__img,
   .fv-characters-card,
@@ -3950,13 +3837,6 @@ body.fv-characters-modal-open {
 }
 
 
-
-
-
-/* =========================================================
-   FANDOM MARKETPLACE — namespaced with fv-merch-
-   ========================================================= */
-
 .fv-merch-section {
   --fvm-bg: #08080e;
   --fvm-surface: rgba(20, 20, 30, 0.65);
@@ -3979,7 +3859,6 @@ body.fv-characters-modal-open {
   margin: 0 auto;
 }
 
-/* ---------- Header ---------- */
 .fv-merch-header {
   display: flex;
   align-items: flex-end;
@@ -4180,7 +4059,6 @@ body.fv-characters-modal-open {
   gap: 1.5rem;
 }
 
-/* ---------- Card ---------- */
 .fv-merch-card {
   position: relative;
   display: flex;
@@ -4812,17 +4690,6 @@ body.fv-merch-modal-open {
 }
 
 
-
-
-
-/* =========================================================
-   FANDOMVERSE FOOTER — fv-footer- namespace only.
-   Append this block to the end of style.css (or link it as
-   a separate stylesheet after style.css). Nothing here
-   touches unprefixed elements, so it cannot affect any
-   existing section of the site.
-   ========================================================= */
-
 .fv-footer {
   position: relative;
   margin-top: 4rem;
@@ -5150,7 +5017,6 @@ body.fv-merch-modal-open {
   transform: translateY(-2px);
 }
 
-/* ---------- Focus visibility (accessibility) ---------- */
 .fv-footer a:focus-visible,
 .fv-footer button:focus-visible,
 .fv-footer input:focus-visible {
@@ -5220,13 +5086,6 @@ body.fv-merch-modal-open {
   }
 }
 
-/* ===== PAGE: ANIME ===== */
-/* =========================================================
-   FANDOMVERSE — ANIME PAGE
-   All selectors are namespaced with fv-anime- / fva- so this
-   file cannot affect any other page.
-   ========================================================= */
-
 .fv-anime-main {
   --fv-anime-bg: #08080c;
   --fv-anime-bg-alt: #0e0e15;
@@ -5259,7 +5118,6 @@ body.fv-merch-modal-open {
   padding: 0 24px;
 }
 
-/* ---------- Shared bits: badge, section heads, buttons ---------- */
 .fv-anime-badge {
   display: inline-flex;
   align-items: center;
@@ -5955,13 +5813,6 @@ body.fv-anime-modal-open {
   .fv-anime-trailers { padding: 60px 0 70px; }
 }
 
-/* ===== PAGE: GAMING ===== */
-/* =========================================================
-   FANDOMVERSE — GAMING PAGE
-   All selectors are namespaced with fv-gaming- / fvg- so this
-   file cannot affect any other page.
-   ========================================================= */
-
 .fv-gaming-main {
   --fv-gaming-bg: #07090a;
   --fv-gaming-bg-alt: #0c1013;
@@ -5995,7 +5846,6 @@ body.fv-anime-modal-open {
   padding: 0 24px;
 }
 
-/* ---------- Shared bits: badge, section heads, buttons ---------- */
 .fv-gaming-badge {
   display: inline-flex;
   align-items: center;
@@ -6709,7 +6559,6 @@ body.fv-anime-modal-open {
   }
 }
 
-/* ---------- Small-screen polish ---------- */
 @media (max-width: 480px) {
   .fv-gaming-hero { padding: 120px 20px 70px; min-height: 64vh; }
   .fv-gaming-featured,
@@ -6717,15 +6566,6 @@ body.fv-anime-modal-open {
   .fv-gaming-trailers { padding: 60px 0 70px; }
 }
 
-/* ===== PAGE: MOVIES ===== */
-/* =========================================================
-   FANDOMVERSE — MOVIES PAGE STYLES
-   All selectors are scoped with the `fv-movies-` prefix so
-   they never leak onto other pages. Uses the site's existing
-   design tokens (--bg-void, --text-primary, --text-dim,
-   --font-display, --font-body) with a page-local cinematic
-   accent palette.
-   ========================================================= */
 
 #fv-movies-hero,
 .fv-movies-featured,
@@ -6826,9 +6666,6 @@ body.fv-anime-modal-open {
   outline-offset: 3px;
 }
 
-/* =========================================================
-   1. HERO
-   ========================================================= */
 #fv-movies-hero {
   position: relative;
   min-height: 78vh;
@@ -6935,10 +6772,6 @@ body.fv-anime-modal-open {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* =========================================================
-   2. FEATURED MOVIES
-   ========================================================= */
 .fv-movies-featured {
   background: var(--fv-movies-ink);
   padding: 5.5rem 0;
@@ -7075,7 +6908,6 @@ body.fv-anime-modal-open {
   transform: translateY(-1px);
 }
 
-/* Poster / portrait fallback (JS-generated when image 404s) */
 .fv-movies-fallback {
   width: 100%;
   height: 100%;
@@ -7092,10 +6924,6 @@ body.fv-anime-modal-open {
     radial-gradient(circle at 30% 20%, rgba(232, 184, 102, 0.25), transparent 55%),
     linear-gradient(150deg, #2a1e38, #14101c 70%);
 }
-
-/* =========================================================
-   3. CHARACTERS
-   ========================================================= */
 .fv-movies-characters {
   background: linear-gradient(180deg, var(--fv-movies-ink), #100c16 100%);
   padding: 5rem 0 5.5rem;
@@ -7178,10 +7006,6 @@ body.fv-anime-modal-open {
   padding: 0.22rem 0.6rem;
   border-radius: 999px;
 }
-
-/* =========================================================
-   4. TRAILERS
-   ========================================================= */
 .fv-movies-trailers {
   background: var(--fv-movies-ink);
   padding: 5.5rem 0 6rem;
@@ -7308,10 +7132,6 @@ body.fv-anime-modal-open {
   color: var(--fv-movies-gold);
   border-color: var(--fv-movies-gold);
 }
-
-/* =========================================================
-   TRAILER MODAL
-   ========================================================= */
 .fv-movies-modal {
   position: fixed;
   inset: 0;
@@ -7401,9 +7221,6 @@ body.fv-anime-modal-open {
 
 .fv-movies-modal__fallback[hidden] { display: none; }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 @media (max-width: 1024px) {
   .fv-movies-grid { grid-template-columns: repeat(2, 1fr); }
   .fv-movies-char-grid { grid-template-columns: repeat(2, 1fr); }
@@ -7434,7 +7251,6 @@ body.fv-anime-modal-open {
   }
 }
 
-/* ---------- ANIME PAGE: poster cards, reviews, 6-character grid ---------- */
 .fv-anime-card__media { aspect-ratio: 4 / 5; }
 .fv-anime-card__review {
   margin-top: 4px;
@@ -7447,7 +7263,6 @@ body.fv-anime-modal-open {
 .fv-anime-card__score small { font-size: 0.68rem; color: var(--fv-anime-text-faint); margin-left: 2px; }
 .fv-anime-card__quote { margin: 0; font-size: 0.84rem; line-height: 1.5; font-style: italic; color: var(--fv-anime-text-dim); }
 
-/* 5 posters: 3 on the top row, 2 centered underneath */
 @media (min-width: 1024px) {
   .fv-anime-grid { grid-template-columns: repeat(6, 1fr); }
   .fv-anime-grid > .fv-anime-card { grid-column: span 2; }
@@ -7457,7 +7272,6 @@ body.fv-anime-modal-open {
 }
 .fv-anime-char-card__media img { object-position: 50% 30%; }
 
-/* ---------- MOVIES PAGE: reviews on poster cards, 5-poster + 5-character layout ---------- */
 .fv-movies-card__review {
   margin-top: 4px;
   padding-top: 12px;
@@ -7470,7 +7284,6 @@ body.fv-anime-modal-open {
 .fv-movies-card__quote { margin: 0; font-size: 0.84rem; line-height: 1.5; font-style: italic; color: var(--text-dim, #9a99a8); }
 .fv-movies-char-card__portrait img { object-position: 50% 30%; }
 
-/* 5 posters: 3 on the top row, 2 centered underneath */
 @media (min-width: 1025px) {
   .fv-movies-grid { grid-template-columns: repeat(6, 1fr); }
   .fv-movies-grid > .fv-movies-card { grid-column: span 2; }
@@ -7479,6 +7292,5 @@ body.fv-anime-modal-open {
   .fv-movies-char-grid { grid-template-columns: repeat(5, 1fr); }
 }
 
-/* Movie posters: shorter ratio so landscape artwork isn't over-cropped */
 .fv-movies-card__poster { aspect-ratio: 4 / 5; }
 .fv-movies-card__poster img { object-position: 50% 40%; }
