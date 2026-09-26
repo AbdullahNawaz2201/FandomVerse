@@ -1,0 +1,381 @@
+/* =========================================================================
+   FANDOMVERSE — LOGIN / SIGN UP "LEGENDARY GATE" EXPERIENCE
+   ========================================================================= */
+
+.fv-login-page{
+  background: var(--bg-void);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ---------- top bar ---------- */
+.fv-login-top{
+  position: relative;
+  z-index: 20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 22px clamp(18px, 5vw, 56px);
+}
+.fv-login-brand{
+  display:flex; align-items:center; gap:10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.fv-login-brand img{ height: 34px; filter: drop-shadow(0 0 10px rgba(120,90,255,.6)); }
+.fv-login-back{
+  font-family: var(--font-body);
+  font-size: .85rem;
+  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 9px 16px;
+  border-radius: 999px;
+  transition: all .25s ease;
+}
+.fv-login-back:hover{ color:#fff; border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.06); }
+
+/* ---------- stage / background ---------- */
+.fv-login-stage{
+  position: relative;
+  min-height: 92vh;
+  display:grid;
+  place-items:center;
+  padding: 40px 18px 90px;
+  isolation: isolate;
+}
+
+.fv-login-stage__sky{
+  position:absolute; inset:0; z-index:-3;
+  background:
+    radial-gradient(60% 50% at 50% 8%, rgba(120,90,255,.22), transparent 65%),
+    radial-gradient(50% 40% at 85% 85%, rgba(255,60,130,.16), transparent 60%),
+    radial-gradient(50% 40% at 10% 85%, rgba(60,220,255,.14), transparent 60%),
+    var(--bg-void);
+}
+.fv-login-stage__stars{
+  position:absolute; inset:0; z-index:-2;
+  background-image:
+    radial-gradient(1.4px 1.4px at 8% 15%, #fff, transparent 60%),
+    radial-gradient(1.4px 1.4px at 18% 60%, rgba(255,255,255,.8), transparent 60%),
+    radial-gradient(1.4px 1.4px at 30% 25%, #fff, transparent 60%),
+    radial-gradient(1.4px 1.4px at 44% 75%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.4px 1.4px at 58% 12%, #fff, transparent 60%),
+    radial-gradient(1.4px 1.4px at 68% 55%, rgba(255,255,255,.75), transparent 60%),
+    radial-gradient(1.4px 1.4px at 80% 20%, #fff, transparent 60%),
+    radial-gradient(1.4px 1.4px at 90% 68%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1.4px 1.4px at 95% 40%, #fff, transparent 60%);
+  background-size: 340px 340px;
+  animation: fv-star-drift 90s linear infinite;
+  opacity:.9;
+}
+@keyframes fv-star-drift{ to{ background-position: -600px 500px; } }
+
+.fv-login-moon{
+  position:absolute; z-index:-1;
+  top: 6%; left: 50%; transform: translateX(-50%);
+  width: clamp(120px, 16vw, 210px); aspect-ratio:1; border-radius:50%;
+  background: radial-gradient(circle at 34% 30%, #fff8e6 0%, #ffe9b8 26%, #d9b877 55%, #6b5330 100%);
+  box-shadow: 0 0 70px 16px rgba(255,205,110,.35), 0 0 160px 46px rgba(120,90,255,.25);
+  animation: fv-moon-breathe 8s ease-in-out infinite;
+}
+@keyframes fv-moon-breathe{ 0%,100%{ filter:brightness(1); } 50%{ filter:brightness(1.12); } }
+
+.fv-login-portal{
+  position:absolute; z-index:-1;
+  top: 50%; left:50%;
+  width: min(780px, 88vw); aspect-ratio: 1/.72;
+  transform: translate(-50%,-46%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(120,90,255,.28), rgba(60,220,255,.12) 55%, transparent 75%);
+  filter: blur(6px);
+  animation: fv-portal-pulse 5s ease-in-out infinite;
+}
+@keyframes fv-portal-pulse{ 0%,100%{ opacity:.75; transform: translate(-50%,-46%) scale(1);} 50%{ opacity:1; transform: translate(-50%,-46%) scale(1.05);} }
+
+/* ---------- floating anime character cards ---------- */
+.fv-login-char{
+  position:absolute;
+  width: clamp(84px, 9vw, 130px);
+  aspect-ratio: 3/4;
+  border-radius: 14px;
+  overflow:hidden;
+  z-index: 6;
+  border: 1.5px solid rgba(255,255,255,.18);
+  box-shadow: 0 14px 30px -12px rgba(0,0,0,.7), 0 0 30px -6px rgba(120,90,255,.55);
+  animation: fv-char-float 6s ease-in-out infinite;
+  transition: filter .4s ease;
+}
+.fv-login-char img{ width:100%; height:100%; object-fit:cover; display:block; }
+.fv-login-char::after{
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.75));
+  pointer-events:none;
+}
+.fv-login-char__ring{
+  position:absolute; inset:-2px; border-radius:inherit;
+  border: 1px solid rgba(255,205,110,.0);
+  box-shadow: 0 0 0 0 rgba(120,90,255,0);
+  pointer-events:none;
+}
+.fv-login-char__name{
+  position:absolute; left:8px; right:8px; bottom:7px;
+  font-family: var(--font-display);
+  font-size: .62rem;
+  letter-spacing:.03em;
+  color:#fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,.8);
+  z-index:2;
+}
+
+.fv-char-a{ top: 10%; left: 6%; animation-duration: 6.4s; }
+.fv-char-b{ top: 58%; left: 4%; animation-duration: 7.2s; animation-delay:.4s; }
+.fv-char-c{ top: 14%; right: 6%; animation-duration: 6.8s; animation-delay:.2s; }
+.fv-char-d{ top: 60%; right: 5%; animation-duration: 7.6s; animation-delay:.6s; }
+.fv-char-e{ top: 4%; left: 50%; margin-left: -280px; animation-duration: 6s; animation-delay:.8s; }
+
+@keyframes fv-char-float{
+  0%,100%{ transform: translateY(0) rotate(-2deg); }
+  50%{ transform: translateY(-18px) rotate(2deg); }
+}
+
+@media (max-width: 980px){
+  .fv-char-e{ display:none; }
+}
+@media (max-width: 700px){
+  .fv-char-b, .fv-char-d{ display:none; }
+  .fv-login-char{ width: 70px; }
+}
+
+/* the "striker" card that dashes in and kicks the panel */
+.fv-login-char--striker{
+  transition: transform 1s cubic-bezier(.5,-0.2,.2,1.3), filter .3s ease;
+}
+.fv-login-char--striker.fv-striker-charge{
+  animation: none;
+  filter: drop-shadow(0 0 18px rgba(255,205,110,.9));
+}
+.fv-login-char--striker.fv-striker-dash{
+  animation: none;
+  transform: translate(var(--fv-dash-x, 0), var(--fv-dash-y, 0)) scale(1.15) rotate(18deg);
+  transition: transform .5s cubic-bezier(.7,-0.4,.25,1.4);
+  z-index: 30;
+}
+.fv-login-char--striker.fv-striker-return{
+  animation: fv-char-float 6s ease-in-out infinite;
+  transition: transform .9s ease;
+  transform: none;
+}
+
+/* impact flash + shockwave at the panel */
+.fv-login-impact{
+  position:absolute; left:50%; top:50%; z-index: 28;
+  width: 10px; height:10px; border-radius:50%;
+  transform: translate(-50%,-50%) scale(0);
+  background: radial-gradient(circle, #fff, rgba(255,205,110,.9) 30%, rgba(120,90,255,.5) 60%, transparent 72%);
+  opacity: 0;
+  pointer-events:none;
+}
+.fv-login-impact.fv-impact-go{
+  animation: fv-impact-burst 650ms ease-out forwards;
+}
+@keyframes fv-impact-burst{
+  0%{ transform: translate(-50%,-50%) scale(0); opacity: 1; }
+  60%{ opacity: 1; }
+  100%{ transform: translate(-50%,-50%) scale(48); opacity: 0; }
+}
+
+.fv-login-stage.fv-shake{ animation: fv-screen-shake 480ms ease; }
+@keyframes fv-screen-shake{
+  0%,100%{ transform: translate(0,0); }
+  15%{ transform: translate(-8px,3px); }
+  30%{ transform: translate(7px,-4px); }
+  45%{ transform: translate(-6px,-2px); }
+  60%{ transform: translate(5px,3px); }
+  75%{ transform: translate(-3px,-2px); }
+  90%{ transform: translate(2px,1px); }
+}
+
+/* ---------- the seal (locked state before the "kick") ---------- */
+.fv-login-seal{
+  position:absolute; z-index: 15;
+  width: min(420px, 78vw); aspect-ratio: 1;
+  display:grid; place-items:center;
+  pointer-events:none;
+  transition: opacity .5s ease, transform .5s ease;
+}
+.fv-login-seal__ring{
+  position:absolute; inset:0; border-radius:50%;
+  border: 1.5px dashed rgba(120,90,255,.55);
+  animation: fv-ring-spin 16s linear infinite;
+}
+.fv-login-seal__ring--in{ inset: 12%; border-style:solid; border-color: rgba(255,205,110,.4); animation-duration: 10s; animation-direction: reverse; }
+.fv-login-seal__glyph{
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 0 26px rgba(120,90,255,.9);
+  animation: fv-glyph-pulse 2.4s ease-in-out infinite;
+}
+@keyframes fv-glyph-pulse{ 0%,100%{ opacity:.6; transform:scale(1);} 50%{ opacity:1; transform:scale(1.08);} }
+.fv-login-seal.fv-seal-break{
+  opacity: 0;
+  transform: scale(1.5);
+  transition: opacity .5s ease, transform .6s cubic-bezier(.3,.9,.3,1);
+}
+
+/* ---------- the glass login panel ---------- */
+.fv-login-panel{
+  position: relative; z-index: 20;
+  width: min(420px, 92vw);
+  padding: clamp(26px, 4vw, 38px);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(24,22,38,.86), rgba(14,14,22,.9));
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.04) inset;
+  opacity: 0;
+  transform: scale(.72) rotateX(18deg) translateY(30px);
+  transform-origin: 50% 60%;
+  transition: opacity .1s linear, transform .1s linear;
+}
+.fv-login-panel.fv-panel-unlocked{
+  opacity: 1;
+  transform: scale(1) rotateX(0) translateY(0);
+  transition: opacity .7s cubic-bezier(.2,1.1,.3,1), transform .7s cubic-bezier(.2,1.1,.3,1);
+}
+.fv-login-panel::before{
+  content:'';
+  position:absolute; inset:-1px; border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from 0deg, rgba(255,60,130,.7), rgba(255,205,110,.7), rgba(60,220,255,.7), rgba(120,90,255,.7), rgba(255,60,130,.7));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: .55;
+  animation: fv-conic-spin 6s linear infinite;
+  pointer-events: none;
+}
+
+.fv-login-panel__head{ text-align:center; margin-bottom: 22px; }
+.fv-login-panel__eyebrow{
+  font-size: .7rem; letter-spacing:.16em; text-transform:uppercase;
+  color: rgba(255,205,110,.85); font-weight:700; margin-bottom: 8px;
+}
+.fv-login-panel__title{
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+}
+.fv-login-panel__sub{ color: var(--text-dim); font-size:.86rem; margin-top:6px; }
+
+.fv-login-tabs{
+  position: relative;
+  display:flex; background: rgba(255,255,255,.05);
+  border-radius: 999px; padding: 4px; margin-bottom: 22px;
+}
+.fv-login-tabs button{
+  flex:1; border:none; background:transparent; color: var(--text-dim);
+  font-family: var(--font-body); font-weight:700; font-size:.85rem;
+  padding: 10px 0; border-radius: 999px; cursor:pointer; position:relative; z-index:2;
+  transition: color .3s ease;
+}
+.fv-login-tabs button.is-active{ color:#0e0e16; }
+.fv-login-tabs__pill{
+  position:absolute; top:4px; left:4px; bottom:4px; width: calc(50% - 4px);
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ffcd6e, #ff9f6e);
+  box-shadow: 0 8px 18px -6px rgba(255,159,110,.6);
+  transition: transform .35s cubic-bezier(.3,.9,.3,1);
+}
+.fv-login-tabs[data-active="signup"] .fv-login-tabs__pill{ transform: translateX(100%); }
+
+.fv-login-form{ display:none; flex-direction:column; gap:14px; }
+.fv-login-form.is-active{ display:flex; animation: fv-form-in .4s ease; }
+@keyframes fv-form-in{ from{ opacity:0; transform: translateY(8px);} to{ opacity:1; transform:none; } }
+
+.fv-field{ position:relative; }
+.fv-field input{
+  width:100%;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  padding: 13px 14px 13px 42px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: .92rem;
+  outline: none;
+  transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.fv-field input::placeholder{ color: rgba(255,255,255,.35); }
+.fv-field input:focus{
+  border-color: rgba(120,90,255,.75);
+  background: rgba(120,90,255,.08);
+  box-shadow: 0 0 0 4px rgba(120,90,255,.16), 0 0 22px -4px rgba(120,90,255,.5);
+}
+.fv-field__icon{
+  position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:16px; height:16px; color: rgba(255,255,255,.45); pointer-events:none;
+}
+.fv-field input:focus ~ .fv-field__icon{ color: rgba(255,205,110,.9); }
+
+.fv-field-row{ display:flex; align-items:center; justify-content:space-between; font-size:.78rem; color: var(--text-dim); }
+.fv-field-row a{ color: rgba(255,205,110,.9); }
+.fv-field-row label{ display:flex; align-items:center; gap:6px; }
+
+.fv-login-submit{
+  margin-top: 4px;
+  width:100%;
+  border:none; cursor:pointer;
+  border-radius: 12px;
+  padding: 14px 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .92rem;
+  letter-spacing:.02em;
+  color: #0e0e16;
+  background: linear-gradient(120deg, #ffcd6e, #ff6e9f 60%, #7a5bff);
+  background-size: 200% 200%;
+  box-shadow: 0 14px 32px -10px rgba(255,110,159,.55);
+  transition: transform .25s ease, background-position .6s ease;
+}
+.fv-login-submit:hover{ transform: translateY(-2px); background-position: 100% 50%; }
+.fv-login-submit:active{ transform: translateY(0) scale(.98); }
+
+.fv-login-divider{
+  display:flex; align-items:center; gap:10px;
+  color: var(--text-dim); font-size:.74rem; margin: 18px 0 4px;
+}
+.fv-login-divider::before, .fv-login-divider::after{ content:''; flex:1; height:1px; background: rgba(255,255,255,.12); }
+
+.fv-login-social{ display:flex; gap:10px; }
+.fv-login-social button{
+  flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
+  padding: 11px 0; border-radius:12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: #fff; font-size:.82rem; font-family: var(--font-body); font-weight:600;
+  cursor:pointer; transition: all .25s ease;
+}
+.fv-login-social button:hover{ background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.3); }
+
+.fv-login-panel__foot{ text-align:center; margin-top:18px; font-size:.8rem; color:var(--text-dim); }
+
+/* success state */
+.fv-login-success{
+  display:none;
+  flex-direction:column; align-items:center; text-align:center; gap:10px;
+  padding: 10px 0 4px;
+}
+.fv-login-success.is-active{ display:flex; animation: fv-form-in .5s ease; }
+.fv-login-success__badge{
+  width:64px; height:64px; border-radius:50%;
+  display:grid; place-items:center;
+  background: radial-gradient(circle, rgba(255,205,110,.35), transparent 70%);
+  border: 1px solid rgba(255,205,110,.6);
+  font-size: 1.8rem;
+  animation: fv-glyph-pulse 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fv-login-char, .fv-login-moon, .fv-login-portal, .fv-login-stage__stars,
+  .fv-login-panel, .fv-login-seal{ animation: none !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,71 @@
+/* =========================================================================
+   FANDOMVERSE — CHATBOT PREMIUM 3D POLISH
+   Additive layer on top of fv-chatbot.css: cursor-reactive tilt, ambient
+   floating particles inside the panel, and richer message entrances.
+   Pure CSS + a small vanilla JS hook (js/fv-chatbot-3d.js).
+   ========================================================================= */
+
+.fvc-launcher{
+  transform: perspective(700px) rotateX(var(--fvc-tiltY,0deg)) rotateY(var(--fvc-tiltX,0deg))
+             translateY(0) scale(1);
+}
+.fvc-launcher:hover{
+  transform: perspective(700px) rotateX(var(--fvc-tiltY,0deg)) rotateY(var(--fvc-tiltX,0deg))
+             translateY(-4px) scale(1.08);
+}
+
+.fvc-panel__inner{
+  transform: perspective(1400px) rotateX(var(--fvc-ptiltY,0deg)) rotateY(var(--fvc-ptiltX,0deg));
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+}
+
+.fvc-particles{
+  position:absolute; inset:0; z-index:0; overflow:hidden;
+  pointer-events:none;
+}
+.fvc-particles span{
+  position:absolute;
+  bottom:-14px;
+  width: var(--s, 5px); height: var(--s, 5px);
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(255,255,255,.9), rgba(139,92,246,0) 70%);
+  opacity:.55;
+  animation: fvcRise var(--d, 9s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+}
+@keyframes fvcRise{
+  0%   { transform: translateY(0) translateX(0); opacity:0; }
+  10%  { opacity:.6; }
+  90%  { opacity:.4; }
+  100% { transform: translateY(-560px) translateX(var(--drift, 20px)); opacity:0; }
+}
+
+/* richer message entrance (fires automatically when a node is appended) */
+.fvc-msg{
+  animation: fvcMsgIn .48s cubic-bezier(.22,1.12,.36,1) both;
+}
+@keyframes fvcMsgIn{
+  from{ opacity:0; transform: perspective(600px) translateY(14px) rotateX(8deg) scale(.96); }
+  to  { opacity:1; transform: perspective(600px) translateY(0) rotateX(0) scale(1); }
+}
+.fvc-msg__bubble{
+  position:relative;
+  box-shadow: 0 10px 26px -12px rgba(0,0,0,.55);
+}
+.fvc-msg--bot .fvc-msg__bubble::before{
+  content:'';
+  position:absolute; inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  background: linear-gradient(135deg, rgba(40,199,255,.4), rgba(139,92,246,.3), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity:.8; pointer-events:none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .fvc-particles, .fvc-msg, .fvc-launcher, .fvc-panel__inner{
+    animation: none !important; transition: none !important;
+  }
+}

@@ -1,0 +1,1877 @@
+/* =========================================================
+   FANDOMVERSE — K-POP PAGE CONTENT STYLES
+   All selectors are scoped under the fv-kpop- prefix.
+   Reuses site tokens above (--bg-void, --text-primary,
+   --text-dim, --font-display, --font-body). Local tokens
+   below add K-Pop-specific hues. No modern/experimental CSS
+   functions are used (no color-mix(), no nested selectors)
+   so this is safe for older browsers and build tooling.
+   ========================================================= */
+
+.fv-kpop-hero,
+.fv-kpop-artists,
+.fv-kpop-music,
+.fv-kpop-fandom {
+  --fvk-pink: #ff3b9d;
+  --fvk-purple: #b06bff;
+  --fvk-blue: #4aa8ff;
+  --fvk-card-bg: rgba(255, 255, 255, 0.045);
+  --fvk-card-border: rgba(255, 255, 255, 0.09);
+}
+
+.fv-kpop-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- shared section head ---------- */
+.fv-kpop-section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+
+.fv-kpop-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--fvk-pink);
+  background: rgba(255, 59, 157, 0.1);
+  border: 1px solid rgba(255, 59, 157, 0.3);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.fv-kpop-section-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.fv-kpop-section-sub {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- 1. HERO ---------- */
+.fv-kpop-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 24px 90px;
+  background: radial-gradient(120% 100% at 50% 0%, #1c1230 0%, var(--bg-void) 60%);
+}
+
+.fv-kpop-hero__bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fv-kpop-hero__grid {
+  position: absolute;
+  top: -10%; left: -10%; right: -10%; bottom: -10%;
+  background-image:
+    linear-gradient(rgba(176, 107, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 107, 255, 0.08) 1px, transparent 1px);
+  background-size: 46px 46px;
+  transform: perspective(500px) rotateX(55deg);
+  transform-origin: bottom;
+  opacity: 0.5;
+}
+
+.fv-kpop-hero__beam {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+}
+
+.fv-kpop-hero__beam--1 {
+  width: 420px;
+  height: 420px;
+  background: var(--fvk-pink);
+  top: -120px;
+  left: -80px;
+}
+
+.fv-kpop-hero__beam--2 {
+  width: 380px;
+  height: 380px;
+  background: var(--fvk-purple);
+  bottom: -140px;
+  right: -60px;
+}
+
+.fv-kpop-hero__beam--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--fvk-blue);
+  top: 30%;
+  right: 20%;
+  opacity: 0.35;
+}
+
+.fv-kpop-hero__glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.06), transparent 55%);
+}
+
+.fv-kpop-hero__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+}
+
+.fv-kpop-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #f0c9ff;
+  margin-bottom: 20px;
+}
+
+.fv-kpop-hero__pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fvk-pink);
+  box-shadow: 0 0 0 0 rgba(255,59,157,0.6);
+  animation: fvKpopPulse 1.8s infinite;
+}
+
+@keyframes fvKpopPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,59,157,0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(255,59,157,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,59,157,0); }
+}
+
+.fv-kpop-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin: 0 0 20px;
+  background: linear-gradient(100deg, #fff 20%, var(--fvk-pink) 55%, var(--fvk-purple) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fv-kpop-hero__desc {
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 auto 34px;
+  max-width: 560px;
+}
+
+.fv-kpop-hero__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.fv-kpop-btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.fv-kpop-btn:focus-visible {
+  outline: 2px solid var(--fvk-blue);
+  outline-offset: 3px;
+}
+
+.fv-kpop-btn--primary {
+  background: linear-gradient(100deg, var(--fvk-pink), var(--fvk-purple));
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(255, 59, 157, 0.55);
+}
+
+.fv-kpop-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -8px rgba(255, 59, 157, 0.7);
+}
+
+.fv-kpop-btn--ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fv-kpop-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.11);
+  transform: translateY(-2px);
+}
+
+/* ---------- 2. FEATURED ARTISTS ---------- */
+.fv-kpop-artists {
+  padding: 90px 0;
+  background: var(--bg-void);
+}
+
+.fv-kpop-artist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.fv-kpop-artist-card {
+  background: var(--fvk-card-bg);
+  border: 1px solid var(--fvk-card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.fv-kpop-artist-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--fvk-glow, rgba(176, 107, 255, 0.5));
+  box-shadow: 0 18px 40px -18px var(--fvk-glow, rgba(176, 107, 255, 0.5));
+}
+
+.fv-kpop-artist-card__media {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 140% at 30% 20%, var(--fvk-glow, rgba(176, 107, 255, 0.35)), transparent 60%),
+    linear-gradient(135deg, #17121f, #0e0e16);
+  border-bottom: 1px solid var(--fvk-card-border);
+}
+
+.fv-kpop-artist-card__mono {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.4rem;
+  letter-spacing: 0.05em;
+  color: var(--fvk-accent, var(--fvk-purple));
+  opacity: 0.9;
+}
+
+.fv-kpop-artist-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.fv-kpop-artist-card__body {
+  padding: 20px 20px 22px;
+}
+
+.fv-kpop-artist-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.fv-kpop-artist-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+  margin: 0 0 14px;
+}
+
+.fv-kpop-artist-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.fv-kpop-artist-card__tags span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+
+.fv-kpop-artist-card__cta {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--fvk-accent, var(--fvk-purple));
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fv-kpop-artist-card__cta:hover { text-decoration: underline; }
+.fv-kpop-artist-card__cta:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
+
+/* ---------- 3. LATEST MUSIC ---------- */
+.fv-kpop-music {
+  padding: 90px 0;
+  background: linear-gradient(180deg, var(--bg-void), #12101c 50%, var(--bg-void));
+}
+
+.fv-kpop-music-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fv-kpop-music-card {
+  background: var(--fvk-card-bg);
+  border: 1px solid var(--fvk-card-border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fv-kpop-music-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px -18px rgba(176, 107, 255, 0.55);
+}
+
+.fv-kpop-music-card__thumb {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: #0a0a12;
+}
+
+.fv-kpop-music-card__thumb img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fv-kpop-music-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.fv-kpop-music-card__play:hover { transform: translate(-50%, -50%) scale(1.08); background: #fff; }
+.fv-kpop-music-card__play:focus-visible { outline: 3px solid var(--fvk-blue); outline-offset: 3px; }
+
+.fv-kpop-music-card__body {
+  padding: 16px 16px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fv-kpop-music-card__meta {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--fvk-pink);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.fv-kpop-music-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.fv-kpop-music-card__release {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin: 0 0 10px;
+}
+
+.fv-kpop-music-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+.fv-kpop-music-card__watch {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--fvk-blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.fv-kpop-music-card__watch:hover { text-decoration: underline; }
+.fv-kpop-music-card__watch:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
+
+.fv-kpop-music-footer {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.fv-kpop-viewall {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 2px;
+}
+
+.fv-kpop-viewall:hover { color: var(--fvk-pink); border-color: var(--fvk-pink); }
+.fv-kpop-viewall:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 3px; }
+
+/* ---------- VIDEO MODAL ---------- */
+.fv-kpop-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.fv-kpop-modal[hidden] { display: none; }
+
+.fv-kpop-modal__backdrop {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8, 8, 14, 0.86);
+}
+
+.fv-kpop-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 820px;
+  background: #121019;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7);
+}
+
+.fv-kpop-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fv-kpop-modal__close:hover { background: rgba(255,255,255,0.14); }
+.fv-kpop-modal__close:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
+
+.fv-kpop-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin: 0 28px 14px 0;
+}
+
+.fv-kpop-modal__frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.fv-kpop-modal__frame iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.fv-kpop-modal__fallback {
+  display: inline-flex;
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--fvk-blue);
+  text-decoration: none;
+}
+
+.fv-kpop-modal__fallback:hover { text-decoration: underline; }
+
+/* ---------- 4. FANDOM ---------- */
+.fv-kpop-fandom {
+  padding: 80px 0 100px;
+  background: var(--bg-void);
+}
+
+.fv-kpop-fandom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fv-kpop-fandom-card {
+  background: var(--fvk-card-bg);
+  border: 1px solid var(--fvk-card-border);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.fv-kpop-fandom-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(176, 107, 255, 0.4);
+}
+
+.fv-kpop-fandom-card__media {
+  height: 130px;
+  background: linear-gradient(135deg, #17121f, #0e0e16);
+  border-bottom: 1px solid var(--fvk-card-border);
+}
+
+.fv-kpop-fandom-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.fv-kpop-fandom-card__body {
+  padding: 26px 22px;
+}
+
+.fv-kpop-fandom-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(176, 107, 255, 0.12);
+  color: var(--fvk-purple);
+  margin-bottom: 14px;
+}
+
+.fv-kpop-fandom-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.fv-kpop-fandom-card__desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.fv-kpop-fandom-card__link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--fvk-pink);
+  text-decoration: none;
+}
+
+.fv-kpop-fandom-card__link:hover { text-decoration: underline; }
+.fv-kpop-fandom-card__link:focus-visible { outline: 2px solid var(--fvk-blue); outline-offset: 2px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .fv-kpop-artist-grid { grid-template-columns: repeat(2, 1fr); }
+  .fv-kpop-music-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .fv-kpop-hero { min-height: auto; padding: 120px 20px 70px; }
+  .fv-kpop-hero__title { font-size: 2.2rem; }
+  .fv-kpop-artist-grid { grid-template-columns: 1fr; }
+  .fv-kpop-music-grid { grid-template-columns: 1fr; }
+  .fv-kpop-fandom-grid { grid-template-columns: 1fr; }
+  .fv-kpop-artists, .fv-kpop-music { padding: 64px 0; }
+  .fv-kpop-fandom { padding: 60px 0 76px; }
+}
+
+
+
+
+/* =========================================================
+   FANDOMVERSE — COMICS PAGE STYLES
+   Scoped entirely under the fv-comics- prefix.
+   Link this AFTER css/style.css:
+   <link rel="stylesheet" href="css/comics.css">
+   Uses existing global tokens (--fv-bg, --fv-text, --fv-font-head,
+   --fv-font-body, --fv-radius-lg/md) defined in style.css.
+   ========================================================= */
+
+.fv-comics-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fv-comics-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fv-font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ff3b5c;
+  background: rgba(255, 59, 92, 0.1);
+  border: 1px solid rgba(255, 59, 92, 0.3);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.fv-comics-pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #ff3b5c;
+  box-shadow: 0 0 0 0 rgba(255, 59, 92, 0.6);
+  animation: fvComicsPulse 1.8s infinite;
+}
+@keyframes fvComicsPulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 92, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 59, 92, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 92, 0); }
+}
+
+.fv-comics-section-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+.fv-comics-section-title {
+  font-family: var(--fv-font-head);
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--fv-text, #fff);
+  margin: 14px 0 10px;
+}
+.fv-comics-section-sub { font-family: var(--fv-font-body); color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.6; }
+
+.fv-comics-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fv-font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.fv-comics-btn--primary {
+  background: linear-gradient(135deg, #ff3b5c, #9b2fff);
+  color: #fff;
+  box-shadow: 0 8px 24px -6px rgba(255, 59, 92, 0.5);
+}
+.fv-comics-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -6px rgba(255, 59, 92, 0.65); }
+.fv-comics-btn--ghost {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.fv-comics-btn--ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+/* ===== 1. HERO ===== */
+.fv-comics-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 140px 24px 80px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(155, 43, 255, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(224, 38, 63, 0.25), transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(0, 150, 255, 0.15), transparent 60%),
+    #07070d;
+}
+.fv-comics-hero__bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.fv-comics-hero__bg-img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.45;
+  filter: saturate(1.2) contrast(1.05);
+  animation: fvComicsKenBurns 22s ease-in-out infinite alternate;
+  transform-origin: 55% 40%;
+}
+@keyframes fvComicsKenBurns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.14) translate(-1.5%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fv-comics-hero__bg-img { animation: none; }
+}
+.fv-comics-hero__scanlines {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+}
+
+/* ---- Animated comic-book layer ---- */
+.fv-comics-hero__comicfx { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+
+.fv-comics-hero__halftone {
+  position: absolute; inset: -20%;
+  background-image: radial-gradient(rgba(255,255,255,0.14) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+  opacity: 0.22;
+  mix-blend-mode: screen;
+  animation: fvComicsHalftoneDrift 16s linear infinite;
+}
+@keyframes fvComicsHalftoneDrift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(14px, 14px); }
+}
+
+.fv-comics-hero__rays {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 220%; height: 220%;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    rgba(255, 204, 51, 0.10) 0deg 6deg,
+    transparent 6deg 18deg
+  );
+  opacity: 0.55;
+  animation: fvComicsRaysSpin 90s linear infinite;
+}
+@keyframes fvComicsRaysSpin {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.fv-comics-hero__burst {
+  position: absolute;
+  font-family: var(--fv-font-head, 'Unbounded', sans-serif);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: #ffcc33;
+  -webkit-text-stroke: 2px #0c0c14;
+  paint-order: stroke fill;
+  text-shadow: 3px 3px 0 rgba(224, 38, 63, 0.85);
+  opacity: 0;
+  animation: fvComicsBurstPop 6s ease-in-out infinite;
+}
+.fv-comics-hero__burst--1 { top: 14%; left: 8%;  font-size: clamp(22px, 3.4vw, 40px); transform: rotate(-10deg); animation-delay: 0s; }
+.fv-comics-hero__burst--2 { top: 20%; right: 9%; font-size: clamp(20px, 3vw, 34px);   transform: rotate(8deg);  animation-delay: 2s; }
+.fv-comics-hero__burst--3 { bottom: 16%; left: 12%; font-size: clamp(18px, 2.6vw, 30px); transform: rotate(-6deg); animation-delay: 4s; }
+
+@keyframes fvComicsBurstPop {
+  0%   { opacity: 0; transform: scale(0.6) rotate(var(--r, 0deg)); }
+  10%  { opacity: 1; transform: scale(1.08) rotate(var(--r, 0deg)); }
+  20%  { opacity: 1; transform: scale(1) rotate(var(--r, 0deg)); }
+  70%  { opacity: 1; }
+  85%  { opacity: 0; transform: scale(0.9) rotate(var(--r, 0deg)) translateY(-10px); }
+  100% { opacity: 0; }
+}
+
+.fv-comics-hero__panelline {
+  position: absolute;
+  background: rgba(255,255,255,0.08);
+}
+.fv-comics-hero__panelline--h {
+  left: 6%; right: 6%; top: 50%; height: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: fvComicsPanelH 8s ease-in-out infinite;
+}
+.fv-comics-hero__panelline--v {
+  top: 8%; bottom: 8%; left: 50%; width: 2px;
+  transform: scaleY(0);
+  transform-origin: top center;
+  animation: fvComicsPanelV 8s ease-in-out infinite;
+}
+@keyframes fvComicsPanelH {
+  0%, 100% { transform: scaleX(0); opacity: 0; }
+  40% { transform: scaleX(1); opacity: 0.6; }
+  60% { transform: scaleX(1); opacity: 0.6; }
+  90% { opacity: 0; }
+}
+@keyframes fvComicsPanelV {
+  0%, 100% { transform: scaleY(0); opacity: 0; }
+  40% { transform: scaleY(1); opacity: 0.6; }
+  60% { transform: scaleY(1); opacity: 0.6; }
+  90% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-comics-hero__halftone,
+  .fv-comics-hero__rays,
+  .fv-comics-hero__burst,
+  .fv-comics-hero__panelline--h,
+  .fv-comics-hero__panelline--v { animation: none; opacity: 0; }
+}
+@media (max-width: 640px) {
+  .fv-comics-hero__burst--3 { display: none; }
+}
+.fv-comics-hero__content { position: relative; z-index: 1; max-width: 720px; }
+.fv-comics-hero__eyebrow {
+  display: inline-block;
+  font-family: var(--fv-font-body);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: #ffcc33;
+  margin-bottom: 18px;
+}
+.fv-comics-hero__title {
+  font-family: var(--fv-font-head);
+  font-weight: 900;
+  font-size: clamp(42px, 8vw, 84px);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 40px rgba(255, 59, 92, 0.4);
+  margin: 0 0 20px;
+}
+.fv-comics-hero__desc {
+  font-family: var(--fv-font-body);
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin: 0 0 34px;
+}
+.fv-comics-hero__actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+
+/* ===== 2. FEATURED COMICS ===== */
+.fv-comics-featured { padding: 90px 0; background: #0b0b12; }
+.fv-comics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.fv-comics-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--fv-radius-lg, 18px);
+  overflow: hidden;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.fv-comics-card:hover, .fv-comics-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--fvc-accent, #ff3b5c);
+  box-shadow: 0 16px 40px -12px var(--fvc-glow, rgba(255,59,92,.4));
+}
+.fv-comics-card__media { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #14141e; }
+.fv-comics-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.fv-comics-card:hover .fv-comics-card__img { transform: scale(1.08); }
+.fv-comics-card__publisher {
+  position: absolute; top: 12px; left: 12px;
+  font-family: var(--fv-font-body); font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  background: rgba(0,0,0,0.6); color: #fff;
+  padding: 5px 10px; border-radius: 999px;
+  border: 1px solid var(--fvc-accent, #ff3b5c);
+}
+.fv-comics-card__body { padding: 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.fv-comics-card__genre { font-family: var(--fv-font-body); font-size: 12px; color: var(--fvc-accent, #ff3b5c); font-weight: 700; }
+.fv-comics-card__title { font-family: var(--fv-font-head); font-size: 19px; color: #fff; margin: 0; }
+.fv-comics-card__desc { font-family: var(--fv-font-body); font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.55; flex: 1; }
+.fv-comics-card__cta {
+  align-self: flex-start;
+  font-family: var(--fv-font-head); font-size: 13px; font-weight: 700;
+  color: var(--fvc-accent, #ff3b5c); text-decoration: none;
+  margin-top: 6px;
+  transition: gap .2s ease;
+}
+.fv-comics-card__cta:hover { text-decoration: underline; }
+
+/* ===== 3. ICONIC CHARACTERS ===== */
+.fv-comics-characters { padding: 90px 0; background: #07070d; }
+.fv-comics-char-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.fv-comics-char-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--fv-radius-lg, 18px);
+  overflow: hidden;
+  text-align: center;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.fv-comics-char-card:hover, .fv-comics-char-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--fvc-accent, #ff3b5c);
+  box-shadow: 0 16px 40px -12px var(--fvc-glow, rgba(255,59,92,.4));
+}
+.fv-comics-char-card__media {
+  position: relative; aspect-ratio: 1/1; background: #14141e;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.fv-comics-char-card__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fv-comics-char-card__fallback {
+  font-family: var(--fv-font-head); font-size: 28px; font-weight: 900;
+  color: var(--fvc-accent, #ff3b5c);
+}
+.fv-comics-char-card__body { padding: 18px; }
+.fv-comics-char-card__body h3 { font-family: var(--fv-font-head); font-size: 18px; color: #fff; margin: 0 0 4px; }
+.fv-comics-char-card__series { font-family: var(--fv-font-body); font-size: 12px; color: var(--fvc-accent, #ff3b5c); font-weight: 700; margin: 0 0 10px; }
+.fv-comics-char-card__desc { font-family: var(--fv-font-body); font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5; margin: 0 0 14px; }
+.fv-comics-char-card__cta {
+  display: inline-block;
+  font-family: var(--fv-font-head); font-size: 12.5px; font-weight: 700;
+  color: #fff; background: var(--fvc-accent, #ff3b5c);
+  padding: 8px 18px; border-radius: 999px; text-decoration: none;
+  transition: filter .2s ease;
+}
+.fv-comics-char-card__cta:hover { filter: brightness(1.15); }
+
+/* ===== 4. TRAILERS & REVEALS ===== */
+.fv-comics-trailers { padding: 90px 0 110px; background: #0b0b12; }
+.fv-comics-trailers__head {
+  display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  margin-bottom: 36px; text-align: left;
+}
+.fv-comics-trailers__head .fv-comics-section-head { text-align: left; margin: 0; max-width: 560px; }
+.fv-comics-viewall {
+  font-family: var(--fv-font-head); font-size: 13px; font-weight: 700;
+  color: #fff; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 999px;
+  white-space: nowrap;
+  transition: background .2s ease;
+}
+.fv-comics-viewall:hover { background: rgba(255,255,255,0.08); }
+
+.fv-comics-trailer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.fv-comics-trailer-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--fv-radius-lg, 18px);
+  overflow: hidden;
+}
+.fv-comics-trailer-card__play {
+  display: block; position: relative; width: 100%; padding: 0; border: none; cursor: pointer;
+  background: none;
+}
+.fv-comics-trailer-card__thumb { display: block; aspect-ratio: 16/9; overflow: hidden; background: #14141e; }
+.fv-comics-trailer-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.fv-comics-trailer-card__play:hover .fv-comics-trailer-card__thumb img,
+.fv-comics-trailer-card__play:focus-visible .fv-comics-trailer-card__thumb img { transform: scale(1.06); }
+.fv-comics-trailer-card__playicon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(0,0,0,0.55);
+  border: 2px solid #fff; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.fv-comics-trailer-card__badge {
+  position: absolute; bottom: 10px; left: 10px;
+  font-family: var(--fv-font-body); font-size: 11px; font-weight: 700;
+  background: rgba(0,0,0,0.65); color: #fff; padding: 4px 10px; border-radius: 999px;
+}
+.fv-comics-trailer-card__play:focus-visible { outline: 3px solid var(--fvc-accent, #ff3b5c); outline-offset: -3px; }
+.fv-comics-trailer-card__body { padding: 18px; text-align: left; }
+.fv-comics-trailer-card__body h3 { font-family: var(--fv-font-head); font-size: 16px; color: #fff; margin: 0 0 8px; }
+.fv-comics-trailer-card__body p { font-family: var(--fv-font-body); font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; margin: 0 0 12px; }
+.fv-comics-trailer-card__fallback-link { font-family: var(--fv-font-body); font-size: 12.5px; font-weight: 700; color: #ff3b5c; text-decoration: none; }
+.fv-comics-trailer-card__fallback-link:hover { text-decoration: underline; }
+
+/* ===== TRAILER MODAL ===== */
+.fv-comics-modal { position: fixed; inset: 0; z-index: 999; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.fv-comics-modal[hidden] { display: none; }
+.fv-comics-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
+.fv-comics-modal__panel {
+  position: relative; z-index: 1; width: 100%; max-width: 820px;
+  background: #0b0b12; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--fv-radius-lg, 18px);
+  overflow: hidden;
+}
+.fv-comics-modal__close {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer; font-size: 16px;
+}
+.fv-comics-modal__close:focus-visible { outline: 2px solid #ff3b5c; }
+.fv-comics-modal__media { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+.fv-comics-modal__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.fv-comics-modal__info { padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.fv-comics-modal__title { font-family: var(--fv-font-head); font-size: 16px; color: #fff; margin: 0; }
+.fv-comics-modal__fallback-link { font-family: var(--fv-font-body); font-size: 12.5px; font-weight: 700; color: #ff3b5c; text-decoration: none; white-space: nowrap; }
+.fv-comics-modal__fallback-link:hover { text-decoration: underline; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .fv-comics-grid { grid-template-columns: repeat(2, 1fr); }
+  .fv-comics-char-grid { grid-template-columns: repeat(2, 1fr); }
+  .fv-comics-trailer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .fv-comics-grid { grid-template-columns: 1fr; }
+  .fv-comics-char-grid { grid-template-columns: 1fr; }
+  .fv-comics-trailer-grid { grid-template-columns: 1fr; }
+  .fv-comics-hero { min-height: 70vh; padding: 120px 20px 60px; }
+  .fv-comics-trailers__head { text-align: center; }
+  .fv-comics-trailers__head .fv-comics-section-head { text-align: center; margin: 0 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-comics-card, .fv-comics-char-card, .fv-comics-btn,
+  .fv-comics-card__img, .fv-comics-trailer-card__thumb img,
+  .fv-comics-pulse { transition: none; animation: none; }
+}
+
+
+
+
+
+/* =========================================================
+   FANDOMVERSE — MANGA PAGE STYLES (isolated)
+   Prefix: fv-manga-
+   Reuses global tokens already defined in css/style.css
+   (--bg-void, --text-primary, --text-dim, --font-display,
+   --font-body) but introduces no new global variables and
+   touches no existing selector.
+   ========================================================= */
+
+.fv-manga-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fv-manga-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ff5c8a;
+}
+
+.fv-manga-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 0 rgba(255, 92, 138, 0.6);
+  animation: fv-manga-pulse-ring 2.2s ease-out infinite;
+}
+
+@keyframes fv-manga-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 92, 138, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(255, 92, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 92, 138, 0); }
+}
+
+.fv-manga-section-head {
+  max-width: 640px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.fv-manga-section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  letter-spacing: -0.02em;
+  margin: 12px 0 10px;
+  color: var(--text-primary);
+}
+
+.fv-manga-section-sub {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ---------- scroll reveal ---------- */
+.fv-manga-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fv-manga-reveal.fv-manga-in-view {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fv-manga-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- buttons ---------- */
+.fv-manga-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.fv-manga-btn--primary {
+  color: #0e0e16;
+  background: linear-gradient(120deg, #ff3b5c, #9b5cff);
+  box-shadow: 0 12px 28px -10px rgba(255, 59, 92, 0.55);
+}
+.fv-manga-btn--primary:hover,
+.fv-manga-btn--primary:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -8px rgba(155, 92, 255, 0.6);
+}
+.fv-manga-btn--ghost {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.fv-manga-btn--ghost:hover,
+.fv-manga-btn--ghost:focus-visible {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+  transform: translateY(-2px);
+}
+.fv-manga-btn:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SECTION 1 — HERO
+   ========================================================= */
+.fv-manga-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #050507;
+  text-align: center;
+}
+
+.fv-manga-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.fv-manga-hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.fv-manga-hero__speedlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 34px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+
+.fv-manga-hero__vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(5, 5, 7, 0.97) 0%, rgba(5, 5, 7, 0.82) 32%, rgba(5, 5, 7, 0.35) 62%, rgba(5, 5, 7, 0.75) 100%),
+    radial-gradient(circle at 82% 28%, rgba(155, 92, 255, 0.28), transparent 55%),
+    radial-gradient(circle at 70% 78%, rgba(255, 59, 92, 0.22), transparent 55%);
+}
+
+.fv-manga-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 100px 24px 60px;
+  width: 100%;
+}
+
+.fv-manga-hero__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 14ch;
+  margin: 16px auto 18px;
+  color: var(--text-primary);
+}
+
+.fv-manga-hero__desc {
+  max-width: 52ch;
+  color: var(--text-dim);
+  font-size: 1.08rem;
+  line-height: 1.6;
+  margin: 0 auto 32px;
+}
+
+.fv-manga-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* =========================================================
+   SECTION 2 — FEATURED MANGA
+   ========================================================= */
+.fv-manga-featured {
+  position: relative;
+  padding: 110px 0 100px;
+}
+
+.fv-manga-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.fv-manga-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.fv-manga-card:hover,
+.fv-manga-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--fvm-accent, #ff3b5c);
+  box-shadow: 0 22px 44px -20px var(--fvm-glow, rgba(255, 59, 92, 0.4));
+}
+
+.fv-manga-card__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #111119;
+}
+
+.fv-manga-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.fv-manga-card:hover .fv-manga-card__img {
+  transform: scale(1.08);
+}
+
+.fv-manga-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(5, 5, 7, 0.92) 100%);
+}
+
+.fv-manga-card__genre {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--fvm-accent, #ff3b5c);
+  background: rgba(5, 5, 7, 0.55);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.fv-manga-card__body {
+  padding: 18px 18px 20px;
+}
+
+.fv-manga-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.fv-manga-card__desc {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.fv-manga-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--fvm-accent, #ff3b5c);
+}
+
+.fv-manga-card__cta span {
+  transition: transform 0.25s ease;
+}
+
+.fv-manga-card__cta:hover span,
+.fv-manga-card__cta:focus-visible span {
+  transform: translateX(4px);
+}
+
+.fv-manga-card__cta:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   SECTION 3 — MANGA CHARACTERS
+   ========================================================= */
+.fv-manga-characters {
+  position: relative;
+  padding: 0 0 110px;
+}
+
+.fv-manga-char-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.fv-manga-char-card {
+  position: relative;
+  text-align: center;
+  padding: 30px 18px 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.fv-manga-char-card:hover,
+.fv-manga-char-card:focus-within {
+  transform: translateY(-6px);
+  border-color: var(--fvm-accent, #9b5cff);
+  box-shadow: 0 22px 44px -22px var(--fvm-glow, rgba(155, 92, 255, 0.4));
+}
+
+.fv-manga-char-card__media {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111119;
+  border: 2px solid var(--fvm-accent, #9b5cff);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.03);
+}
+
+.fv-manga-char-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.fv-manga-char-card__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--fvm-accent, #9b5cff);
+}
+
+.fv-manga-char-card__body h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.fv-manga-char-card__series {
+  color: var(--fvm-accent, #9b5cff);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.fv-manga-char-card__traits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.fv-manga-char-card__traits span {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 4px 9px;
+  border-radius: 999px;
+}
+
+.fv-manga-char-card__cta {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.fv-manga-char-card__cta:hover,
+.fv-manga-char-card__cta:focus-visible {
+  color: var(--fvm-accent, #9b5cff);
+  border-color: var(--fvm-accent, #9b5cff);
+}
+
+.fv-manga-char-card__cta:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SECTION 4 — LATEST MANGA VIDEOS
+   ========================================================= */
+.fv-manga-videos {
+  position: relative;
+  padding: 0 0 120px;
+}
+
+.fv-manga-video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.fv-manga-video-credit {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.fv-manga-video-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    #0c0c14;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.fv-manga-video-card:hover,
+.fv-manga-video-card:focus-within {
+  border-color: #ff3b5c;
+  box-shadow:
+    0 30px 60px -24px rgba(255, 59, 92, 0.45),
+    0 8px 20px -8px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 59, 92, 0.25) inset;
+}
+
+.fv-manga-video-card--tilt:not(:hover):not(:focus-within) {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.fv-manga-video-card__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #111119;
+  overflow: hidden;
+}
+
+.fv-manga-video-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.fv-manga-video-card:hover .fv-manga-video-card__thumb img {
+  transform: scale(1.1);
+  filter: saturate(1.2) contrast(1.08);
+}
+
+/* Glossy pointer-tracked shine sweep */
+.fv-manga-video-card__shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+
+/* Glowing inner edge that appears with the tilt */
+.fv-manga-video-card__edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.fv-manga-video-card:hover .fv-manga-video-card__edge {
+  opacity: 1;
+}
+
+.fv-manga-video-card__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 7, 0.25);
+  border: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.fv-manga-video-card__play-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.fv-manga-video-card__play:hover .fv-manga-video-card__play-icon,
+.fv-manga-video-card__play:focus-visible .fv-manga-video-card__play-icon {
+  transform: scale(1.1);
+  background: #ff3b5c;
+}
+
+.fv-manga-video-card__body {
+  padding: 16px 18px 20px;
+}
+
+.fv-manga-video-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.fv-manga-video-card__desc {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.fv-manga-video-card__watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #ff3b5c;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.fv-manga-video-card__watch:focus-visible,
+.fv-manga-video-card__play:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+}
+
+/* ---------- modal ---------- */
+.fv-manga-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.fv-manga-modal[hidden] {
+  display: none;
+}
+
+.fv-manga-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 7, 0.86);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.fv-manga-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 780px;
+  background: #0e0e16;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  animation: fv-manga-modal-in 0.25s ease;
+}
+
+@keyframes fv-manga-modal-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-manga-modal__panel { animation: none; }
+}
+
+.fv-manga-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.fv-manga-modal__close:hover,
+.fv-manga-modal__close:focus-visible {
+  background: #ff3b5c;
+  transform: rotate(90deg);
+}
+
+.fv-manga-modal__close:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+}
+
+.fv-manga-modal__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fv-manga-modal__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.fv-manga-modal__placeholder {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.fv-manga-modal__meta {
+  padding: 18px 22px 22px;
+}
+
+.fv-manga-modal__meta h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.fv-manga-modal__yt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #35e0ff;
+}
+
+.fv-manga-modal__yt:focus-visible {
+  outline: 2px solid #35e0ff;
+  outline-offset: 3px;
+}
+
+.fv-manga-modal__yt[aria-disabled="true"] {
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px) {
+  .fv-manga-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fv-manga-char-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fv-manga-video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .fv-manga-hero {
+    min-height: 68vh;
+  }
+  .fv-manga-hero__inner {
+    padding: 84px 20px 48px;
+  }
+  .fv-manga-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fv-manga-btn {
+    justify-content: center;
+  }
+  .fv-manga-grid {
+    grid-template-columns: 1fr;
+  }
+  .fv-manga-video-grid {
+    grid-template-columns: 1fr;
+  }
+  .fv-manga-char-track {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 72%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .fv-manga-char-card {
+    scroll-snap-align: start;
+  }
+  .fv-manga-featured,
+  .fv-manga-characters,
+  .fv-manga-videos {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+
+
+

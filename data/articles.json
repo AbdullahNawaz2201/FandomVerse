@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "The Evolution of Modern Anime",
+    "category": "Anime",
+    "type": "Article",
+    "description": "Explore how anime storytelling, visual styles, and global fandom culture have evolved over the years.",
+    "date": "September 1, 2026",
+    "image": "assets/images/articles/anime.jpg",
+    "link": "#",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "How Gaming Communities Shape Modern Fandom",
+    "category": "Gaming",
+    "type": "Article",
+    "description": "Discover how players, creators and communities have transformed gaming into a global culture.",
+    "date": "September 5, 2026",
+    "image": "assets/images/articles/gaming.jpg",
+    "link": "#"
+  },
+  {
+    "id": 3,
+    "title": "The Art of Building a Cinematic Universe",
+    "category": "Movies",
+    "type": "Article",
+    "description": "Explore how interconnected stories create immersive worlds that keep audiences coming back.",
+    "date": "September 10, 2026",
+    "image": "assets/images/articles/movies.jpg",
+    "link": "#"
+  },
+  {
+    "id": 4,
+    "title": "The Global Rise of K-Pop Fandom",
+    "category": "K-Pop",
+    "type": "Article",
+    "description": "Discover how music, performance and online communities have helped K-Pop reach audiences worldwide.",
+    "date": "September 15, 2026",
+    "image": "assets/images/articles/kpop.jpg",
+    "link": "#"
+  }
+]

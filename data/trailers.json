@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "title": "Grand Theft Auto VI — Trailer 1",
+    "category": "Gaming",
+    "status": "Coming Soon",
+    "description": "Rockstar Games returns to Vice City with Jason and Lucia in the biggest evolution of the Grand Theft Auto series yet.",
+    "videoUrl": "https://www.youtube.com/watch?v=eOrb93UZfPU",
+    "duration": "1:31",
+    "releaseDate": "2026-11-19",
+    "views": 250000000,
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Superman — Official Trailer",
+    "category": "Movies",
+    "status": "Featured",
+    "description": "James Gunn reintroduces the Man of Steel as he balances his Kryptonian heritage with a very human sense of justice.",
+    "videoUrl": "https://www.youtube.com/watch?v=pngEIbGpozw",
+    "duration": "2:32",
+    "releaseDate": "2025-07-11",
+    "views": 32000000
+  },
+  {
+    "id": 3,
+    "title": "The Fantastic Four: First Steps — Official Trailer",
+    "category": "Movies",
+    "status": "New",
+    "description": "Marvel's First Family suits up in a retro-futuristic world to defend Earth from Galactus and the Silver Surfer.",
+    "videoUrl": "https://www.youtube.com/watch?v=pAsmrKyMqaA",
+    "duration": "2:24",
+    "releaseDate": "2025-07-25",
+    "views": 18500000
+  },
+  {
+    "id": 4,
+    "title": "Demon Slayer: Kimetsu no Yaiba — Infinity Castle",
+    "category": "Anime",
+    "status": "Featured",
+    "description": "Tanjiro and the Demon Slayer Corps enter the Infinity Castle for the franchise's climactic final battle against Muzan.",
+    "videoUrl": "https://www.youtube.com/watch?v=wyiZWYMilgk",
+    "duration": "1:58",
+    "releaseDate": "2025-09-12",
+    "views": 21000000
+  },
+  {
+    "id": 5,
+    "title": "Stranger Things 5 — Official Trailer",
+    "category": "TV Shows",
+    "status": "Featured",
+    "description": "Hawkins braces for its final battle against Vecna as the Duffer Brothers close out the epic series.",
+    "videoUrl": "https://www.youtube.com/watch?v=PssKpzB0Ah0",
+    "duration": "2:41",
+    "releaseDate": "2025-11-26",
+    "views": 45000000
+  },
+  {
+    "id": 6,
+    "title": "BLACKPINK — 'GO' M/V",
+    "category": "K-Pop",
+    "status": "New",
+    "description": "BLACKPINK's explosive lead single from their EP 'Deadline,' marking their first full-group comeback in years.",
+    "videoUrl": "https://www.youtube.com/watch?v=2GJfWMYCWY0",
+    "duration": "3:15",
+    "releaseDate": "2026-02-27",
+    "views": 60000000
+  },
+  {
+    "id": 7,
+    "title": "Invincible Season 4 — Official Trailer",
+    "category": "Comics",
+    "status": "Featured",
+    "description": "Based on Robert Kirkman's acclaimed comic series, Mark Grayson faces the start of the Viltrumite War.",
+    "videoUrl": "https://www.youtube.com/watch?v=FLh9BRFPGw4",
+    "duration": "2:12",
+    "releaseDate": "2026-03-18",
+    "views": 9800000
+  },
+  {
+    "id": 8,
+    "title": "ONE PIECE: Season 2 — Official Trailer",
+    "category": "Manga",
+    "status": "New",
+    "description": "Netflix's live-action adaptation of Eiichiro Oda's manga sends the Straw Hats into the perilous Grand Line.",
+    "videoUrl": "https://www.youtube.com/watch?v=S-XxKVxZ2fU",
+    "duration": "2:05",
+    "releaseDate": "2026-03-10",
+    "views": 15200000
+  }
+]

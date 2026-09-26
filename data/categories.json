@@ -1,0 +1,65 @@
+[
+  {
+    "id": "anime",
+    "name": "Anime",
+    "icon": "🎌",
+    "description": "Explore anime stories, characters, galleries, trailers, events and more.",
+    "link": "anime.html",
+    "accentColor": "#ff3b5c",
+    "image": "assets/images/categories/anime.jpg"
+  },
+  {
+    "id": "gaming",
+    "name": "Gaming",
+    "icon": "🎮",
+    "description": "Discover games, characters, trailers, articles, events and gaming culture.",
+    "link": "gaming.html",
+    "accentColor": "#39ff88",
+    "image": "assets/images/categories/gaming.jpg"
+  },
+  {
+    "id": "movies",
+    "name": "Movies",
+    "icon": "🎬",
+    "description": "Explore movies, characters, trailers, articles, galleries and upcoming releases.",
+    "link": "movies.html",
+    "accentColor": "#ffcc33",
+    "image": "assets/images/categories/movies.jpg"
+  },
+  {
+    "id": "tvshows",
+    "name": "TV Shows",
+    "icon": "📺",
+    "description": "Discover your favorite shows, characters, episodes, trailers and fandom content.",
+    "link": "tvshows.html",
+    "accentColor": "#b06bff",
+    "image": "assets/images/categories/tvshows.jpg"
+  },
+  {
+    "id": "kpop",
+    "name": "K-Pop",
+    "icon": "🎤",
+    "description": "Explore artists, music, videos, events, releases and K-Pop culture.",
+    "link": "kpop.html",
+    "accentColor": "#ff3b9d",
+    "image": "assets/images/categories/kpop.jpg"
+  },
+  {
+    "id": "comics",
+    "name": "Comics",
+    "icon": "🦸",
+    "description": "Discover heroes, villains, stories, characters, galleries and comic events.",
+    "link": "comics.html",
+    "accentColor": "#33ccff",
+    "image": "assets/images/categories/comics.jpg"
+  },
+  {
+    "id": "manga",
+    "name": "Manga",
+    "icon": "📚",
+    "description": "Explore manga series, characters, chapters, artwork, releases and more.",
+    "link": "manga.html",
+    "accentColor": "#ff7a3d",
+    "image": "assets/images/categories/manga.jpg"
+  }
+]

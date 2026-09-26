@@ -1,0 +1,672 @@
+/* =========================================================
+   FANDOMVERSE — SHARED 3D HERO + PAGE-TRANSITION EFFECTS
+   Works on every page. Safe to load after css/style.css.
+   ========================================================= */
+
+/* ---------- 0. Character-card bios (added for consistency across cards) ---------- */
+.fv-anime-char-card__desc,
+.fv-gaming-char-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--fv-anime-text-dim, var(--fv-gaming-text-dim, rgba(255,255,255,0.62)));
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- 0b. 3D character cards (Popular Characters grid) ---------- */
+.fv-anime-char-grid {
+  perspective: 1600px;
+}
+
+.fv-anime-char-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.55s ease;
+  will-change: transform;
+}
+
+.fv-anime-char-card:hover {
+  transform: perspective(1200px) rotateX(6deg) rotateY(-8deg) translateY(-10px) translateZ(18px) scale(1.03);
+  border-color: var(--fva-accent, var(--fv-anime-accent));
+  box-shadow:
+    -14px 24px 40px -14px rgba(0, 0, 0, 0.55),
+    0 0 0 1px color-mix(in srgb, var(--fva-accent, #ff3b5c) 45%, transparent),
+    0 0 42px -6px var(--fva-glow, rgba(255, 59, 92, 0.45));
+}
+
+.fv-anime-char-card__media {
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.fv-anime-char-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 30%,
+    color-mix(in srgb, var(--fva-accent, #ff3b5c) 55%, white 25%) 48%,
+    transparent 66%);
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transform: translateX(-120%);
+  transition: transform 0s linear;
+}
+
+.fv-anime-char-card:hover .fv-anime-char-card__media::after {
+  opacity: 0.85;
+  transform: translateX(120%);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fv-anime-char-card__media img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
+  transform: translateZ(0) scale(1.02);
+}
+
+.fv-anime-char-card:hover .fv-anime-char-card__media img {
+  transform: translateZ(34px) scale(1.1);
+  filter: saturate(1.15) brightness(1.04);
+}
+
+.fv-anime-char-card__body {
+  position: relative;
+  transform: translateZ(6px);
+}
+
+.fv-anime-char-card:hover .fv-anime-char-card__body h3 {
+  color: var(--fva-accent, var(--fv-anime-accent));
+  transition: color 0.4s ease;
+}
+
+@media (hover: none) {
+  .fv-anime-char-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .fv-anime-char-card:hover .fv-anime-char-card__media img { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-anime-char-card,
+  .fv-anime-char-card:hover,
+  .fv-anime-char-card__media img,
+  .fv-anime-char-card:hover .fv-anime-char-card__media img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---------- 1. Universal 3D hero background engine ---------- */
+/* Any element that already has a bg image (via <img> or inline
+   background-image) gets tagged with data-fv3d="1" by fv-effects.js.
+   We give its wrapper perspective + the bg itself a slow Ken-Burns
+   zoom, then JS adds a live mouse-parallax tilt on top. */
+
+[data-fv3d-scope] {
+  perspective: 1400px;
+}
+
+[data-fv3d="1"] {
+  transform-origin: 50% 50%;
+  will-change: transform;
+  animation: fvKenBurns 24s ease-in-out infinite alternate;
+  transition: transform 0.25s ease-out, filter 0.25s ease-out;
+}
+
+@keyframes fvKenBurns {
+  0%   { transform: scale(1)     translate3d(0, 0, 0); }
+  50%  { transform: scale(1.12)  translate3d(-1.2%, -1%, 0); }
+  100% { transform: scale(1.06)  translate3d(1%, 1.5%, 0); }
+}
+
+/* First-load "punch-in" reveal for hero inner content */
+.fv-fx-reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.94) rotateX(6deg);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fv-fx-reveal.is-in {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-fv3d="1"] { animation: none !important; transform: none !important; }
+  .fv-fx-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---------- 1b. Generic 3D hero (Shop / About / Contact) ---------- */
+.fv-hero3d {
+  position: relative;
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(120% 100% at 50% 0%, #1c1424 0%, #0a0a12 60%);
+  padding: 150px 24px 70px;
+  text-align: center;
+}
+.fv-hero3d__stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  transform-style: preserve-3d;
+}
+/* About & Contact only ship 4 background tiles, so their stage must use
+   4 columns — otherwise the 5th grid track renders blank on the right. */
+#fv-about-hero .fv-hero3d__stage,
+#fv-contact-hero .fv-hero3d__stage {
+  grid-template-columns: repeat(4, 1fr);
+}
+.fv-hero3d__tile {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+  filter: saturate(1.05);
+}
+.fv-hero3d__tile:nth-child(odd)  { transform: translateY(-2%) rotateZ(-0.4deg) scale(1.05); }
+.fv-hero3d__tile:nth-child(even) { transform: translateY(2%)  rotateZ(0.4deg)  scale(1.05); }
+.fv-hero3d__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(60% 55% at 50% 30%, rgba(176, 107, 255, 0.10), transparent 70%),
+    linear-gradient(180deg, rgba(10, 10, 18, 0.55) 0%, rgba(10, 10, 18, 0.9) 72%, #0a0a12 100%);
+}
+.fv-hero3d__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.fv-hero3d__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+.fv-hero3d__eyebrow {
+  font-family: var(--font-display, 'Unbounded', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b06bff;
+  margin: 0 0 1.1rem;
+}
+.fv-hero3d__title {
+  font-family: var(--font-display, 'Unbounded', sans-serif);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  background: linear-gradient(100deg, #fff 20%, #b06bff 55%, #fff 85%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fvMoviesSheenAlt 6s ease-in-out infinite;
+}
+@keyframes fvMoviesSheenAlt {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+}
+.fv-hero3d__desc {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  margin: 0 auto;
+  max-width: 56ch;
+}
+@media (max-width: 720px) {
+  .fv-hero3d { min-height: 50vh; padding: 130px 20px 60px; }
+  .fv-hero3d__stage { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- 2. Cinematic page-transition overlay (premium 3D) ---------- */
+#fv-pagefx {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  perspective: 1600px;
+  transform-style: preserve-3d;
+}
+
+/* soft colour bloom behind everything so it never reads as flat black */
+#fv-pagefx::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(52% 60% at 50% 50%,
+    color-mix(in srgb, var(--fv-fx-accent, #b06bff) 22%, transparent) 0%,
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#fv-pagefx.is-closing::before { opacity: 1; transition-delay: 0.1s; }
+#fv-pagefx.is-opening::before { opacity: 0; transition: opacity 0.4s ease; }
+
+#fv-pagefx .fv-pagefx__shard {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 26%;
+  overflow: hidden;
+  background:
+    linear-gradient(155deg,
+      color-mix(in srgb, var(--fv-fx-accent, #b06bff) 10%, #0d0d16) 0%,
+      #171022 45%,
+      #06050a 100%);
+  transform-origin: top center;
+  transform: translateY(0) rotateX(0deg) translateZ(0) scale(1);
+  opacity: 1;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1),
+              opacity 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 0 60px 0 rgba(0,0,0,0.5) inset;
+}
+#fv-pagefx .fv-pagefx__shard--1 { left: 0%;    }
+#fv-pagefx .fv-pagefx__shard--2 { left: 25%;   }
+#fv-pagefx .fv-pagefx__shard--3 { left: 50%;   }
+#fv-pagefx .fv-pagefx__shard--4 { left: 75%;   }
+
+/* diagonal light sheen that sweeps through each shard as it moves */
+#fv-pagefx .fv-pagefx__shard::before {
+  content: '';
+  position: absolute;
+  inset: -20% -60%;
+  background: linear-gradient(115deg,
+    transparent 42%,
+    color-mix(in srgb, var(--fv-fx-accent, #b06bff) 65%, white 20%) 50%,
+    transparent 58%);
+  opacity: 0;
+  mix-blend-mode: screen;
+  transform: translateX(-140%);
+}
+#fv-pagefx.is-opening .fv-pagefx__shard::before,
+#fv-pagefx.is-closing .fv-pagefx__shard::before {
+  opacity: 0.55;
+  animation: fvPagefxSheen 0.85s ease forwards;
+}
+#fv-pagefx.is-opening .fv-pagefx__shard--2::before,
+#fv-pagefx.is-closing .fv-pagefx__shard--2::before { animation-delay: 0.06s; }
+#fv-pagefx.is-opening .fv-pagefx__shard--3::before,
+#fv-pagefx.is-closing .fv-pagefx__shard--3::before { animation-delay: 0.12s; }
+#fv-pagefx.is-opening .fv-pagefx__shard--4::before,
+#fv-pagefx.is-closing .fv-pagefx__shard--4::before { animation-delay: 0.18s; }
+@keyframes fvPagefxSheen {
+  from { transform: translateX(-140%); }
+  to   { transform: translateX(140%); }
+}
+
+#fv-pagefx .fv-pagefx__mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: opacity 0.5s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* spinning premium ring behind the logo */
+#fv-pagefx .fv-pagefx__ring {
+  position: absolute;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--fv-fx-accent, #b06bff) 55%, transparent);
+  box-shadow:
+    0 0 30px -4px color-mix(in srgb, var(--fv-fx-accent, #b06bff) 70%, transparent) inset,
+    0 0 46px -8px color-mix(in srgb, var(--fv-fx-accent, #b06bff) 80%, transparent);
+  animation: fvPagefxRingSpin 5s linear infinite;
+}
+#fv-pagefx .fv-pagefx__ring--2 {
+  width: 86px;
+  height: 86px;
+  border-color: rgba(255,255,255,0.28);
+  animation-duration: 3.4s;
+  animation-direction: reverse;
+}
+@keyframes fvPagefxRingSpin { to { transform: rotate(360deg); } }
+
+/* soft pulsing glow halo behind the mark */
+#fv-pagefx .fv-pagefx__halo {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--fv-fx-accent, #b06bff) 45%, transparent) 0%,
+    transparent 72%);
+  filter: blur(2px);
+  animation: fvPagefxPulse 2.4s ease-in-out infinite;
+}
+@keyframes fvPagefxPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.92); }
+  50%      { opacity: 1;   transform: scale(1.08); }
+}
+
+/* drifting sparks around the logo */
+#fv-pagefx .fv-pagefx__particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--fv-fx-accent, #b06bff);
+  box-shadow: 0 0 8px 2px color-mix(in srgb, var(--fv-fx-accent, #b06bff) 85%, transparent);
+  opacity: 0;
+  animation: fvPagefxParticle 2.4s ease-in-out infinite;
+  animation-delay: var(--fv-pd, 0s);
+}
+@keyframes fvPagefxParticle {
+  0%   { transform: translate(-50%, -50%) translate(0, 0) scale(0.4); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: translate(-50%, -50%) translate(var(--fv-px, 40px), var(--fv-py, -40px)) scale(0); opacity: 0; }
+}
+
+#fv-pagefx .fv-pagefx__mark img {
+  position: relative;
+  z-index: 1;
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px var(--fv-fx-accent, #b06bff));
+  animation: fvPagefxLogoFloat 2.6s ease-in-out infinite;
+}
+@keyframes fvPagefxLogoFloat {
+  0%, 100% { transform: translateY(0) rotateY(0deg); }
+  50%      { transform: translateY(-4px) rotateY(180deg); }
+}
+
+/* accent color per page (matches each fandom's palette) */
+body[data-page="anime"]   #fv-pagefx { --fv-fx-accent: #ff3b5c; }
+body[data-page="gaming"]  #fv-pagefx { --fv-fx-accent: #00ff88; }
+body[data-page="movies"]  #fv-pagefx { --fv-fx-accent: #e8b866; }
+body[data-page="tvshows"] #fv-pagefx { --fv-fx-accent: #e8b866; }
+body[data-page="kpop"]    #fv-pagefx { --fv-fx-accent: #ff6bcb; }
+body[data-page="comics"]  #fv-pagefx { --fv-fx-accent: #ff4d4d; }
+body[data-page="manga"]   #fv-pagefx { --fv-fx-accent: #6b8cff; }
+body[data-page="shop"]    #fv-pagefx { --fv-fx-accent: #b06bff; }
+body[data-page="about"]   #fv-pagefx { --fv-fx-accent: #39ff88; }
+body[data-page="contact"] #fv-pagefx { --fv-fx-accent: #39ff88; }
+body[data-page="home"]    #fv-pagefx { --fv-fx-accent: #b06bff; }
+
+#fv-pagefx .fv-pagefx__shard--1 { border-right: 1px solid var(--fv-fx-accent, #b06bff); }
+#fv-pagefx .fv-pagefx__shard--2 { border-right: 1px solid var(--fv-fx-accent, #b06bff); opacity: 0.97; }
+#fv-pagefx .fv-pagefx__shard--3 { border-right: 1px solid var(--fv-fx-accent, #b06bff); opacity: 0.97; }
+#fv-pagefx .fv-pagefx__shard--4 { opacity: 0.97; }
+
+/* OPEN (reveal the page on load): shards flip up and away like blinds */
+#fv-pagefx.is-opening .fv-pagefx__shard {
+  transform: translateY(-115%) rotateX(-35deg) scale(1.06);
+  opacity: 0;
+}
+#fv-pagefx.is-opening .fv-pagefx__shard--2 { transition-delay: 0.06s; }
+#fv-pagefx.is-opening .fv-pagefx__shard--3 { transition-delay: 0.12s; }
+#fv-pagefx.is-opening .fv-pagefx__shard--4 { transition-delay: 0.18s; }
+#fv-pagefx.is-opening .fv-pagefx__mark {
+  opacity: 0;
+  transform: scale(1.5) rotateY(70deg);
+}
+#fv-pagefx.is-open { display: none; }
+
+/* CLOSE (cover the page before navigating away): shards drop back down */
+#fv-pagefx.is-closing {
+  pointer-events: all;
+}
+#fv-pagefx.is-closing .fv-pagefx__shard {
+  transform: translateY(0) rotateX(0deg) scale(1);
+  opacity: 1;
+  transition-duration: 0.6s;
+}
+#fv-pagefx.is-closing .fv-pagefx__shard--1 { transition-delay: 0.16s; }
+#fv-pagefx.is-closing .fv-pagefx__shard--2 { transition-delay: 0.1s; }
+#fv-pagefx.is-closing .fv-pagefx__shard--3 { transition-delay: 0.05s; }
+#fv-pagefx.is-closing .fv-pagefx__shard--4 { transition-delay: 0s; }
+#fv-pagefx.is-closing .fv-pagefx__mark {
+  opacity: 1;
+  transform: scale(1) rotateY(0deg);
+  transition-delay: 0.28s;
+}
+
+@media (max-width: 720px) {
+  #fv-pagefx .fv-pagefx__shard { width: 34%; }
+  #fv-pagefx .fv-pagefx__shard--3 { left: 66%; width: 0; display: none; }
+  #fv-pagefx .fv-pagefx__shard--4 { left: 66%; width: 34%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #fv-pagefx { display: none !important; }
+  #fv-pagefx .fv-pagefx__ring,
+  #fv-pagefx .fv-pagefx__halo,
+  #fv-pagefx .fv-pagefx__particle,
+  #fv-pagefx .fv-pagefx__mark img { animation: none !important; }
+}
+
+/* ---------- 2b. Premium HD finish for every poster/card image, site-wide ---------- */
+img[class*="__img"],
+img[class*="__poster"],
+img[class*="__thumb"],
+.fv-characters-featured__img,
+.fv-hero3dlogo__img,
+.anime-card__poster {
+  filter: saturate(1.08) contrast(1.04) brightness(1.015);
+  image-rendering: -webkit-optimize-contrast;
+  transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* ---------- 3. Top scroll-progress bar ---------- */
+#fv-scrollbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 100000;
+  background: linear-gradient(90deg,
+    var(--accent-anime, #ff3b5c), var(--accent-comic, #ffcc33),
+    var(--accent-gaming, #39ff88), var(--accent-kpop, #b06bff));
+  box-shadow: 0 0 12px rgba(176, 107, 255, 0.7);
+  transition: width 0.12s linear;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  #fv-scrollbar { transition: none; }
+}
+
+/* ---------- 4. Premium welcome popup ---------- */
+#fv-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(20, 12, 30, 0.55), rgba(3, 3, 8, 0.82));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+#fv-popup-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s ease, visibility 0s linear 0s;
+}
+
+#fv-popup {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 22px;
+  padding: 2px;
+  background: linear-gradient(135deg, #ff3b5c, #ffcc33, #39ff88, #b06bff, #ff3b5c);
+  background-size: 300% 300%;
+  animation: fvPopupAurora 8s linear infinite;
+  transform: translateY(26px) scale(0.92) rotateX(8deg);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  perspective: 900px;
+}
+#fv-popup-overlay.is-visible #fv-popup {
+  transform: translateY(0) scale(1) rotateX(0deg);
+  opacity: 1;
+}
+@keyframes fvPopupAurora {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#fv-popup__inner {
+  position: relative;
+  border-radius: 20px;
+  padding: 34px 28px 28px;
+  background: linear-gradient(165deg, #17121f 0%, #0c0a13 70%);
+  overflow: hidden;
+  text-align: center;
+}
+#fv-popup__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 55% at 50% 0%, rgba(176, 107, 255, 0.22), transparent 70%);
+  pointer-events: none;
+}
+
+#fv-popup__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+#fv-popup__close:hover { background: #ff3b5c; transform: rotate(90deg); }
+
+#fv-popup__badge {
+  position: relative;
+  display: inline-flex;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(176, 107, 255, 0.12);
+  border: 1px solid rgba(176, 107, 255, 0.4);
+  box-shadow: 0 0 26px -4px rgba(176, 107, 255, 0.7);
+  animation: fvPopupBadgeFloat 3.2s ease-in-out infinite;
+}
+#fv-popup__badge img { width: 34px; height: 34px; object-fit: contain; }
+@keyframes fvPopupBadgeFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-6px) rotate(4deg); }
+}
+
+#fv-popup__title {
+  position: relative;
+  font-family: var(--font-display, 'Unbounded', sans-serif);
+  font-size: 1.28rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  background: linear-gradient(100deg, #fff 20%, #b06bff 55%, #fff 85%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fvPopupSheen 5s ease-in-out infinite;
+}
+@keyframes fvPopupSheen {
+  0%, 100% { background-position: 0% 0; }
+  50%      { background-position: 100% 0; }
+}
+
+#fv-popup__text {
+  position: relative;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.68);
+  margin: 0 0 22px;
+}
+
+#fv-popup__cta {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 0;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0c0a13;
+  background: linear-gradient(135deg, #ffcc33, #b06bff);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#fv-popup__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(176, 107, 255, 0.6);
+}
+
+#fv-popup__later {
+  position: relative;
+  display: block;
+  margin: 14px auto 0;
+  background: none;
+  border: 0;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#fv-popup__later:hover { color: rgba(255,255,255,0.75); }
+
+@media (max-width: 480px) {
+  #fv-popup__inner { padding: 28px 20px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #fv-popup, #fv-popup__badge, #fv-popup__title, #fv-popup-overlay {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+    transform: none !important;
+  }
+}

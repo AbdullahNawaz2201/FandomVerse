@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Neon Horizon Collector Pin",
+    "category": "Anime",
+    "priceLabel": "$8 – $12",
+    "priceValue": 8,
+    "description": "A sleek collectible enamel pin inspired by the futuristic Neon Horizon universe.",
+    "image": "assets/images/merchandise/neon-horizon-pin.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Realmfall Adventure Hoodie",
+    "category": "Gaming",
+    "priceLabel": "$35 – $50",
+    "priceValue": 35,
+    "description": "A premium fantasy-inspired hoodie featuring an original Realmfall emblem.",
+    "image": "assets/images/merchandise/realmfall-hoodie.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Beyond Tomorrow Poster",
+    "category": "Movies",
+    "priceLabel": "$12 – $20",
+    "priceValue": 12,
+    "description": "A cinematic wall poster featuring an original futuristic cosmic design.",
+    "image": "assets/images/merchandise/beyond-tomorrow-poster.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Last Signal Journal",
+    "category": "TV Shows",
+    "priceLabel": "$10 – $16",
+    "priceValue": 10,
+    "description": "A mysterious investigation journal inspired by The Last Signal universe.",
+    "image": "assets/images/merchandise/last-signal-journal.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Neon Stage Light Stick",
+    "category": "K-Pop",
+    "priceLabel": "$25 – $40",
+    "priceValue": 25,
+    "description": "A fictional concert light stick designed for the Neon Stage fandom.",
+    "image": "assets/images/merchandise/neon-stage-lightstick.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Nova Knight Emblem",
+    "category": "Comics",
+    "priceLabel": "$15 – $22",
+    "priceValue": 15,
+    "description": "A premium fictional superhero-inspired collectible emblem.",
+    "image": "assets/images/merchandise/nova-knight-emblem.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Moonlit Warriors Art Book",
+    "category": "Manga",
+    "priceLabel": "$18 – $28",
+    "priceValue": 18,
+    "description": "An original concept-art collection inspired by the Moonlit Warriors universe.",
+    "image": "assets/images/merchandise/moonlit-warriors-artbook.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Digital Horizon Tech Mug",
+    "category": "Gaming",
+    "priceLabel": "$14 – $20",
+    "priceValue": 14,
+    "description": "A futuristic mug featuring an original Digital Horizon circuit design.",
+    "image": "assets/images/merchandise/digital-horizon-mug.jpg"
+  }
+]

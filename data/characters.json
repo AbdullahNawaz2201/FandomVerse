@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Aiko Ren",
+    "category": "Anime",
+    "series": "Neon Horizon",
+    "image": "assets/images/characters/aiko-ren.jpg",
+    "biography": "A fearless explorer navigating the boundary between humanity and artificial intelligence, Aiko pilots a sentient mech she rebuilt from salvaged parts, searching for the sister she lost to the Neon Horizon uprising.",
+    "traits": ["Brave", "Curious", "Strategic"],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Kai Mercer",
+    "category": "Gaming",
+    "series": "Realmfall",
+    "image": "assets/images/characters/kai-mercer.jpg",
+    "biography": "A veteran squad leader in the war-torn realms of Realmfall, Kai commands his team through impossible odds with a mix of battlefield instinct and unshakable resolve.",
+    "traits": ["Fearless", "Tactical", "Competitive"]
+  },
+  {
+    "id": 3,
+    "name": "Maya Sterling",
+    "category": "Movies",
+    "series": "Beyond Tomorrow",
+    "image": "assets/images/characters/maya-sterling.jpg",
+    "biography": "A brilliant physicist thrust into a race against time, Maya must outsmart a collapsing timeline to save the world of Beyond Tomorrow before it unravels completely.",
+    "traits": ["Determined", "Intelligent", "Fearless"]
+  },
+  {
+    "id": 4,
+    "name": "Ethan Vale",
+    "category": "TV Shows",
+    "series": "The Last Signal",
+    "image": "assets/images/characters/ethan-vale.jpg",
+    "biography": "The last communications officer aboard a dying space station, Ethan pieces together fragmented transmissions that may be humanity's only warning of what's coming.",
+    "traits": ["Analytical", "Calm", "Resourceful"]
+  },
+  {
+    "id": 5,
+    "name": "Luna Park",
+    "category": "K-Pop",
+    "series": "Neon Stage",
+    "image": "assets/images/characters/luna-park.jpg",
+    "biography": "The charismatic center of the idol group Neon Stage, Luna turns every performance into a spectacle, channeling years of quiet discipline into electric, unforgettable stage presence.",
+    "traits": ["Creative", "Energetic", "Charismatic"]
+  },
+  {
+    "id": 6,
+    "name": "Nova Knight",
+    "category": "Comics",
+    "series": "Guardians of Tomorrow",
+    "image": "assets/images/characters/nova-knight.jpg",
+    "biography": "Wielding light itself as a weapon, Nova Knight stands as the first line of defense for the Guardians of Tomorrow, sworn to protect a city that doesn't always trust her.",
+    "traits": ["Courageous", "Powerful", "Loyal"]
+  },
+  {
+    "id": 7,
+    "name": "Ren Akira",
+    "category": "Manga",
+    "series": "Moonlit Warriors",
+    "image": "assets/images/characters/ren-akira.jpg",
+    "biography": "A masterless swordsman bound by a code only he remembers, Ren wanders the moonlit provinces of a fractured empire, seeking the truth behind his clan's disappearance.",
+    "traits": ["Disciplined", "Mysterious", "Determined"]
+  },
+  {
+    "id": 8,
+    "name": "Zane Cross",
+    "category": "Gaming",
+    "series": "Digital Horizon",
+    "image": "assets/images/characters/zane-cross.jpg",
+    "biography": "A rogue data-runner in the sprawling virtual world of Digital Horizon, Zane hacks through firewalls and factions alike, always one step ahead of the system trying to erase him.",
+    "traits": ["Adventurous", "Clever", "Persistent"]
+  }
+]

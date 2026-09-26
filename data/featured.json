@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Top 10 Arcane Details You Completely Missed in Season 2",
+    "category": "Anime",
+    "type": "Article",
+    "description": "Uncover deep lore secrets, background Easter eggs, and character foreshadowing.",
+    "image": "assets/images/featured/anime.jpg",
+    "link": "anime.html",
+    "featured": true,
+    "meta": "5 min read"
+  },
+  {
+    "id": 2,
+    "title": "Elden Ring: Shadow of the Erdtree Boss Breakdown",
+    "category": "Gaming",
+    "type": "Character",
+    "description": "An in-depth analysis of Messmer the Impaler's attack patterns, lore, and backstory.",
+    "image": "assets/images/featured/gaming.jpg",
+    "link": "gaming.html",
+    "featured": true,
+    "meta": "Lore Guide"
+  },
+  {
+    "id": 3,
+    "title": "Dune: Part Two Official Breakdown & Cinematic Trailer Analysis",
+    "category": "Movies",
+    "type": "Trailer",
+    "description": "Breaking down every shot of Arrakis, Paul Atreides' destiny, and visual direction.",
+    "image": "assets/images/featured/movies.jpg",
+    "link": "movies.html",
+    "featured": true,
+    "meta": "02:45 Watch"
+  },
+  {
+    "id": 4,
+    "title": "Stranger Things Season 5 Concept Art & Scene Gallery",
+    "category": "TV Shows",
+    "type": "Gallery",
+    "description": "Browse exclusive high-definition concept art and behind-the-scenes set stills.",
+    "image": "assets/images/featured/tvshows.jpg",
+    "link": "tvshows.html",
+    "featured": true,
+    "meta": "12 Photos"
+  },
+  {
+    "id": 5,
+    "title": "World Tour 2026: Official Dates, Tickets & Venue Reveal",
+    "category": "K-Pop",
+    "type": "Event",
+    "description": "Full schedule release, presale access instructions, and stadium stage setups.",
+    "image": "assets/images/featured/kpop.jpg",
+    "link": "kpop.html",
+    "featured": true,
+    "meta": "Oct 15 - Dec 20"
+  },
+  {
+    "id": 6,
+    "title": "Spider-Man: Across the Multiverse Comic Lore Comparison",
+    "category": "Comics",
+    "type": "Article",
+    "description": "How the comic book origin stories stack up against the animated film's storyline.",
+    "image": "assets/images/featured/comics.jpg",
+    "link": "comics.html",
+    "featured": true,
+    "meta": "4 min read"
+  }
+]

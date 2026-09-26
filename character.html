@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FandomVerse — Profile</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/fv-effects.css">
+<link rel="stylesheet" href="css/fv-chatbot.css">
+<link rel="stylesheet" href="css/fv-cart.css">
+<link rel="stylesheet" href="css/premium.css">
+<link rel="stylesheet" href="css/fv-premium-3d.css">
+<link rel="stylesheet" href="css/fv-navsearch.css">
+<link rel="stylesheet" href="css/fv-chatbot-3d.css">
+<link rel="stylesheet" href="css/fv-character.css">
+<script src="js/fv-effects.js" defer></script>
+</head>
+<body data-page="character">
+
+
+  <div id="fv-pagefx" aria-hidden="true">
+      <div class="fv-pagefx__shard fv-pagefx__shard--1"></div>
+      <div class="fv-pagefx__shard fv-pagefx__shard--2"></div>
+      <div class="fv-pagefx__shard fv-pagefx__shard--3"></div>
+      <div class="fv-pagefx__shard fv-pagefx__shard--4"></div>
+      <div class="fv-pagefx__mark"><img src="assets/images/fandomverse-logo.png" alt=""></div>
+    </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-mark" aria-label="FandomVerse home">
+        <img src="assets/images/fandomverse-logo.png" alt="FandomVerse" class="brand-logo">
+      </a>
+
+            <nav class="main-nav" id="main-nav">
+        <span class="nav-pill" id="nav-pill" aria-hidden="true"></span>
+        <a href="index.html">Home</a>
+        <a href="anime.html">Anime</a>
+        <a href="gaming.html">Gaming</a>
+        <a href="movies.html">Movies</a>
+        <a href="tvshows.html">TV Shows</a>
+        <a href="kpop.html">K-Pop</a>
+        <a href="comics.html">Comics</a>
+        <a href="manga.html">Manga</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-box" id="search-box">
+          <button class="icon-btn" id="search-toggle" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="20" height="20"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <input type="text" id="search-input" placeholder="Search characters, shows, merch…" autocomplete="off">
+            <button class="icon-btn sf-toggle" id="search-filter-toggle" aria-label="Filter and sort" aria-expanded="false">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 5h16M7 12h10M10 19h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span class="sf-dot" aria-hidden="true"></span>
+            </button>
+            <div class="sf-panel" id="sf-panel" role="dialog" aria-label="Search filters and sorting">
+              <div class="sf-panel__glow" aria-hidden="true"></div>
+              <div class="sf-panel__inner">
+                <div class="sf-panel__row sf-panel__row--sort" id="sf-sort-row">
+                  <span class="sf-panel__label">Sort by</span>
+                  <div class="sf-sort" id="sf-sort" role="listbox"></div>
+                </div>
+                <div class="sf-panel__row sf-panel__row--filter">
+                  <span class="sf-panel__label">Filter</span>
+                  <div class="sf-chips" id="sf-chips"></div>
+                </div>
+                <div class="sf-panel__footer">
+                  <button type="button" class="sf-clear" id="sf-clear">Clear all</button>
+                  <span class="sf-count" id="sf-count"></span>
+                </div>
+              </div>
+            </div>
+        </div>
+        <button class="icon-btn" id="cart-toggle" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.8h8.2a2 2 0 0 0 2-1.6L21 8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="21" r="1.3" fill="currentColor"/><circle cx="18" cy="21" r="1.3" fill="currentColor"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE NAV OVERLAY ===== -->
+    <div class="mobile-nav" id="mobile-nav">
+    <nav>
+      <a href="anime.html">Anime</a>
+      <a href="gaming.html">Gaming</a>
+      <a href="movies.html">Movies</a>
+      <a href="tvshows.html">TV Shows</a>
+      <a href="kpop.html">K-Pop</a>
+      <a href="comics.html">Comics</a>
+      <a href="manga.html">Manga</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+
+  <!-- =========================================================
+       FANDOMVERSE — ANIME PAGE CONTENT (fv-anime-*)
+       Sits between the site Header and Footer only.
+       ========================================================= -->
+  <!-- =========================================================
+       FANDOMVERSE — CHARACTER / PROFILE PAGE (fv-profile-*)
+       Populated entirely by js/fv-character-page.js from the
+       card that was clicked on a category page. Sits between
+       the site Header and Footer only.
+       ========================================================= -->
+  <main class="fv-profile-main" id="fv-profile-main">
+
+    <!-- ===== 1. PROFILE HERO ===== -->
+    <section class="fv-profile-hero" id="fv-profile-hero" aria-labelledby="fv-profile-name">
+      <div class="fv-profile-hero__bg" id="fv-profile-hero-bg" aria-hidden="true"></div>
+      <div class="fv-profile-hero__scrim" aria-hidden="true"></div>
+
+      <div class="fv-profile-container fv-profile-hero__inner">
+
+        <a href="index.html" class="fv-profile-back" id="fv-profile-back">
+          <span aria-hidden="true">←</span> Back to <span id="fv-profile-back-label">FandomVerse</span>
+        </a>
+
+        <div class="fv-profile-layout">
+
+          <!-- 3D collectible card — auto-tilts via fv-premium-3d.js (class ends in "-card") -->
+          <article class="fv-profile-portrait-card" id="fv-profile-portrait-card">
+            <div class="fv-profile-portrait-card__media">
+              <img class="fv-profile-portrait-card__img" id="fv-profile-img" src="" alt="">
+            </div>
+            <span class="fv-profile-portrait-card__category" id="fv-profile-category">Category</span>
+          </article>
+
+          <div class="fv-profile-info">
+            <span class="fv-profile-badge"><span class="fv-profile-pulse" aria-hidden="true"></span> FEATURED PROFILE</span>
+            <h1 class="fv-profile-name" id="fv-profile-name">Name</h1>
+            <p class="fv-profile-series" id="fv-profile-series">Series</p>
+            <p class="fv-profile-bio" id="fv-profile-bio">Biography loading…</p>
+
+            <div class="fv-profile-traits" id="fv-profile-traits" aria-label="Character traits"></div>
+
+            <div class="fv-profile-actions">
+              <button type="button" class="fv-profile__cta fv-profile__cta--save" id="fv-profile-save">
+                <span id="fv-profile-save-icon" aria-hidden="true">&#9825;</span> Save Profile
+              </button>
+              <a href="#" class="fv-profile__cta fv-profile__cta--explore" id="fv-profile-explore">Explore this Fandom <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 2. MORE FROM THIS FANDOM ===== -->
+    <section class="fv-profile-related" id="fv-profile-related" aria-labelledby="fv-profile-related-title">
+      <div class="fv-profile-container">
+        <div class="fv-profile-section-head">
+          <span class="fv-profile-badge"><span class="fv-profile-pulse" aria-hidden="true"></span> KEEP EXPLORING</span>
+          <h2 class="fv-profile-section-title" id="fv-profile-related-title">More From This Fandom</h2>
+          <p class="fv-profile-section-sub" id="fv-profile-related-sub">Other profiles from the same universe.</p>
+        </div>
+
+        <div class="fv-profile-related-grid" id="fv-profile-related-grid">
+          <!-- injected by js/fv-character-page.js -->
+        </div>
+
+        <div class="fv-profile-empty" id="fv-profile-empty" hidden>
+          <p>No profile was selected. Head back and tap <strong>View Profile</strong> on any character card to open it here.</p>
+          <a href="index.html" class="fv-profile__cta fv-profile__cta--save">Go to Homepage</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- =========================================================
+     FANDOMVERSE FOOTER
+     Paste this block AFTER the closing </section> of the
+     Fandom Marketplace section (id="fv-merch-section") and
+     BEFORE your <script> tags at the bottom of index.html.
+     ========================================================= -->
+<footer class="fv-footer" id="fv-footer" aria-labelledby="fv-footer-brand-name">
+  <div class="fv-footer-glow" aria-hidden="true"></div>
+
+  <div class="fv-footer-container">
+
+    <div class="fv-footer-top">
+
+      <!-- ===== BRAND AREA ===== -->
+      <div class="fv-footer-brand">
+        <a href="index.html" class="fv-footer-brand-mark" aria-label="FandomVerse home">
+          <span class="fv-footer-logo" aria-hidden="true">
+            <img src="assets/images/fv-footer-logo.png" alt="" width="30" height="30">
+          </span>
+          <span class="fv-footer-brand-name" id="fv-footer-brand-name">FandomVerse</span>
+        </a>
+
+        <p class="fv-footer-desc">
+          Your universe for fandom discovery, stories, characters, trailers, collectibles and everything fans love.
+        </p>
+
+        <p class="fv-footer-tagline">Explore. Discover. Connect.</p>
+      </div>
+
+      <!-- ===== EXPLORE LINKS ===== -->
+      <nav class="fv-footer-column" aria-labelledby="fv-footer-explore-heading">
+        <h3 class="fv-footer-heading" id="fv-footer-explore-heading">Explore</h3>
+        <ul class="fv-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="anime.html">Anime</a></li>
+          <li><a href="gaming.html">Gaming</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="tvshows.html">TV Shows</a></li>
+          <li><a href="kpop.html">K-Pop</a></li>
+          <li><a href="comics.html">Comics</a></li>
+          <li><a href="manga.html">Manga</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===== CONTENT LINKS ===== -->
+      <nav class="fv-footer-column" aria-labelledby="fv-footer-discover-heading">
+        <h3 class="fv-footer-heading" id="fv-footer-discover-heading">Discover</h3>
+        <ul class="fv-footer-links">
+          <li><a href="index.html#fv-articles">Articles</a></li>
+          <li><a href="characters.html">Characters</a></li>
+          <li><a href="trailers.html">Trailers</a></li>
+          <li><a href="#">Galleries</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="merchandise.html">Merchandise</a></li>
+          <li><a href="#">Releases</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===== INFORMATION LINKS ===== -->
+      <nav class="fv-footer-column" aria-labelledby="fv-footer-info-heading">
+        <h3 class="fv-footer-heading" id="fv-footer-info-heading">FandomVerse</h3>
+        <ul class="fv-footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===== SOCIAL + NEWSLETTER ===== -->
+      <div class="fv-footer-column fv-footer-connect">
+        <h3 class="fv-footer-heading">Follow The Fandom</h3>
+        <div class="fv-footer-social">
+          <a href="#" class="fv-footer-social-btn" aria-label="FandomVerse Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="fv-footer-social-btn" aria-label="FandomVerse YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.3 L15 12 L10.5 14.7 Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="fv-footer-social-btn" aria-label="FandomVerse X / Twitter">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 4 L20 20 M20 4 L4 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#" class="fv-footer-social-btn" aria-label="FandomVerse TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M14 3.5c.6 2 2.1 3.3 4.2 3.5v2.6c-1.5 0-2.9-.4-4.2-1.3v6.1a5 5 0 1 1-4.6-5v2.7a2.3 2.3 0 1 0 2.1 2.3V3.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="fv-footer-social-btn" aria-label="FandomVerse Discord">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 8.5c2-1.2 3.8-1.6 6-1.6s4 .4 6 1.6c1.2 2.4 1.8 4.9 1.6 7.7-1.6 1.2-3.1 1.9-4.6 2.3l-.7-1.4c.7-.2 1.3-.5 1.9-.9-.5-.3-.9-.6-1.4-.7-2 .8-4.7.8-6.7 0-.5.1-.9.4-1.4.7.6.4 1.2.7 1.9.9l-.7 1.4c-1.5-.4-3-1.1-4.6-2.3-.2-2.8.4-5.3 1.6-7.7Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="9.3" cy="13.6" r="1" fill="currentColor"/><circle cx="14.7" cy="13.6" r="1" fill="currentColor"/></svg>
+          </a>
+        </div>
+
+        <div class="fv-footer-newsletter">
+          <h4 class="fv-footer-newsletter-heading">Stay In The Fandom</h4>
+          <p class="fv-footer-newsletter-text">Get the latest stories, trailers, character spotlights and fandom updates.</p>
+
+          <form class="fv-footer-newsletter-form" id="fv-footer-newsletter-form" novalidate>
+            <label for="fv-footer-email" class="fv-footer-visually-hidden">Email address</label>
+            <input
+              type="email"
+              id="fv-footer-email"
+              class="fv-footer-input"
+              placeholder="Enter your email"
+              autocomplete="email"
+              aria-describedby="fv-footer-newsletter-msg"
+            >
+            <button type="submit" class="fv-footer-button" id="fv-footer-subscribe-btn">Subscribe</button>
+          </form>
+          <p class="fv-footer-newsletter-msg" id="fv-footer-newsletter-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fv-footer-divider" role="separator" aria-hidden="true"></div>
+
+    <div class="fv-footer-bottom">
+      <p class="fv-footer-copy">&copy; <span id="fv-footer-year">2026</span> FandomVerse. All rights reserved.</p>
+      <p class="fv-footer-madeby">Made for fans, by fans.</p>
+
+      <button type="button" class="fv-footer-back-top" id="fv-footer-back-top" aria-label="Back to top">
+        <span aria-hidden="true">↑</span> Back to Top
+      </button>
+    </div>
+
+  </div>
+</footer>
+
+
+  <script src="js/main.js"></script>
+  <script src="js/fv-character-page.js"></script>
+  <!-- ===== FandomVerse Premium Chat Widget ===== -->
+  <div id="fvc-root">
+    <button type="button" id="fvc-launcher" class="fvc-launcher" aria-haspopup="dialog" aria-expanded="false" aria-controls="fvc-panel" aria-label="Open FandomVerse chat">
+      <span class="fvc-launcher__ring" aria-hidden="true"></span>
+      <span class="fvc-launcher__pulse" aria-hidden="true"></span>
+      <svg class="fvc-launcher__icon" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="fvcMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#28c7ff"/>
+            <stop offset="50%" stop-color="#8b5cf6"/>
+            <stop offset="100%" stop-color="#ff5ecb"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#fvcMarkGrad)" d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z"/>
+        <circle class="fvc-launcher__spark" cx="47" cy="16" r="2.6" fill="#fff"/>
+      </svg>
+      <svg class="fvc-launcher__close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="fvc-launcher__badge" id="fvc-badge">1</span>
+    </button>
+
+    <div class="fvc-panel" id="fvc-panel" role="dialog" aria-modal="false" aria-label="FandomVerse concierge chat" aria-hidden="true">
+      <div class="fvc-panel__inner">
+
+        <header class="fvc-head">
+          <div class="fvc-head__id">
+            <span class="fvc-head__avatar">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#fvcMarkPath"></use><path fill="url(#fvcMarkGrad)" d="M18 6 L47 6 C49.8 6 51 8.6 48.8 10.7 L33 23.5 L45.5 23.5 C48.3 23.5 49.5 26.1 47.3 28.2 L24.5 47.5 C22.5 49.2 20 47.6 20.6 45.1 L24.5 29 L15.8 29 C13.2 29 12 26.6 14 24.6 L18 6 Z"/></svg>
+              <span class="fvc-head__dot" aria-hidden="true"></span>
+            </span>
+            <div class="fvc-head__text">
+              <strong>FandomVerse Concierge</strong>
+              <span>● Online now — replies instantly</span>
+            </div>
+          </div>
+          <button type="button" class="fvc-head__close" id="fvc-close" aria-label="Close chat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        </header>
+
+        <div class="fvc-premium">
+          <span class="fvc-premium__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 8.5l3.6 2.4L12 4l5.4 6.9 3.6-2.4-1.6 9.8a1.3 1.3 0 01-1.28 1.1H5.88A1.3 1.3 0 014.6 18.3L3 8.5z" fill="currentColor"/><circle cx="3" cy="7" r="1.4" fill="currentColor"/><circle cx="12" cy="3" r="1.4" fill="currentColor"/><circle cx="21" cy="7" r="1.4" fill="currentColor"/></svg></span>
+          <span class="fvc-premium__text">Ultra VIP Concierge</span>
+        </div>
+
+        <!-- STEP 1: Gate form (name + email, heavy validation) -->
+        <form class="fvc-gate" id="fvc-gate" novalidate>
+          <h3 class="fvc-gate__title">Let's get you sorted ✦</h3>
+          <p class="fvc-gate__sub">Tell us a bit about you so the concierge can personalize your visit across FandomVerse.</p>
+
+          <div class="fvc-field" id="fvc-name-field">
+            <label for="fvc-name">Full name</label>
+            <div class="fvc-field__wrap">
+              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12a4.5 4.5 0 100-9 4.5 4.5 0 000 9zM4 20.5c0-3.6 3.58-6.5 8-6.5s8 2.9 8 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <input type="text" id="fvc-name" name="name" placeholder="e.g. Bilal Ahmed" autocomplete="name" required minlength="2" maxlength="60">
+              <span class="fvc-field__status" id="fvc-name-status">
+                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="fvc-field__error" id="fvc-name-error">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Please enter at least 2 characters (letters only).</span>
+            </div>
+          </div>
+
+          <div class="fvc-field" id="fvc-email-field">
+            <label for="fvc-email">Email address</label>
+            <div class="fvc-field__wrap">
+              <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 014.5 5h15A1.5 1.5 0 0121 6.5v11a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 17.5v-11z" stroke="currentColor" stroke-width="1.6"/><path d="M4 6.5l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <input type="email" id="fvc-email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="120">
+              <span class="fvc-field__status" id="fvc-email-status">
+                <svg class="fvc-icon-ok" viewBox="0 0 20 20" fill="none"><path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="fvc-field__error" id="fvc-email-error">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Enter a valid email address (e.g. name@domain.com).</span>
+            </div>
+          </div>
+
+          <div class="fvc-field" id="fvc-fandom-field">
+            <label for="fvc-fandom-btn">What are you into?</label>
+            <div class="fvc-select" id="fvc-select">
+              <select id="fvc-fandom" name="fandom" required class="fvc-select__native" tabindex="-1" aria-hidden="true">
+                <option value="" disabled selected>Choose a fandom…</option>
+                <option value="anime">Anime</option>
+                <option value="movies">Movies</option>
+                <option value="gaming">Gaming</option>
+                <option value="kpop">K-Pop</option>
+                <option value="manga">Manga</option>
+                <option value="comics">Comics</option>
+                <option value="tvshows">TV Shows</option>
+                <option value="shop">Merch Shop</option>
+              </select>
+              <button type="button" class="fvc-select__btn" id="fvc-fandom-btn" aria-haspopup="listbox" aria-expanded="false">
+                <svg class="fvc-field__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.6 6.6L21 9.3l-5 4.5 1.5 6.7L12 17l-5.5 3.5L8 13.8 3 9.3l6.4-.7L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                <span class="fvc-select__label" id="fvc-fandom-label">Choose a fandom…</span>
+                <svg class="fvc-select__chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <ul class="fvc-select__menu" id="fvc-fandom-menu" role="listbox" tabindex="-1" aria-label="Fandom options">
+                <li role="option" data-value="anime" data-icon="anime">
+                  <span class="fvc-opt__badge" style="--opt-accent:#ff3b5c">
+                    <img class="fvc-opt__img" src="assets/images/categories/anime.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Anime</span>
+                </li>
+                <li role="option" data-value="movies" data-icon="movies">
+                  <span class="fvc-opt__badge" style="--opt-accent:#ffcc33">
+                    <img class="fvc-opt__img" src="assets/images/categories/movies.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16v9a1 1 0 01-1 1H5a1 1 0 01-1-1v-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 10l1.2-3.6a1 1 0 01.95-.68h11.7a1 1 0 01.95.68L20 10M8 6l-1 4M13 6l-1 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Movies</span>
+                </li>
+                <li role="option" data-value="gaming" data-icon="gaming">
+                  <span class="fvc-opt__badge" style="--opt-accent:#39ff88">
+                    <img class="fvc-opt__img" src="assets/images/categories/gaming.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 9h10a4 4 0 014 4v2.5a2.5 2.5 0 01-4.6 1.4L15 15H9l-1.4 1.9A2.5 2.5 0 013 15.5V13a4 4 0 014-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 11v3M6.5 12.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="11.5" r=".9" fill="currentColor"/><circle cx="18" cy="13.5" r=".9" fill="currentColor"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Gaming</span>
+                </li>
+                <li role="option" data-value="kpop" data-icon="kpop">
+                  <span class="fvc-opt__badge" style="--opt-accent:#ff3b9d">
+                    <img class="fvc-opt__img" src="assets/images/categories/kpop.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="3" width="6" height="10" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M6 11a6 6 0 0012 0M12 17v4M9 21h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">K-Pop</span>
+                </li>
+                <li role="option" data-value="manga" data-icon="manga">
+                  <span class="fvc-opt__badge" style="--opt-accent:#ff7a3d">
+                    <img class="fvc-opt__img" src="assets/images/categories/manga.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 016.5 3H12v17H6.5A2.5 2.5 0 004 17.5v-12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 5.5A2.5 2.5 0 0017.5 3H12v17h5.5a2.5 2.5 0 012.5 2.5v-17z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Manga</span>
+                </li>
+                <li role="option" data-value="comics" data-icon="comics">
+                  <span class="fvc-opt__badge" style="--opt-accent:#33ccff">
+                    <img class="fvc-opt__img" src="assets/images/categories/comics.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.9 4.8 5.1-1.3-2.7 4.5 4.2 3-5 1.6.9 5.2-4.4-2.9-4.4 2.9.9-5.2-5-1.6 4.2-3-2.7-4.5 5.1 1.3z" fill="currentColor"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Comics</span>
+                </li>
+                <li role="option" data-value="tvshows" data-icon="tvshows">
+                  <span class="fvc-opt__badge" style="--opt-accent:#b06bff">
+                    <img class="fvc-opt__img" src="assets/images/categories/tvshows.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M9 3l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">TV Shows</span>
+                </li>
+                <li role="option" data-value="shop" data-icon="shop">
+                  <span class="fvc-opt__badge" style="--opt-accent:#f5b83d">
+                    <img class="fvc-opt__img" src="assets/images/merchandise/category-shirts-apparel.jpg" alt="" loading="lazy">
+                    <span class="fvc-opt__icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l1 12a1.5 1.5 0 01-1.5 1.6H6.5A1.5 1.5 0 015 20l1-12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                  </span>
+                  <span class="fvc-opt__label">Merch Shop</span>
+                </li>
+              </ul>
+            </div>
+            <div class="fvc-field__error" id="fvc-fandom-error">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M10 6v5m0 3h.01M18 10A8 8 0 112 10a8 8 0 0116 0z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span>Please pick a fandom so we can tailor the chat.</span>
+            </div>
+          </div>
+
+          <button type="submit" class="fvc-gate__submit" id="fvc-gate-submit">
+            Start chatting
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0l-5-5m5 5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="fvc-gate__note">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2l6 3v5c0 4.4-2.6 7.6-6 8.5-3.4-.9-6-4.1-6-8.5V5l6-3z" stroke="currentColor" stroke-width="1.4"/></svg>
+            Your info stays on this device only.
+          </p>
+        </form>
+
+        <!-- STEP 2: Live chat -->
+        <div class="fvc-chat" id="fvc-chat" hidden>
+          <div class="fvc-messages" id="fvc-messages"></div>
+          <div class="fvc-quick" id="fvc-quick"></div>
+          <form class="fvc-inputbar" id="fvc-form" novalidate>
+            <textarea id="fvc-input" placeholder="Type your message…" maxlength="500" rows="1" required></textarea>
+            <span class="fvc-count" id="fvc-count">0/500</span>
+            <button type="submit" class="fvc-send" id="fvc-send" disabled aria-label="Send message">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M3 10l14-7-4.5 14-3-6-6.5-1z" fill="currentColor"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="js/fv-chatbot.js" defer></script>
+  <script src="js/fv-navsearch.js" defer></script>
+  <script src="js/fv-chatbot-3d.js" defer></script>
+  <script src="js/fv-cart.js" defer></script>
+  <script src="js/fv-premium-3d.js" defer></script>
+
+</body>
+</html>

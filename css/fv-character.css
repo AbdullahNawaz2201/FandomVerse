@@ -1,0 +1,350 @@
+/* =========================================================
+   FANDOMVERSE — CHARACTER / PROFILE PAGE
+   Styling for character.html. Reuses the site's dark
+   premium palette; --fvp-accent / --fvp-glow are set inline
+   per-profile by js/fv-character-page.js. 3D tilt on the
+   portrait card and glow/ripple on __cta buttons come free
+   from js/fv-premium-3d.js (class-name convention only).
+   ========================================================= */
+
+.fv-profile-main {
+  --fvp-accent: #b06bff;
+  --fvp-glow: rgba(176, 107, 255, 0.4);
+  display: block;
+  overflow-x: hidden;
+}
+
+.fv-profile-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Hero ---------- */
+.fv-profile-hero {
+  position: relative;
+  padding: 140px 0 100px;
+  overflow: hidden;
+}
+
+.fv-profile-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(0.55) saturate(1.2);
+  transform: scale(1.08);
+  transition: background-image 0.4s ease;
+}
+
+.fv-profile-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 60% at 18% 20%, var(--fvp-glow), transparent 70%),
+    linear-gradient(180deg, rgba(10, 10, 16, 0.55) 0%, rgba(10, 10, 16, 0.92) 65%, var(--bg-void) 100%);
+}
+
+.fv-profile-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.fv-profile-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 36px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.fv-profile-back:hover {
+  color: var(--fvp-accent);
+  transform: translateX(-3px);
+}
+
+.fv-profile-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 340px) 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ---------- 3D portrait card ---------- */
+.fv-profile-portrait-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.65), 0 0 60px -10px var(--fvp-glow);
+  transition: box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.fv-profile-portrait-card__media {
+  position: absolute;
+  inset: 0;
+}
+
+.fv-profile-portrait-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fv-profile-portrait-card__category {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #0a0a10;
+  background: var(--fvp-accent);
+  box-shadow: 0 8px 20px -6px var(--fvp-glow);
+}
+
+/* ---------- Info column ---------- */
+.fv-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fvp-accent);
+  background: color-mix(in srgb, var(--fvp-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--fvp-accent) 30%, transparent);
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.fv-profile-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fvp-accent);
+  animation: fvProfilePulse 2.2s infinite;
+}
+
+@keyframes fvProfilePulse {
+  0%   { box-shadow: 0 0 0 0 var(--fvp-glow); }
+  70%  { box-shadow: 0 0 0 9px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.fv-profile-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  line-height: 1.08;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--text-primary), var(--fvp-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fv-profile-series {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fvp-accent);
+  margin-bottom: 18px;
+}
+
+.fv-profile-bio {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.fv-profile-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.fv-profile-traits span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.fv-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.fv-profile__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 26px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.fv-profile__cta--save {
+  background: linear-gradient(135deg, var(--fvp-accent), #ff7a3d);
+  color: #14060a;
+}
+
+.fv-profile__cta--save:hover { transform: translateY(-2px); }
+
+.fv-profile__cta--save.is-saved {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--fvp-accent);
+  border-color: color-mix(in srgb, var(--fvp-accent) 45%, transparent);
+}
+
+.fv-profile__cta--explore {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.fv-profile__cta--explore:hover {
+  border-color: var(--fvp-accent);
+  color: var(--fvp-accent);
+}
+
+/* ---------- Related section ---------- */
+.fv-profile-related {
+  padding: 20px 0 120px;
+  position: relative;
+}
+
+.fv-profile-section-head {
+  max-width: 640px;
+  margin: 0 0 36px;
+}
+
+.fv-profile-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 16px 0 10px;
+}
+
+.fv-profile-section-sub {
+  color: var(--text-dim);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.fv-profile-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.fv-profile-mini-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.fv-profile-mini-card__media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.fv-profile-mini-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fv-profile-mini-card__body {
+  padding: 14px 16px 18px;
+}
+
+.fv-profile-mini-card__body h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.fv-profile-mini-card__body p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+.fv-profile-mini-card__cta {
+  display: inline-flex;
+  width: 100%;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: #14060a;
+  background: linear-gradient(135deg, var(--mfvp-accent, var(--fvp-accent)), #ff7a3d);
+  border: none;
+  cursor: pointer;
+}
+
+.fv-profile-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-dim);
+}
+
+.fv-profile-empty p {
+  max-width: 480px;
+  margin: 0 auto 22px;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .fv-profile-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .fv-profile-portrait-card {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .fv-profile-traits,
+  .fv-profile-actions {
+    justify-content: center;
+  }
+  .fv-profile-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="op-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fd8ff"/>
+      <stop offset="45%" stop-color="#1f8fd6"/>
+      <stop offset="100%" stop-color="#0a2f52"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#op-sea)"/>
+  <!-- sun -->
+  <circle cx="320" cy="110" r="46" fill="#fff3c4" opacity="0.85"/>
+  <!-- waves -->
+  <g fill="#ffffff" opacity="0.25">
+    <path d="M0,340 Q50,320 100,340 T200,340 T300,340 T400,340 V360 H0 Z"/>
+    <path d="M0,380 Q50,360 100,380 T200,380 T300,380 T400,380 V400 H0 Z"/>
+  </g>
+  <!-- ship silhouette (generic, not IP-specific) -->
+  <g fill="#0a1a2b">
+    <polygon points="120,360 280,360 260,400 140,400"/>
+    <rect x="195" y="260" width="10" height="100"/>
+    <polygon points="205,265 205,320 260,300"/>
+    <polygon points="195,265 195,320 140,300"/>
+  </g>
+  <!-- generic pirate flag (skull & crossbones is a public-domain maritime symbol) -->
+  <g transform="translate(200,235)">
+    <rect x="-2" y="-40" width="4" height="40" fill="#0a1a2b"/>
+    <rect x="0" y="-40" width="46" height="26" fill="#111"/>
+    <circle cx="23" cy="-27" r="8" fill="#fff"/>
+    <g stroke="#fff" stroke-width="3">
+      <line x1="14" y1="-16" x2="32" y2="-2"/>
+      <line x1="32" y1="-16" x2="14" y2="-2"/>
+    </g>
+  </g>
+  <g fill="#ffffff" opacity="0.6">
+    <ellipse cx="60" cy="420" rx="4" ry="1.5"/>
+    <ellipse cx="330" cy="460" rx="4" ry="1.5"/>
+  </g>
+  <text x="200" y="500" text-anchor="middle" font-family="Georgia, serif" font-weight="700"
+    font-size="38" fill="#ffffff" letter-spacing="1">ONE PIECE</text>
+  <text x="200" y="528" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#eaf6ff">
+    ー ワンピース ー</text>
+</svg>

@@ -1,0 +1,415 @@
+/* =========================================================
+   FANDOMVERSE — PREMIUM VISUAL ENHANCEMENT LAYER
+   Sitewide HD image treatment, premium card framing,
+   About page polish, and form validation states.
+   ========================================================= */
+
+/* ---------- 1. HD / crisper image rendering, everywhere ---------- */
+.anime-card__poster,
+.trending-card__img,
+.category-card__media img,
+.category-card__media,
+.fv-characters-card__img,
+.fv-characters-featured__img,
+.fv-merch-card__img,
+.fv-articles-card__img,
+.about-hero-img,
+.fv-hero3d__tile {
+  filter: contrast(1.07) saturate(1.14) brightness(1.015);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.trending-card__img,
+.anime-card__poster,
+.fv-characters-card__img,
+.fv-merch-card__img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.5s ease;
+}
+
+.anime-card:hover .anime-card__poster,
+.trending-card:hover .trending-card__img,
+.fv-merch-card:hover .fv-merch-card__img {
+  transform: scale(1.06);
+  filter: contrast(1.1) saturate(1.2) brightness(1.03);
+}
+
+/* ---------- 2. Premium card frame: soft gradient ring + glow ---------- */
+.anime-card,
+.trending-card {
+  position: relative;
+}
+
+.anime-card::before,
+.trending-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.16),
+    rgba(176,107,255,0.05) 35%,
+    rgba(255,255,255,0.02) 60%,
+    rgba(255,209,102,0.10));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity 0.35s ease;
+}
+
+.anime-card:hover::before,
+.trending-card:hover::before {
+  opacity: 1;
+}
+
+/* subtle premium shimmer sweep on hover */
+.anime-card__poster::after,
+.trending-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg,
+    transparent 40%,
+    rgba(255,255,255,0.14) 48%,
+    transparent 56%);
+  background-size: 220% 220%;
+  background-position: 120% 0%;
+  opacity: 0;
+  transition: opacity 0.25s ease, background-position 0.7s ease;
+  pointer-events: none;
+}
+
+.anime-card:hover .anime-card__poster::after,
+.trending-card:hover .trending-card__media::after {
+  opacity: 1;
+  background-position: -20% 100%;
+}
+
+/* ---------- 2b. Shop-by-category: premium glass icon badge ---------- */
+#shop-categories .anime-card__poster { position: relative; }
+#shop-categories .cat-icon {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 18, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+  color: #ffd23b;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, color 0.4s ease;
+}
+#shop-categories .anime-card:hover .cat-icon {
+  transform: translateY(-3px) scale(1.1) rotateZ(-6deg);
+  background: linear-gradient(135deg, #b06bff, #7a3ff0);
+  color: #fff;
+}
+#shop-categories .anime-card__poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(10,10,18,0) 45%, rgba(8,8,14,0.85) 100%);
+  pointer-events: none;
+}
+
+/* ---------- 2c. Profile modal: premium 3D pop-in + glow frame ---------- */
+.fv-characters-modal { perspective: 1400px; }
+
+.fv-characters-modal__backdrop {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.fv-characters-modal.is-open .fv-characters-modal__backdrop { opacity: 1; }
+
+.fv-characters-modal__panel {
+  opacity: 0;
+  transform: translateY(28px) rotateX(8deg) scale(0.94);
+  transform-origin: center bottom;
+  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.fv-characters-modal.is-open .fv-characters-modal__panel {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+}
+
+.fv-characters-modal__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+    var(--fvc-accent, #b06bff) 0%,
+    rgba(255,255,255,0.08) 35%,
+    rgba(255,255,255,0.03) 65%,
+    var(--fvc-accent, #b06bff) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.fv-characters-modal__panel {
+  box-shadow:
+    0 30px 90px -20px rgba(0,0,0,0.85),
+    0 0 60px -10px var(--fvc-glow, rgba(176,107,255,0.35));
+}
+
+.fv-characters-modal__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 0%, var(--fvc-glow, rgba(176,107,255,0.25)), transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.fv-characters-modal__close {
+  transform: rotate(0deg);
+}
+.fv-characters-modal.is-open .fv-characters-modal__close {
+  animation: fvModalCloseSpin 0.6s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+@keyframes fvModalCloseSpin {
+  from { opacity: 0; transform: rotate(-90deg) scale(0.6); }
+  to   { opacity: 1; transform: rotate(0deg) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fv-characters-modal__panel,
+  .fv-characters-modal__backdrop,
+  .fv-characters-modal__close { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+/* ---------- 3. Premium quality badge (auto, used sparingly) ---------- */
+.fv-premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0e0e16;
+  background: linear-gradient(120deg, #ffd23b, #ffb23b);
+  padding: 4px 9px 4px 7px;
+  border-radius: 100px;
+  box-shadow: 0 4px 14px -4px rgba(255, 178, 59, 0.55);
+}
+
+/* =========================================================
+   4. ABOUT PAGE — PROFESSIONAL / PREMIUM REDESIGN
+   ========================================================= */
+
+.about-page {
+  position: relative;
+}
+
+.about-page .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffd23b;
+}
+
+.about-page .eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd23b;
+  box-shadow: 0 0 0 4px rgba(255, 210, 59, 0.18);
+}
+
+.about-page h1 {
+  background: linear-gradient(120deg, #ffffff 30%, #d8c7ff 60%, #ffd23b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-stats {
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 26px 22px;
+  backdrop-filter: blur(10px);
+}
+
+.about-stat {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.about-stat:hover {
+  transform: translateY(-3px);
+}
+
+.about-stat strong {
+  background: linear-gradient(120deg, #b06bff, #ffd23b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.about-grid {
+  display: grid;
+}
+
+.about-card {
+  position: relative;
+  border-radius: 16px;
+  background: linear-gradient(165deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 26px 24px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(176,107,255,0.22), transparent 70%);
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.35s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(176,107,255,0.4);
+  box-shadow: 0 24px 46px -22px rgba(0,0,0,0.6);
+}
+
+.about-card:hover::before { opacity: 1; }
+
+.about-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display, inherit);
+  letter-spacing: -0.01em;
+}
+
+.about-card h3::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #b06bff, #ffd23b);
+  flex-shrink: 0;
+  transform: rotate(45deg);
+}
+
+/* Trust strip — added under the About cards */
+.about-trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.about-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.about-trust__item:hover {
+  border-color: rgba(255,210,59,0.35);
+  transform: translateY(-2px);
+}
+
+.about-trust__icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, rgba(176,107,255,0.25), rgba(255,210,59,0.18));
+}
+
+.about-trust__item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-primary, #fff);
+  margin-bottom: 2px;
+}
+
+.about-trust__item span {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* =========================================================
+   5. CONTACT FORM — VALIDATION STATES
+   ========================================================= */
+
+.contact-form .field-error {
+  display: none;
+  font-size: 0.72rem;
+  color: #ff6b7a;
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+.contact-form .field.has-error .field-error {
+  display: block;
+}
+
+.contact-form .field.has-error input,
+.contact-form .field.has-error textarea,
+.contact-form .field.has-error select {
+  border-color: #ff6b7a !important;
+  box-shadow: 0 0 0 3px rgba(255,107,122,0.12);
+}
+
+.contact-form .field.is-valid input,
+.contact-form .field.is-valid textarea,
+.contact-form .field.is-valid select {
+  border-color: rgba(57,255,136,0.55) !important;
+}
+
+.contact-form .btn-submit[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-card, .trending-card, .about-card, .about-stat, .about-trust__item,
+  .anime-card__poster, .trending-card__img {
+    transition: none !important;
+  }
+}
